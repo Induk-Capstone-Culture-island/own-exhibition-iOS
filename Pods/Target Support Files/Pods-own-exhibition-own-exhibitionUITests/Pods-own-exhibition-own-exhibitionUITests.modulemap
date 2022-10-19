@@ -1,0 +1,6 @@
+framework module Pods_own_exhibition_own_exhibitionUITests {
+  umbrella header "Pods-own-exhibition-own-exhibitionUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
