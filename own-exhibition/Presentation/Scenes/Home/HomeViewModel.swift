@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 final class HomeViewModel: ViewModelType {
     
@@ -14,10 +15,26 @@ final class HomeViewModel: ViewModelType {
     }
     
     struct Output {
-        
+        let exhibitions: Driver<[ExhibitionItemViewModel]>
     }
     
     func transform(input: Input) -> Output {
-        return .init()
+        let exhibitions = BehaviorRelay<[ExhibitionItemViewModel]>.init(
+            value: [
+                .init(exhibition: .init(
+                    title: "A",
+                    startDate: .init(),
+                    endDate: .init(),
+                    location: .init(lat: 1, lon: 1),
+                    place: "A",
+                    thumbnailUrl: "A",
+                    businessHours: "A",
+                    description: "A")
+                )
+            ]
+        )
+            .asDriver()
+        
+        return .init(exhibitions: exhibitions)
     }
 }
