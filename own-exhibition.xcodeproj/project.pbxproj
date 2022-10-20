@@ -13,6 +13,7 @@
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
 		E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AD290152A200D75FA3 /* ViewModelType.swift */; };
 		E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AF290159DA00D75FA3 /* Instantiatable.swift */; };
+		E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2B4290187F700D75FA3 /* MainTabBarController.swift */; };
 		E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1ADD828EBDD1600A360FA /* AppDelegate.swift */; };
 		E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1ADDA28EBDD1600A360FA /* SceneDelegate.swift */; };
 		E8A1ADDD28EBDD1600A360FA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1ADDC28EBDD1600A360FA /* HomeViewController.swift */; };
@@ -53,6 +54,7 @@
 		E805F2AB2901528000D75FA3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E805F2AD290152A200D75FA3 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		E805F2AF290159DA00D75FA3 /* Instantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiatable.swift; sourceTree = "<group>"; };
+		E805F2B4290187F700D75FA3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E8A1ADD528EBDD1600A360FA /* own-exhibition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "own-exhibition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A1ADD828EBDD1600A360FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A1ADDA28EBDD1600A360FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,23 @@
 				E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E805F2B3290187D100D75FA3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E805F2AD290152A200D75FA3 /* ViewModelType.swift */,
+				E805F2AF290159DA00D75FA3 /* Instantiatable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E805F2B8290187FB00D75FA3 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E805F2B4290187F700D75FA3 /* MainTabBarController.swift */,
+			);
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 		E8A1ADCC28EBDD1600A360FA = {
@@ -241,8 +260,8 @@
 		E8BABA5A28FE5022009482E4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E805F2AD290152A200D75FA3 /* ViewModelType.swift */,
-				E805F2AF290159DA00D75FA3 /* Instantiatable.swift */,
+				E805F2B8290187FB00D75FA3 /* TabBarController */,
+				E805F2B3290187D100D75FA3 /* Protocols */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -530,6 +549,7 @@
 				E8A1ADDD28EBDD1600A360FA /* HomeViewController.swift in Sources */,
 				E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */,
 				E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */,
+				E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */,
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
 				E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */,
