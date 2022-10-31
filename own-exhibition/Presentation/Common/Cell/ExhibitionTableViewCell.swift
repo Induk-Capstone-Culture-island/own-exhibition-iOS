@@ -11,6 +11,9 @@ final class ExhibitionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var periodLabel: UILabel!
+    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,5 +35,14 @@ final class ExhibitionTableViewCell: UITableViewCell {
             }
         }()
         titleLabel.text = exhibition.title
+        periodLabel.text = {
+            let formatter: DateFormatter = .init()
+            formatter.dateFormat = "yyyy.MM.dd"
+            let startDate = formatter.string(from: exhibition.startDate)
+            let endDate = formatter.string(from: exhibition.endDate)
+            return "기간 : \(startDate)~\(endDate)"
+        }()
+        placeLabel.text = "장소 : \(exhibition.place)"
+        descriptionLabel.text = exhibition.description
     }
 }
