@@ -134,6 +134,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA41F6DD290F845D008ED455 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E805F2BD2901959E00D75FA3 /* GeoCoordinate.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		E805F2B3290187D100D75FA3 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				E805F2B92901944800D75FA3 /* Exhibition.swift */,
+				DA41F6DD290F845D008ED455 /* Utils */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -163,7 +172,6 @@
 		E805F2BC2901952400D75FA3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E805F2BD2901959E00D75FA3 /* GeoCoordinate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
