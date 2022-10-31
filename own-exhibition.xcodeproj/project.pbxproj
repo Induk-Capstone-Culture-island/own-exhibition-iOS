@@ -18,7 +18,6 @@
 		E805F2BE2901959E00D75FA3 /* GeoCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2BD2901959E00D75FA3 /* GeoCoordinate.swift */; };
 		E805F2C22901977300D75FA3 /* ExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2C02901977300D75FA3 /* ExhibitionTableViewCell.swift */; };
 		E805F2C32901977300D75FA3 /* ExhibitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E805F2C12901977300D75FA3 /* ExhibitionTableViewCell.xib */; };
-		E805F2C529019ED000D75FA3 /* ExhibitionItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2C429019ED000D75FA3 /* ExhibitionItemViewModel.swift */; };
 		E805F2C72901AAFC00D75FA3 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2C62901AAFC00D75FA3 /* Reusable.swift */; };
 		E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1ADD828EBDD1600A360FA /* AppDelegate.swift */; };
 		E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1ADDA28EBDD1600A360FA /* SceneDelegate.swift */; };
@@ -65,7 +64,6 @@
 		E805F2BD2901959E00D75FA3 /* GeoCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoordinate.swift; sourceTree = "<group>"; };
 		E805F2C02901977300D75FA3 /* ExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		E805F2C12901977300D75FA3 /* ExhibitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExhibitionTableViewCell.xib; sourceTree = "<group>"; };
-		E805F2C429019ED000D75FA3 /* ExhibitionItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItemViewModel.swift; sourceTree = "<group>"; };
 		E805F2C62901AAFC00D75FA3 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		E8A1ADD528EBDD1600A360FA /* own-exhibition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "own-exhibition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A1ADD828EBDD1600A360FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 			children = (
 				E805F2C02901977300D75FA3 /* ExhibitionTableViewCell.swift */,
 				E805F2C12901977300D75FA3 /* ExhibitionTableViewCell.xib */,
-				E805F2C429019ED000D75FA3 /* ExhibitionItemViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -599,7 +596,6 @@
 			files = (
 				E805F2C72901AAFC00D75FA3 /* Reusable.swift in Sources */,
 				E8A1ADDD28EBDD1600A360FA /* HomeViewController.swift in Sources */,
-				E805F2C529019ED000D75FA3 /* ExhibitionItemViewModel.swift in Sources */,
 				E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */,
 				E805F2C22901977300D75FA3 /* ExhibitionTableViewCell.swift in Sources */,
 				E805F2BE2901959E00D75FA3 /* GeoCoordinate.swift in Sources */,

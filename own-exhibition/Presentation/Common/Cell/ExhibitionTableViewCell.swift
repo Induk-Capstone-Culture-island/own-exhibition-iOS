@@ -20,8 +20,17 @@ final class ExhibitionTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func bind(by item: ExhibitionItemViewModel) {
-        thumbnailImageView.image = item.thumbnail
-        titleLabel.text = item.title
+    func bind(by exhibition: Exhibition) {
+        thumbnailImageView.image = {
+            if let imageUrl = URL.init(string: exhibition.thumbnailUrl),
+               let imageData = try? Data.init(contentsOf: imageUrl),
+               let thumbnail = UIImage.init(data: imageData) {
+                return thumbnail
+            } else {
+                // FIXME: 기본 썸네일 이미지 반환
+                return UIImage.init()
+            }
+        }()
+        titleLabel.text = exhibition.title
     }
 }

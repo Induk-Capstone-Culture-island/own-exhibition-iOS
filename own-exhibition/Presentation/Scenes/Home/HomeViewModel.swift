@@ -15,13 +15,13 @@ final class HomeViewModel: ViewModelType {
     }
     
     struct Output {
-        let exhibitions: Driver<[ExhibitionItemViewModel]>
+        let exhibitions: Driver<[Exhibition]>
     }
     
     func transform(input: Input) -> Output {
-        let exhibitions = BehaviorRelay<[ExhibitionItemViewModel]>.init(
+        let exhibitions = BehaviorRelay<[Exhibition]>.init(
             value: [
-                .init(exhibition: .init(
+                .init(
                     title: "A",
                     startDate: .init(),
                     endDate: .init(),
@@ -29,7 +29,7 @@ final class HomeViewModel: ViewModelType {
                     place: "A",
                     thumbnailUrl: "A",
                     businessHours: "A",
-                    description: "A")
+                    description: "A"
                 )
             ]
         )

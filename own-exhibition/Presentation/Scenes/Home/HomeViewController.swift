@@ -32,8 +32,8 @@ final class HomeViewController: UIViewController {
                     cellIdentifier: ExhibitionTableViewCell.id,
                     cellType: ExhibitionTableViewCell.self
                 )
-            ) { index, itemViewModel, cell in
-                cell.bind(by: itemViewModel)
+            ) { index, exhibition, cell in
+                cell.bind(by: exhibition)
             }
             .disposed(by: disposeBag)
     }
