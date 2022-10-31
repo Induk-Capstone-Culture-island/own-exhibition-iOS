@@ -20,7 +20,16 @@ final class MainTabBarController: UITabBarController {
         )
         homeVC.tabBarItem = homeTabBarItem
         
-        self.viewControllers = [homeVC]
+        let myPageVC = MyPageViewController.instantiate(withStoryboardName: "MyPage")
+        let myPageTabBarItem = UITabBarItem.init(
+            title: "내정보",
+            image: UIImage.init(systemName: "person"),
+            selectedImage: UIImage.init(systemName: "person.fill")
+        )
+        myPageVC.tabBarItem = myPageTabBarItem
+        
+        self.viewControllers = [homeVC, myPageVC]
+        
         
         self.tabBar.backgroundColor = .systemGray6
     }
