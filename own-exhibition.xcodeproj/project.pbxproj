@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		63D942ABEB0838AFC29B0A31 /* Pods_own_exhibitionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */; };
+		68A26165290DB4D10036DF42 /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A26164290DB4D10036DF42 /* Extension_UIView.swift */; };
+		68B54471290D2B8F00A9F71A /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B54470290D2B8F00A9F71A /* MyPage.storyboard */; };
+		68B54473290D2BA000A9F71A /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54472290D2BA000A9F71A /* MyPageViewController.swift */; };
+		68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54474290D2BB500A9F71A /* MyPageViewModel.swift */; };
 		9B4ED1BD7AE3557D41B06928 /* Pods_own_exhibition_own_exhibitionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB026F896B3ABD4A15C0AE7 /* Pods_own_exhibition_own_exhibitionUITests.framework */; };
 		CDF791247FA081D1DD955951 /* Pods_own_exhibition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7475A1327DEDCAB313564A /* Pods_own_exhibition.framework */; };
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
@@ -49,6 +53,10 @@
 
 /* Begin PBXFileReference section */
 		0DB22A055785C1255AEF29FB /* Pods-own-exhibition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.debug.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.debug.xcconfig"; sourceTree = "<group>"; };
+		68A26164290DB4D10036DF42 /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extension_UIView.swift; path = "own-exhibition/Presentation/Common/Extension_UIView.swift"; sourceTree = SOURCE_ROOT; };
+		68B54470290D2B8F00A9F71A /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = SOURCE_ROOT; };
+		68B54472290D2BA000A9F71A /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		68B54474290D2BB500A9F71A /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = SOURCE_ROOT; };
 		6CB026F896B3ABD4A15C0AE7 /* Pods_own_exhibition_own_exhibitionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibition_own_exhibitionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D80086B259071292172662B /* Pods-own-exhibitionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibitionTests.release.xcconfig"; path = "Target Support Files/Pods-own-exhibitionTests/Pods-own-exhibitionTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1C0DEA57AE1F31E20FFB3F8 /* Pods-own-exhibition-own-exhibitionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition-own-exhibitionUITests/Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +128,16 @@
 				7D80086B259071292172662B /* Pods-own-exhibitionTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		68B5446F290D2A8C00A9F71A /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				68B54470290D2B8F00A9F71A /* MyPage.storyboard */,
+				68B54472290D2BA000A9F71A /* MyPageViewController.swift */,
+				68B54474290D2BB500A9F71A /* MyPageViewModel.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		8909A5333C04520C03316C6D /* Frameworks */ = {
@@ -246,13 +264,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		E8BABA5128FE4E26009482E4 /* MyPage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MyPage;
-			sourceTree = "<group>";
-		};
 		E8BABA5228FE4E2E009482E4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +320,7 @@
 				E805F2BF2901972800D75FA3 /* Cell */,
 				E805F2B8290187FB00D75FA3 /* TabBarController */,
 				E805F2B3290187D100D75FA3 /* Protocols */,
+				68A26164290DB4D10036DF42 /* Extension_UIView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -337,7 +349,7 @@
 				E8BABA5428FE4E4B009482E4 /* ExhibitionDetail */,
 				E8BABA5028FE4E22009482E4 /* Home */,
 				E8BABA5228FE4E2E009482E4 /* Login */,
-				E8BABA5128FE4E26009482E4 /* MyPage */,
+				68B5446F290D2A8C00A9F71A /* MyPage */,
 				E8BABA5328FE4E30009482E4 /* SignUp */,
 				E8BABA5528FE4EFF009482E4 /* WishList */,
 			);
@@ -467,6 +479,7 @@
 				E8A1ADE228EBDD1800A360FA /* Assets.xcassets in Resources */,
 				E805F2C32901977300D75FA3 /* ExhibitionTableViewCell.xib in Resources */,
 				E8A1ADE028EBDD1600A360FA /* Home.storyboard in Resources */,
+				68B54471290D2B8F00A9F71A /* MyPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,12 +612,15 @@
 				E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */,
 				E805F2C22901977300D75FA3 /* ExhibitionTableViewCell.swift in Sources */,
 				E805F2BE2901959E00D75FA3 /* GeoCoordinate.swift in Sources */,
+				68B54473290D2BA000A9F71A /* MyPageViewController.swift in Sources */,
 				E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */,
 				E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */,
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
+				68A26165290DB4D10036DF42 /* Extension_UIView.swift in Sources */,
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
 				E805F2BA2901944800D75FA3 /* Exhibition.swift in Sources */,
 				E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */,
+				68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
