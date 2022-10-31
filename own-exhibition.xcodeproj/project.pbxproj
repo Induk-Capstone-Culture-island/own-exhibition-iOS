@@ -54,9 +54,9 @@
 /* Begin PBXFileReference section */
 		0DB22A055785C1255AEF29FB /* Pods-own-exhibition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.debug.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.debug.xcconfig"; sourceTree = "<group>"; };
 		68A26164290DB4D10036DF42 /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extension_UIView.swift; path = "own-exhibition/Presentation/Common/Extension_UIView.swift"; sourceTree = SOURCE_ROOT; };
-		68B54470290D2B8F00A9F71A /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = SOURCE_ROOT; };
-		68B54472290D2BA000A9F71A /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
-		68B54474290D2BB500A9F71A /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = SOURCE_ROOT; };
+		68B54470290D2B8F00A9F71A /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyPage.storyboard; path = "own-exhibition/Presentation/Scenes/MyPage/MyPage.storyboard"; sourceTree = SOURCE_ROOT; };
+		68B54472290D2BA000A9F71A /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = "own-exhibition/Presentation/Scenes/MyPage/MyPageViewController.swift"; sourceTree = SOURCE_ROOT; };
+		68B54474290D2BB500A9F71A /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewModel.swift; path = "own-exhibition/Presentation/Scenes/MyPage/MyPageViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		6CB026F896B3ABD4A15C0AE7 /* Pods_own_exhibition_own_exhibitionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibition_own_exhibitionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D80086B259071292172662B /* Pods-own-exhibitionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibitionTests.release.xcconfig"; path = "Target Support Files/Pods-own-exhibitionTests/Pods-own-exhibitionTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1C0DEA57AE1F31E20FFB3F8 /* Pods-own-exhibition-own-exhibitionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition-own-exhibitionUITests/Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		68B5446F290D2A8C00A9F71A /* MyPage */ = {
+		6893BBAB290FE54B0064226D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
 				68B54470290D2B8F00A9F71A /* MyPage.storyboard */,
@@ -349,7 +349,7 @@
 				E8BABA5428FE4E4B009482E4 /* ExhibitionDetail */,
 				E8BABA5028FE4E22009482E4 /* Home */,
 				E8BABA5228FE4E2E009482E4 /* Login */,
-				68B5446F290D2A8C00A9F71A /* MyPage */,
+				6893BBAB290FE54B0064226D /* MyPage */,
 				E8BABA5328FE4E30009482E4 /* SignUp */,
 				E8BABA5528FE4EFF009482E4 /* WishList */,
 			);
