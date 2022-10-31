@@ -16,4 +16,11 @@ struct GeoCoordinate {
     /// 경도
     let lon: Double
     
+    ///  - Parameters:
+    ///     - lat: 위도
+    ///     - lon: 경도
+    init(lat: Double, lon: Double) {
+        self.lat = lat
+        self.lon = lon
+    }
 }
