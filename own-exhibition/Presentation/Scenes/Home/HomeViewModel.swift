@@ -19,22 +19,26 @@ final class HomeViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
+#if DEBUG
         let exhibitions = BehaviorRelay<[Exhibition]>.init(
             value: [
-                .init(
-                    title: "A",
-                    startDate: .init(),
-                    endDate: .init(),
-                    location: .init(lat: 1, lon: 1),
-                    place: "A",
-                    thumbnailUrl: "A",
-                    businessHours: "A",
-                    description: "A"
-                )
+                .makeMock(),
+                .makeMock(),
+                .makeMock(),
+                .makeMock(),
+                .makeMock(),
+                .makeMock(),
+                .makeMock(),
+                .makeMock(),
+                .makeMock(),
+                .makeMock()
             ]
         )
             .asDriver()
-        
+#elseif RELEASE
+        let exhibitions = BehaviorRelay<[Exhibition]>.init(value: [])
+            .asDriver()
+#endif
         return .init(exhibitions: exhibitions)
     }
 }
