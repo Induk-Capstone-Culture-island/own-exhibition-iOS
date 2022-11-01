@@ -30,8 +30,7 @@ final class ExhibitionTableViewCell: UITableViewCell {
                let thumbnail = UIImage.init(data: imageData) {
                 return thumbnail
             } else {
-                // FIXME: 기본 썸네일 이미지 반환
-                return UIImage.init()
+                return UIImage.init(named: "default_thumbnail")
             }
         }()
         titleLabel.text = exhibition.title
