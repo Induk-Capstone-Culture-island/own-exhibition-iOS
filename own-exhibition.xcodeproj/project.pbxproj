@@ -17,6 +17,8 @@
 		DA170D442910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D432910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift */; };
 		DA170D462910EB2100BFC7B1 /* ExhibitionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA170D452910EB2100BFC7B1 /* ExhibitionDetail.storyboard */; };
 		DA170D482910EB3600BFC7B1 /* ExhibitionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D472910EB3600BFC7B1 /* ExhibitionDetailViewController.swift */; };
+		DA170D4A29111B5300BFC7B1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D4929111B5300BFC7B1 /* HomeCoordinator.swift */; };
+		DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D4B291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift */; };
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
 		E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AD290152A200D75FA3 /* ViewModelType.swift */; };
 		E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AF290159DA00D75FA3 /* Instantiatable.swift */; };
@@ -68,6 +70,8 @@
 		DA170D432910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailViewModel.swift; sourceTree = "<group>"; };
 		DA170D452910EB2100BFC7B1 /* ExhibitionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExhibitionDetail.storyboard; sourceTree = "<group>"; };
 		DA170D472910EB3600BFC7B1 /* ExhibitionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailViewController.swift; sourceTree = "<group>"; };
+		DA170D4929111B5300BFC7B1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		DA170D4B291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailCoordinator.swift; sourceTree = "<group>"; };
 		E5E722FB0506808F9D489C0D /* Pods-own-exhibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.release.xcconfig"; sourceTree = "<group>"; };
 		E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E805F2AB2901528000D75FA3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				E8A1ADDE28EBDD1600A360FA /* Home.storyboard */,
 				E8A1ADDC28EBDD1600A360FA /* HomeViewController.swift */,
 				E805F2AB2901528000D75FA3 /* HomeViewModel.swift */,
+				DA170D4929111B5300BFC7B1 /* HomeCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				DA170D452910EB2100BFC7B1 /* ExhibitionDetail.storyboard */,
 				DA170D472910EB3600BFC7B1 /* ExhibitionDetailViewController.swift */,
 				DA170D432910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift */,
+				DA170D4B291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift */,
 			);
 			path = ExhibitionDetail;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 				E805F2C72901AAFC00D75FA3 /* Reusable.swift in Sources */,
 				DA170D442910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift in Sources */,
 				E8A1ADDD28EBDD1600A360FA /* HomeViewController.swift in Sources */,
+				DA170D4A29111B5300BFC7B1 /* HomeCoordinator.swift in Sources */,
 				E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */,
 				DA170D482910EB3600BFC7B1 /* ExhibitionDetailViewController.swift in Sources */,
 				E805F2C22901977300D75FA3 /* ExhibitionTableViewCell.swift in Sources */,
@@ -630,6 +637,7 @@
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
 				68A26165290DB4D10036DF42 /* Extension_UIView.swift in Sources */,
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
+				DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */,
 				E805F2BA2901944800D75FA3 /* Exhibition.swift in Sources */,
 				E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */,
 				68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */,

@@ -14,7 +14,7 @@ final class HomeViewController: UIViewController {
     
     @IBOutlet weak var exhibitionTableView: UITableView!
     
-    private var viewModel: HomeViewModel = HomeViewModel.init()
+    private var viewModel: HomeViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,5 +42,9 @@ final class HomeViewController: UIViewController {
         let nibName = ExhibitionTableViewCell.id
         let nib = UINib.init(nibName: nibName, bundle: nil)
         exhibitionTableView.register(nib, forCellReuseIdentifier: nibName)
+    }
+    
+    func setViewModel(by viewModel: HomeViewModel) {
+        self.viewModel = viewModel
     }
 }

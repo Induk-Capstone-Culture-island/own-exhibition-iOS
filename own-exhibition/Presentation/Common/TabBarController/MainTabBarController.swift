@@ -12,13 +12,14 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let homeVC = HomeViewController.instantiate(withStoryboardName: "Home")
-        let homeTabBarItem = UITabBarItem.init(
+        let homeNavigationController: UINavigationController = .init()
+        homeNavigationController.tabBarItem = .init(
             title: "홈",
             image: UIImage.init(systemName: "house"),
             selectedImage: UIImage.init(systemName: "house.fill")
         )
-        homeVC.tabBarItem = homeTabBarItem
+        let homeCoordinator: HomeCoordinator = .init(navigationController: homeNavigationController)
+        homeCoordinator.start()
         
         let myPageVC = MyPageViewController.instantiate(withStoryboardName: "MyPage")
         let myPageTabBarItem = UITabBarItem.init(
@@ -28,8 +29,7 @@ final class MainTabBarController: UITabBarController {
         )
         myPageVC.tabBarItem = myPageTabBarItem
         
-        self.viewControllers = [homeVC, myPageVC]
-        
+        self.viewControllers = [homeNavigationController, myPageVC]
         
         self.tabBar.backgroundColor = .systemGray6
     }
