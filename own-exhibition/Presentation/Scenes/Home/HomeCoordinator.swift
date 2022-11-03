@@ -18,13 +18,13 @@ final class HomeCoordinator {
     
     func start() {
         let homeVC: HomeViewController = .instantiate(withStoryboardName: storyboardName)
-        let homeVM: HomeViewModel = .init()
+        let homeVM: HomeViewModel = .init(coordinator: self, exhibitionRepository: .init())
         homeVC.setViewModel(by: homeVM)
         navigationController.pushViewController(homeVC, animated: false)
     }
     
-    func toDetail() {
+    func toDetail(with exhibition: Exhibition) {
         let exhibitionDetailCoordinator: ExhibitionDetailCoordinator = .init(navigationController: navigationController)
-        exhibitionDetailCoordinator.start()
+        exhibitionDetailCoordinator.start(with: exhibition)
     }
 }

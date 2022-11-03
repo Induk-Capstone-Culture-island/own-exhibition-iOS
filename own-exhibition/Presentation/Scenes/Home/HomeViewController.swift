@@ -23,7 +23,13 @@ final class HomeViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        let input = HomeViewModel.Input.init()
+        let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
+            .map { _ in }
+        
+        let input = HomeViewModel.Input.init(
+            viewWillAppear: viewWillAppear.asSignal(onErrorSignalWith: .empty()),
+            selection: exhibitionTableView.rx.itemSelected.asDriver()
+        )
         let output = viewModel.transform(input: input)
         
         output.exhibitions
@@ -35,6 +41,10 @@ final class HomeViewController: UIViewController {
             ) { index, exhibition, cell in
                 cell.bind(by: exhibition)
             }
+            .disposed(by: disposeBag)
+        
+        output.selectedExhibition
+            .drive()
             .disposed(by: disposeBag)
     }
     

@@ -16,10 +16,10 @@ final class ExhibitionDetailCoordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func start(with exhibition: Exhibition) {
         let exhibitionDetailVC: ExhibitionDetailViewController = .instantiate(withStoryboardName: storyboardName)
-        let exhibitionDetailVM: ExhibitionDetailViewModel = .init()
+        let exhibitionDetailVM: ExhibitionDetailViewModel = .init(exhibition: exhibition)
         exhibitionDetailVC.setViewModel(by: exhibitionDetailVM)
-        navigationController.pushViewController(exhibitionDetailVC, animated: false)
+        navigationController.pushViewController(exhibitionDetailVC, animated: true)
     }
 }

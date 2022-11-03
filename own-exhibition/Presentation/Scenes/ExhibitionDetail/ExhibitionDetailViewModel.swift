@@ -17,6 +17,12 @@ final class ExhibitionDetailViewModel: ViewModelType {
         
     }
     
+    private let exhibition: Exhibition
+    
+    init(exhibition: Exhibition) {
+        self.exhibition = exhibition
+    }
+    
     func transform(input: Input) -> Output {
         return .init()
     }
