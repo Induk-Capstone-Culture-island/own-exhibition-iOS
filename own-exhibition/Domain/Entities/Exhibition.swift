@@ -26,15 +26,15 @@ extension Exhibition {
         return .init(
             title: "김꽃님 개인전 - 닿을 수 없는 숨",
             startDate: {
-                let startDate: String = "2022.10.04."
+                let startDate: String = "2022.10.04"
                 let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy.MM.dd."
+                formatter.dateFormat = "yyyy.MM.dd"
                 return formatter.date(from: startDate)!
             }(),
             endDate: {
-                let startDate: String = "2022.10.16."
+                let startDate: String = "2022.10.16"
                 let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy.MM.dd."
+                formatter.dateFormat = "yyyy.MM.dd"
                 return formatter.date(from: startDate)!
             }(),
             location: .init(lat: 37.541, lon: 126.986),
