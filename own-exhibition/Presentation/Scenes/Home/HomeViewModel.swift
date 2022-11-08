@@ -11,34 +11,38 @@ import RxCocoa
 final class HomeViewModel: ViewModelType {
     
     struct Input {
-        
+        let viewWillAppear: Signal<Void>
+        let selection: Driver<IndexPath>
     }
     
     struct Output {
         let exhibitions: Driver<[Exhibition]>
+        let selectedExhibition: Driver<Exhibition>
+    }
+    
+    private let coordinator: HomeCoordinator
+    private let exhibitionRepository: ExhibitionRepository
+    
+    init(coordinator: HomeCoordinator, exhibitionRepository: ExhibitionRepository) {
+        self.coordinator = coordinator
+        self.exhibitionRepository = exhibitionRepository
     }
     
     func transform(input: Input) -> Output {
-#if DEBUG
-        let exhibitions = BehaviorRelay<[Exhibition]>.init(
-            value: [
-                .makeMock(),
-                .makeMock(),
-                .makeMock(),
-                .makeMock(),
-                .makeMock(),
-                .makeMock(),
-                .makeMock(),
-                .makeMock(),
-                .makeMock(),
-                .makeMock()
-            ]
+        let exhibitions = input.viewWillAppear
+            .flatMapLatest { _ in
+                return self.exhibitionRepository.getExhibitions()
+                    .asDriver(onErrorJustReturn: [])
+            }
+        let selectedExhibition = input.selection
+            .withLatestFrom(exhibitions) { indexPath, exhibitions -> Exhibition in
+                return exhibitions[indexPath.row]
+            }
+            .do(onNext: coordinator.toDetail)
+        
+        return .init(
+            exhibitions: exhibitions,
+            selectedExhibition: selectedExhibition
         )
-            .asDriver()
-#elseif RELEASE
-        let exhibitions = BehaviorRelay<[Exhibition]>.init(value: [])
-            .asDriver()
-#endif
-        return .init(exhibitions: exhibitions)
     }
 }

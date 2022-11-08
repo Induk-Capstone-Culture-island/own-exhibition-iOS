@@ -14,7 +14,7 @@ final class HomeViewController: UIViewController {
     
     @IBOutlet weak var exhibitionTableView: UITableView!
     
-    private var viewModel: HomeViewModel = HomeViewModel.init()
+    private var viewModel: HomeViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,13 @@ final class HomeViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        let input = HomeViewModel.Input.init()
+        let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
+            .map { _ in }
+        
+        let input = HomeViewModel.Input.init(
+            viewWillAppear: viewWillAppear.asSignal(onErrorSignalWith: .empty()),
+            selection: exhibitionTableView.rx.itemSelected.asDriver()
+        )
         let output = viewModel.transform(input: input)
         
         output.exhibitions
@@ -36,11 +42,19 @@ final class HomeViewController: UIViewController {
                 cell.bind(by: exhibition)
             }
             .disposed(by: disposeBag)
+        
+        output.selectedExhibition
+            .drive()
+            .disposed(by: disposeBag)
     }
     
     private func registerCell() {
         let nibName = ExhibitionTableViewCell.id
         let nib = UINib.init(nibName: nibName, bundle: nil)
         exhibitionTableView.register(nib, forCellReuseIdentifier: nibName)
+    }
+    
+    func setViewModel(by viewModel: HomeViewModel) {
+        self.viewModel = viewModel
     }
 }
