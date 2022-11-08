@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		63D942ABEB0838AFC29B0A31 /* Pods_own_exhibitionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */; };
-		68A26165290DB4D10036DF42 /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A26164290DB4D10036DF42 /* Extension_UIView.swift */; };
+		68A26165290DB4D10036DF42 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A26164290DB4D10036DF42 /* UIView+.swift */; };
 		68B54471290D2B8F00A9F71A /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B54470290D2B8F00A9F71A /* MyPage.storyboard */; };
 		68B54473290D2BA000A9F71A /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54472290D2BA000A9F71A /* MyPageViewController.swift */; };
 		68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54474290D2BB500A9F71A /* MyPageViewModel.swift */; };
@@ -20,6 +20,7 @@
 		DA170D4A29111B5300BFC7B1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D4929111B5300BFC7B1 /* HomeCoordinator.swift */; };
 		DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D4B291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift */; };
 		DA41F6DF29100FFB008ED455 /* ExhibitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41F6DE29100FFB008ED455 /* ExhibitionRepository.swift */; };
+		DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFB255291A90B7007A8DF0 /* CALayer+.swift */; };
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
 		E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AD290152A200D75FA3 /* ViewModelType.swift */; };
 		E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AF290159DA00D75FA3 /* Instantiatable.swift */; };
@@ -59,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		0DB22A055785C1255AEF29FB /* Pods-own-exhibition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.debug.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.debug.xcconfig"; sourceTree = "<group>"; };
-		68A26164290DB4D10036DF42 /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extension_UIView.swift; path = "own-exhibition/Presentation/Common/Extension_UIView.swift"; sourceTree = SOURCE_ROOT; };
+		68A26164290DB4D10036DF42 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+.swift"; path = "own-exhibition/Utils/Extensions/UIView+.swift"; sourceTree = SOURCE_ROOT; };
 		68B54470290D2B8F00A9F71A /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyPage.storyboard; path = "own-exhibition/Presentation/Scenes/MyPage/MyPage.storyboard"; sourceTree = SOURCE_ROOT; };
 		68B54472290D2BA000A9F71A /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = "own-exhibition/Presentation/Scenes/MyPage/MyPageViewController.swift"; sourceTree = SOURCE_ROOT; };
 		68B54474290D2BB500A9F71A /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewModel.swift; path = "own-exhibition/Presentation/Scenes/MyPage/MyPageViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -74,6 +75,7 @@
 		DA170D4929111B5300BFC7B1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		DA170D4B291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailCoordinator.swift; sourceTree = "<group>"; };
 		DA41F6DE29100FFB008ED455 /* ExhibitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionRepository.swift; sourceTree = "<group>"; };
+		DAAFB255291A90B7007A8DF0 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		E5E722FB0506808F9D489C0D /* Pods-own-exhibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.release.xcconfig"; sourceTree = "<group>"; };
 		E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E805F2AB2901528000D75FA3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -170,6 +172,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		DAAFB254291A90A0007A8DF0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68A26164290DB4D10036DF42 /* UIView+.swift */,
+				DAAFB255291A90B7007A8DF0 /* CALayer+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E805F2B3290187D100D75FA3 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +211,7 @@
 		E805F2BC2901952400D75FA3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DAAFB254291A90A0007A8DF0 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -338,7 +350,6 @@
 				E805F2BF2901972800D75FA3 /* Cell */,
 				E805F2B8290187FB00D75FA3 /* TabBarController */,
 				E805F2B3290187D100D75FA3 /* Protocols */,
-				68A26164290DB4D10036DF42 /* Extension_UIView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -638,7 +649,8 @@
 				E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */,
 				E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */,
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
-				68A26165290DB4D10036DF42 /* Extension_UIView.swift in Sources */,
+				68A26165290DB4D10036DF42 /* UIView+.swift in Sources */,
+				DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */,
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
 				DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */,
 				E805F2BA2901944800D75FA3 /* Exhibition.swift in Sources */,
