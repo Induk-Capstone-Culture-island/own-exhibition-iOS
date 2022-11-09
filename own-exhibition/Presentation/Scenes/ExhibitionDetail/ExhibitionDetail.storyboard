@@ -121,6 +121,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="ZOs-SA-XC6" secondAttribute="top" id="suG-ZI-kR4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Xyh-DN-TGb" id="2ok-uX-zVI"/>
+                        <outlet property="originalImageView" destination="Dke-qy-KT3" id="g9b-kL-Mly"/>
+                        <outlet property="periodLabel" destination="6cz-Yf-wmf" id="ice-cF-OHf"/>
+                        <outlet property="placeLabel" destination="0im-dE-X6m" id="eQS-nj-J20"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
