@@ -11,21 +11,21 @@ final class ExhibitionRepository {
     
     func getExhibitions() -> Observable<[Exhibition]> {
         return .of([
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock(),
-            .makeMock()
+            .makeMock1(),
+            .makeMock2(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1(),
+            .makeMock1()
         ])
     }
 }

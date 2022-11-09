@@ -6,15 +6,16 @@
 //
 
 import RxSwift
+import RxCocoa
 
 final class ExhibitionDetailViewModel: ViewModelType {
     
     struct Input {
-        
+        let viewWillAppear: Signal<Void>
     }
     
     struct Output {
-        
+        let exhibition: Driver<Exhibition>
     }
     
     private let exhibition: Exhibition
@@ -24,6 +25,11 @@ final class ExhibitionDetailViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        return .init()
+        let exhibition = input.viewWillAppear
+            .flatMapLatest { _ in
+                return Driver<Exhibition>.of(self.exhibition)
+            }
+        
+        return .init(exhibition: exhibition)
     }
 }

@@ -1,45 +1,14 @@
 //
-//  Extension_UIView.swift
+//  CALayer+.swift
 //  own-exhibition
 //
-//  Created by 소프트웨어컴퓨터 on 2022/10/30.
+//  Created by Jaewon Yun on 2022/11/08.
 //
 
 import UIKit
 
-extension UIView {
-    
-    @IBInspectable var borderWidth: CGFloat {
-        set {
-            layer.borderWidth = newValue
-        }
-        get {
-            return layer.borderWidth
-        }
-    }
-    
-    @IBInspectable var cornerRadius: CGFloat {
-        set {
-            layer.cornerRadius = newValue
-        }
-        get {
-            return layer.cornerRadius
-        }
-    }
-    
-    @IBInspectable var borderColor: UIColor? {
-        set {
-            guard let uiColor = newValue else { return }
-            layer.borderColor = uiColor.cgColor
-        }
-        get {
-            guard let color = layer.borderColor else { return nil }
-            return UIColor(cgColor: color)
-        }
-    }
-    
-}
 extension CALayer {
+    
     func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in arr_edge {
             let border = CALayer()
@@ -64,4 +33,3 @@ extension CALayer {
         }
     }
 }
-

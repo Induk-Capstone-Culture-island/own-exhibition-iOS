@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,18 +17,129 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOs-SA-XC6">
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-bj-ejf">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="833.33333333333337"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FdJ-KJ-vst">
+                                                <rect key="frame" x="8" y="8" width="374" height="817.33333333333337"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Dke-qy-KT3">
+                                                        <rect key="frame" x="16" y="8" width="342" height="342"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Dke-qy-KT3" secondAttribute="height" multiplier="1:1" id="FXS-3J-KKL"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tOv-kz-Tez">
+                                                        <rect key="frame" x="16" y="360" width="342" height="182.66666666666663"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공연기간 : 2022.10.04~2022.10.16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cz-Yf-wmf">
+                                                                <rect key="frame" x="0.0" y="0.0" width="342" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소 : 예술공간 의식주 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0im-dE-X6m">
+                                                                <rect key="frame" x="0.0" y="30.333333333333314" width="342" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyh-DN-TGb">
+                                                                <rect key="frame" x="0.0" y="60.666666666666686" width="342" height="122"/>
+                                                                <string key="text">소개글 : 어떤 숨은 시가 되고 어떤 숨은 일기가 되고 또 어떤 숨은 소설이 된다. 이 호흡은 차분하지만 쓸쓸한, 포근하지만 날카로운 어휘로 장면들 사이의 공간을 살며시 감싸고 있다. 김꽃님이 그려내는 장면은 최대한 간결하고 단순하게 하나의 낱말을 툭하고 내뱉는다.</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnQ-Rr-dGE">
+                                                        <rect key="frame" x="16" y="552.66666666666663" width="342" height="256.66666666666663"/>
+                                                        <subviews>
+                                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbT-Bh-bCi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="342" height="256.66666666666669"/>
+                                                                <standardMapConfiguration key="preferredConfiguration"/>
+                                                            </mapView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                        <constraints>
+                                                            <constraint firstItem="qbT-Bh-bCi" firstAttribute="top" secondItem="XnQ-Rr-dGE" secondAttribute="top" id="QGB-UX-SUb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="qbT-Bh-bCi" secondAttribute="bottom" id="cvi-bh-Jh2"/>
+                                                            <constraint firstAttribute="width" secondItem="XnQ-Rr-dGE" secondAttribute="height" multiplier="4:3" id="fy9-Ia-gTS"/>
+                                                            <constraint firstAttribute="trailing" secondItem="qbT-Bh-bCi" secondAttribute="trailing" id="g19-Te-Tyh"/>
+                                                            <constraint firstItem="qbT-Bh-bCi" firstAttribute="leading" secondItem="XnQ-Rr-dGE" secondAttribute="leading" id="jIa-0F-B1P"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="FdJ-KJ-vst" firstAttribute="top" secondItem="tBz-bj-ejf" secondAttribute="topMargin" id="PFU-zA-Xki"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="FdJ-KJ-vst" secondAttribute="bottom" id="a54-a4-Erc"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="FdJ-KJ-vst" secondAttribute="trailing" id="aug-oL-eTG"/>
+                                            <constraint firstItem="FdJ-KJ-vst" firstAttribute="leading" secondItem="tBz-bj-ejf" secondAttribute="leadingMargin" id="wqa-gt-Yfd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tBz-bj-ejf" firstAttribute="leading" secondItem="VUa-CQ-v0X" secondAttribute="leading" id="9sf-ix-8bL"/>
+                                    <constraint firstItem="tBz-bj-ejf" firstAttribute="trailing" secondItem="XCM-2D-uxn" secondAttribute="trailing" id="NK0-Xf-L9Y"/>
+                                    <constraint firstItem="VUa-CQ-v0X" firstAttribute="top" secondItem="tBz-bj-ejf" secondAttribute="top" id="SXm-oF-Qkz"/>
+                                    <constraint firstItem="tBz-bj-ejf" firstAttribute="bottom" secondItem="VUa-CQ-v0X" secondAttribute="bottom" id="fLV-y1-grH"/>
+                                    <constraint firstItem="tBz-bj-ejf" firstAttribute="trailing" secondItem="VUa-CQ-v0X" secondAttribute="trailing" id="ivr-wN-soE"/>
+                                    <constraint firstItem="XCM-2D-uxn" firstAttribute="leading" secondItem="tBz-bj-ejf" secondAttribute="leading" id="pMg-mC-AqN"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="VUa-CQ-v0X"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="XCM-2D-uxn"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZOs-SA-XC6" secondAttribute="bottom" id="7n3-mA-QU8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZOs-SA-XC6" secondAttribute="trailing" id="EP3-cy-64Q"/>
+                            <constraint firstItem="ZOs-SA-XC6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hId-az-hWq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="ZOs-SA-XC6" secondAttribute="top" id="suG-ZI-kR4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Xyh-DN-TGb" id="2ok-uX-zVI"/>
+                        <outlet property="originalImageView" destination="Dke-qy-KT3" id="g9b-kL-Mly"/>
+                        <outlet property="periodLabel" destination="6cz-Yf-wmf" id="ice-cF-OHf"/>
+                        <outlet property="placeLabel" destination="0im-dE-X6m" id="eQS-nj-J20"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="4"/>
+            <point key="canvasLocation" x="135.38461538461539" y="3.5545023696682461"/>
         </scene>
     </scenes>
     <resources>
+        <image name="default_thumbnail" width="1056.3333740234375" height="1056.3333740234375"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
