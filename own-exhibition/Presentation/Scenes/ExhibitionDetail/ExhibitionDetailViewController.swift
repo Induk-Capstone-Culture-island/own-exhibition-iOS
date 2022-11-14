@@ -49,7 +49,7 @@ final class ExhibitionDetailViewController: UIViewController {
                         vc.originalImageView.image = image
                     case .failure(let error):
                         _ = error
-                        vc.originalImageView.image = UIImage.init(named: "default_thumbnail")
+                        vc.originalImageView.image = .defaultThumbnail
                     }
                 }
             }

@@ -41,7 +41,7 @@ final class ExhibitionTableViewCell: UITableViewCell {
     }
     
     func initializeCell() {
-        thumbnailImageView.image = UIImage.init(named: "default_thumbnail")
+        thumbnailImageView.image = .defaultThumbnail
         titleLabel.text = ""
         periodLabel.text = ""
         placeLabel.text = ""
@@ -52,7 +52,7 @@ final class ExhibitionTableViewCell: UITableViewCell {
         if let thumbnailImage = thumbnailImage {
             thumbnailImageView.image = thumbnailImage
         } else {
-            thumbnailImageView.image = UIImage.init(named: "default_thumbnail")
+            thumbnailImageView.image = .defaultThumbnail
         }
     }
     
