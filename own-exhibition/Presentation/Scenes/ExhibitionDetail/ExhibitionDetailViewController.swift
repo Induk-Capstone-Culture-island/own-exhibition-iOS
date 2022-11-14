@@ -42,15 +42,17 @@ final class ExhibitionDetailViewController: UIViewController {
     
     private var exhibitionBinding: Binder<Exhibition> {
         return .init(self, binding: { vc, exhibition in
-            vc.originalImageView.image = {
-                if let imageUrl = URL.init(string: exhibition.thumbnailUrl),
-                   let imageData = try? Data.init(contentsOf: imageUrl),
-                   let thumbnail = UIImage.init(data: imageData) {
-                    return thumbnail
-                } else {
-                    return UIImage.init(named: "default_thumbnail")
+            ImageLoader.patch(exhibition.thumbnailUrl) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let image):
+                        vc.originalImageView.image = image
+                    case .failure(let error):
+                        _ = error
+                        vc.originalImageView.image = UIImage.init(named: "default_thumbnail")
+                    }
                 }
-            }()
+            }
             vc.periodLabel.text = {
                 let formatter: DateFormatter = .init()
                 formatter.dateFormat = "yyyy.MM.dd"
