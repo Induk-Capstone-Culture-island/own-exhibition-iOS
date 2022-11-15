@@ -6,8 +6,9 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class MyPageViewModel: ViewModelType {
+final class MyPageViewModel: ViewModelType {
     
     struct Input {
         
@@ -15,6 +16,12 @@ class MyPageViewModel: ViewModelType {
     
     struct Output {
         
+    }
+    
+    private let myPageCoordinator: MyPageCoordinator
+    
+    init(myPageCoordinator: MyPageCoordinator) {
+        self.myPageCoordinator = myPageCoordinator
     }
     
     func transform(input: Input) -> Output {

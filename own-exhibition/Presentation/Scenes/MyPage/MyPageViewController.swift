@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import RxSwift
 
-class MyPageViewController: UIViewController {
+final class MyPageViewController: UIViewController {
    
+    private var disposeBag: DisposeBag = .init()
+    
+    private var viewModel: MyPageViewModel!
+    
     //마이페이지 View
     @IBOutlet weak var EmailView: UIView!
     @IBOutlet weak var NameView: UIView!
@@ -22,6 +27,7 @@ class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
         
         //마이페이지 View 사이 줄
         EmailView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
@@ -33,5 +39,14 @@ class MyPageViewController: UIViewController {
         WithdrawalButton.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
     }
     
+    func bindViewModel() {
+        let input = MyPageViewModel.Input.init()
+        let output = viewModel.transform(input: input)
+
+        _ = output
+    }
     
+    func setViewModel(by viewModel: MyPageViewModel) {
+        self.viewModel = viewModel
+    }
 }
