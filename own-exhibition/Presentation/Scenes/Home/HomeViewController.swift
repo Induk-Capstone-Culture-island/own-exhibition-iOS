@@ -39,7 +39,14 @@ final class HomeViewController: UIViewController {
                     cellType: ExhibitionTableViewCell.self
                 )
             ) { index, exhibition, cell in
-                cell.bind(by: exhibition)
+                let indexPath: IndexPath = .init(row: index, section: 0)
+                cell.initializeCell()
+                cell.bind(exhibition, withFetchedImage: { [indexPath] thumbnailImage in
+                    DispatchQueue.main.async {
+                        let currentCell = self.exhibitionTableView.cellForRow(at: indexPath) as? ExhibitionTableViewCell
+                        currentCell?.setThumbnailImage(thumbnailImage)
+                    }
+                })
             }
             .disposed(by: disposeBag)
         

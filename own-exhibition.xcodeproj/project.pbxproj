@@ -14,12 +14,14 @@
 		68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54474290D2BB500A9F71A /* MyPageViewModel.swift */; };
 		9B4ED1BD7AE3557D41B06928 /* Pods_own_exhibition_own_exhibitionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB026F896B3ABD4A15C0AE7 /* Pods_own_exhibition_own_exhibitionUITests.framework */; };
 		CDF791247FA081D1DD955951 /* Pods_own_exhibition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7475A1327DEDCAB313564A /* Pods_own_exhibition.framework */; };
+		DA0A881F291D424500E9AE43 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0A881E291D424500E9AE43 /* ImageLoader.swift */; };
 		DA170D442910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D432910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift */; };
 		DA170D462910EB2100BFC7B1 /* ExhibitionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA170D452910EB2100BFC7B1 /* ExhibitionDetail.storyboard */; };
 		DA170D482910EB3600BFC7B1 /* ExhibitionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D472910EB3600BFC7B1 /* ExhibitionDetailViewController.swift */; };
 		DA170D4A29111B5300BFC7B1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D4929111B5300BFC7B1 /* HomeCoordinator.swift */; };
 		DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA170D4B291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift */; };
 		DA41F6DF29100FFB008ED455 /* ExhibitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41F6DE29100FFB008ED455 /* ExhibitionRepository.swift */; };
+		DA42DD7B29226AB700094733 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42DD7A29226AB700094733 /* UIImage+.swift */; };
 		DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFB255291A90B7007A8DF0 /* CALayer+.swift */; };
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
 		E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AD290152A200D75FA3 /* ViewModelType.swift */; };
@@ -69,12 +71,14 @@
 		B1C0DEA57AE1F31E20FFB3F8 /* Pods-own-exhibition-own-exhibitionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition-own-exhibitionUITests/Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B34BA56686DEFE9E50EACE4C /* Pods-own-exhibition-own-exhibitionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition-own-exhibitionUITests.debug.xcconfig"; path = "Target Support Files/Pods-own-exhibition-own-exhibitionUITests/Pods-own-exhibition-own-exhibitionUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6E8EBDF715CB340B3AEBDF3 /* Pods-own-exhibitionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibitionTests.debug.xcconfig"; path = "Target Support Files/Pods-own-exhibitionTests/Pods-own-exhibitionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA0A881E291D424500E9AE43 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		DA170D432910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailViewModel.swift; sourceTree = "<group>"; };
 		DA170D452910EB2100BFC7B1 /* ExhibitionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExhibitionDetail.storyboard; sourceTree = "<group>"; };
 		DA170D472910EB3600BFC7B1 /* ExhibitionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailViewController.swift; sourceTree = "<group>"; };
 		DA170D4929111B5300BFC7B1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		DA170D4B291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailCoordinator.swift; sourceTree = "<group>"; };
 		DA41F6DE29100FFB008ED455 /* ExhibitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionRepository.swift; sourceTree = "<group>"; };
+		DA42DD7A29226AB700094733 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		DAAFB255291A90B7007A8DF0 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		E5E722FB0506808F9D489C0D /* Pods-own-exhibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.release.xcconfig"; sourceTree = "<group>"; };
 		E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +181,7 @@
 			children = (
 				68A26164290DB4D10036DF42 /* UIView+.swift */,
 				DAAFB255291A90B7007A8DF0 /* CALayer+.swift */,
+				DA42DD7A29226AB700094733 /* UIImage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				DAAFB254291A90A0007A8DF0 /* Extensions */,
+				DA0A881E291D424500E9AE43 /* ImageLoader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -651,10 +657,12 @@
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
 				68A26165290DB4D10036DF42 /* UIView+.swift in Sources */,
 				DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */,
+				DA0A881F291D424500E9AE43 /* ImageLoader.swift in Sources */,
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
 				DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */,
 				E805F2BA2901944800D75FA3 /* Exhibition.swift in Sources */,
 				E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */,
+				DA42DD7B29226AB700094733 /* UIImage+.swift in Sources */,
 				DA41F6DF29100FFB008ED455 /* ExhibitionRepository.swift in Sources */,
 				68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */,
 			);

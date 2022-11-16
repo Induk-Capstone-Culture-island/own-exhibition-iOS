@@ -23,16 +23,7 @@ final class ExhibitionTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func bind(by exhibition: Exhibition) {
-        thumbnailImageView.image = {
-            if let imageUrl = URL.init(string: exhibition.thumbnailUrl),
-               let imageData = try? Data.init(contentsOf: imageUrl),
-               let thumbnail = UIImage.init(data: imageData) {
-                return thumbnail
-            } else {
-                return UIImage.init(named: "default_thumbnail")
-            }
-        }()
+    func bind(_ exhibition: Exhibition, withFetchedImage fetchedImage: @escaping (UIImage?) -> Void) {
         titleLabel.text = exhibition.title
         periodLabel.text = {
             let formatter: DateFormatter = .init()
@@ -43,5 +34,37 @@ final class ExhibitionTableViewCell: UITableViewCell {
         }()
         placeLabel.text = "장소 : \(exhibition.place)"
         descriptionLabel.text = exhibition.description
+        
+        fetchThumbnailImage(exhibition.thumbnailUrl) { image in
+            fetchedImage(image)
+        }
+    }
+    
+    func initializeCell() {
+        thumbnailImageView.image = .defaultThumbnail
+        titleLabel.text = ""
+        periodLabel.text = ""
+        placeLabel.text = ""
+        descriptionLabel.text = ""
+    }
+    
+    func setThumbnailImage(_ thumbnailImage: UIImage?) {
+        if let thumbnailImage = thumbnailImage {
+            thumbnailImageView.image = thumbnailImage
+        } else {
+            thumbnailImageView.image = .defaultThumbnail
+        }
+    }
+    
+    private func fetchThumbnailImage(_ url: String, completion: @escaping (UIImage?) -> Void) {
+        ImageLoader.patch(url) { result in
+            switch result {
+            case .success(let thumbnailImage):
+                completion(thumbnailImage)
+            case .failure(let error):
+                _ = error
+                completion(nil)
+            }
+        }
     }
 }
