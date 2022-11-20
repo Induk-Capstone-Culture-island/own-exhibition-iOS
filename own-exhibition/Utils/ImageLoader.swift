@@ -13,11 +13,17 @@ enum NetworkError: Error {
     case nonExistentData
 }
 
-enum ImageLoaderError: Error {
-    case notImageData
-}
-
 struct ImageLoader {
+    
+    enum ImageLoaderError: Error {
+        case notImageData
+    }
+    
+    static private let imageCache: NSCache<NSURLRequest, UIImage> = {
+        let cache: NSCache<NSURLRequest, UIImage> = .init()
+        cache.name = "ImageCache"
+        return cache
+    }()
     
     static func patch(_ url: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
         guard let url = URL.init(string: url) else {
@@ -33,6 +39,11 @@ struct ImageLoader {
     }
     
     static func patch(_ urlRequest: URLRequest, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
+        let nsURLRequest = urlRequest as NSURLRequest
+        if let image = imageCache.object(forKey: nsURLRequest) {
+            return completion(.success(image))
+        }
+        
         URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, error in
             if let error = error {
                 return completion(.failure(error))
@@ -52,6 +63,7 @@ struct ImageLoader {
                 return completion(.failure(ImageLoaderError.notImageData))
             }
             
+            imageCache.setObject(image, forKey: nsURLRequest)
             return completion(.success(image))
         }
         .resume()
