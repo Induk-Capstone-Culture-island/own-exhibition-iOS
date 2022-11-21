@@ -21,15 +21,16 @@ final class MainTabBarController: UITabBarController {
         let homeCoordinator: HomeCoordinator = .init(navigationController: homeNavigationController)
         homeCoordinator.start()
         
-        let myPageVC = MyPageViewController.instantiate(withStoryboardName: "MyPage")
-        let myPageTabBarItem = UITabBarItem.init(
+        let myPageNavigationController: UINavigationController = .init()
+        myPageNavigationController.tabBarItem = .init(
             title: "내정보",
             image: UIImage.init(systemName: "person"),
             selectedImage: UIImage.init(systemName: "person.fill")
         )
-        myPageVC.tabBarItem = myPageTabBarItem
+        let myPageCoordinator: MyPageCoordinator = .init(navigationController: myPageNavigationController)
+        myPageCoordinator.start()
         
-        self.viewControllers = [homeNavigationController, myPageVC]
+        self.viewControllers = [homeNavigationController, myPageNavigationController]
         
         self.tabBar.backgroundColor = .systemGray6
     }

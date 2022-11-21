@@ -6,18 +6,40 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class MyPageViewModel: ViewModelType {
+final class MyPageViewModel: ViewModelType {
     
     struct Input {
-        
+        let viewWillAppear: Signal<Void>
+        let selection: Driver<PersonalInfo>
     }
     
     struct Output {
-        
+        let personalInfo: Driver<PersonalInfo>
+        let selectedChangeInfo: Driver<PersonalInfo>
+    }
+    
+    private let coordinator: MyPageCoordinator
+    private let personalInfo : PersonalInfo
+    
+    init(coordinator: MyPageCoordinator, personalInfo: PersonalInfo){
+        self.coordinator = coordinator
+        self.personalInfo = personalInfo
     }
     
     func transform(input: Input) -> Output {
-        return .init()
+        let personalInfos = input.viewWillAppear
+            .flatMapLatest{ _ in
+            return Driver<PersonalInfo>.of(self.personalInfo)
+        }
+   
+        let selectedChangeInfo = input.selection
+            .do(onNext: coordinator.changeInfo)
+        
+        return .init(
+            personalInfo: personalInfos,
+            selectedChangeInfo: selectedChangeInfo
+        )
     }
 }
