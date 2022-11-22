@@ -14,18 +14,37 @@ final class LoginViewController: UIViewController {
     
     private var viewModel: LoginViewModel!
     
+    // MARK: - UI Components
+    
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    private let dismissButton: UIBarButtonItem = {
+        let button: UIBarButtonItem = .init()
+        button.tintColor = .systemGray
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        configureNavigationBarButton()
     }
+    
+    func setViewModel(by viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+private extension LoginViewController {
     
     func bindViewModel() {
         let input = LoginViewModel.Input.init(
             login: loginButton.rx.tap.asSignal(),
-            id: .of("").asDriver(),
-            password: .of("").asDriver()
+            id: idTextField.rx.text.orEmpty.asDriver(),
+            password: passwordTextField.rx.text.orEmpty.asDriver(),
+            signUp: signUpButton.rx.tap.asSignal()
         )
         let output = viewModel.transform(input: input)
         
@@ -36,13 +55,17 @@ final class LoginViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        output.signUp
+            .drive()
+            .disposed(by: disposeBag)
     }
     
-    func setViewModel(by viewModel: LoginViewModel) {
-        self.viewModel = viewModel
-    }
-    
-    @IBAction func didTapDismissButton(_ sender: UIButton) {
-        self.dismiss(animated: false)
+    func configureNavigationBarButton() {
+        dismissButton.primaryAction = .init(handler: { _ in
+            self.dismiss(animated: false)
+        })
+        dismissButton.title = "X"
+        self.navigationItem.rightBarButtonItem = dismissButton
     }
 }
