@@ -33,6 +33,7 @@
 		DA42DD942923277600094733 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA42DD932923277600094733 /* Login.storyboard */; };
 		DA42DD962923277C00094733 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42DD952923277C00094733 /* LoginViewModel.swift */; };
 		DA42DD982923278300094733 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42DD972923278300094733 /* LoginCoordinator.swift */; };
+		DA6BB897292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BB896292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift */; };
 		DA739DD7292333C4003AEE4C /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DD6292333C4003AEE4C /* MyPageCoordinator.swift */; };
 		DA739DF029277D9E003AEE4C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DEF29277D9E003AEE4C /* NetworkService.swift */; };
 		DA739DF329277F10003AEE4C /* ExhibitionsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DF229277F10003AEE4C /* ExhibitionsResponseDTO.swift */; };
@@ -110,6 +111,7 @@
 		DA42DD932923277600094733 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		DA42DD952923277C00094733 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DA42DD972923278300094733 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		DA6BB896292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBackBarButtonItem.swift; sourceTree = "<group>"; };
 		DA739DD6292333C4003AEE4C /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		DA739DEF29277D9E003AEE4C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DA739DF229277F10003AEE4C /* ExhibitionsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionsResponseDTO.swift; sourceTree = "<group>"; };
@@ -226,6 +228,14 @@
 				E805F2BD2901959E00D75FA3 /* GeoCoordinate.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DA6BB898292D0081008D8DD2 /* BarButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BB896292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift */,
+			);
+			path = BarButtonItem;
 			sourceTree = "<group>";
 		};
 		DA739DF129277EBF003AEE4C /* ResponseDTO */ = {
@@ -435,6 +445,7 @@
 		E8BABA5A28FE5022009482E4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DA6BB898292D0081008D8DD2 /* BarButtonItem */,
 				E805F2BF2901972800D75FA3 /* Cell */,
 				E805F2B8290187FB00D75FA3 /* TabBarController */,
 				E805F2B3290187D100D75FA3 /* Protocols */,
@@ -735,6 +746,7 @@
 				DA42DD922923276F00094733 /* LoginViewController.swift in Sources */,
 				DA170D4A29111B5300BFC7B1 /* HomeCoordinator.swift in Sources */,
 				E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */,
+				DA6BB897292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift in Sources */,
 				DA170D482910EB3600BFC7B1 /* ExhibitionDetailViewController.swift in Sources */,
 				E805F2C22901977300D75FA3 /* ExhibitionTableViewCell.swift in Sources */,
 				E805F2BE2901959E00D75FA3 /* GeoCoordinate.swift in Sources */,

@@ -76,9 +76,7 @@ private extension HomeViewController {
     }
     
     func configureNavigationBar() {
-        let backBarButtonItem: UIBarButtonItem = .init(title: nil, style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .darkGray
-        self.navigationItem.backBarButtonItem = backBarButtonItem
+        self.navigationItem.backBarButtonItem = DefaultBackBarButtonItem.init()
         self.navigationController?.isNavigationBarHidden = true
     }
 }

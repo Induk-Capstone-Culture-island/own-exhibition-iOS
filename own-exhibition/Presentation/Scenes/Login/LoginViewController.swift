@@ -67,5 +67,6 @@ private extension LoginViewController {
         })
         dismissButton.title = "X"
         self.navigationItem.rightBarButtonItem = dismissButton
+        self.navigationItem.backBarButtonItem = DefaultBackBarButtonItem.init()
     }
 }
