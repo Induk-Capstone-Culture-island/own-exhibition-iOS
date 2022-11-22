@@ -60,9 +60,21 @@ private extension SignUpViewController {
         )
         let output = viewModel.transform(input: input)
         
-        output.signUp
-            .drive()
-            .disposed(by: disposeBag)
+        [
+            output.idValidation
+                .drive(),
+            output.passwordValidation
+                .drive(),
+            output.nameValidation
+                .drive(),
+            output.phoneNumberValidation
+                .drive(),
+            output.signUpButtonEnable
+                .drive(onNext: { self.signUpButton.isEnabled = $0 }),
+            output.signUp
+                .drive(),
+        ]
+            .forEach { $0.disposed(by: disposeBag) }
     }
     
     func configureNavigationBar() {
