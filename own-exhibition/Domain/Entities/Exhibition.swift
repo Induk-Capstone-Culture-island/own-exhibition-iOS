@@ -37,7 +37,7 @@ extension Exhibition {
                 formatter.dateFormat = "yyyy.MM.dd"
                 return formatter.date(from: startDate)!
             }(),
-            location: .init(lat: 37.541, lon: 126.986),
+            location: .init(lon: 126.986, lat: 37.541),
             place: "예술공간 의식주",
             thumbnailUrl: "https://www.cangoroo.co.kr/data/exhibit/K9Qszsp2Uh9D55Nzt88OKiKJ3t4aiWXogCmiYrFZVf1AKJ7m6fXbXmU31GAkq.1.jpg",
             businessHours: "13:30 ~ 19:00",
@@ -61,7 +61,7 @@ extension Exhibition {
                 formatter.dateFormat = "yyyy.MM.dd"
                 return formatter.date(from: startDate)!
             }(),
-            location: .init(lat: 37.541, lon: 126.986),
+            location: .init(lon: 126.986, lat: 37.541),
             place: "리빙파워센터",
             thumbnailUrl: "https://www.cangoroo.co.kr/data/exhibit/7KkTl3yN6Ye6L3.296.jpg",
             businessHours: "10:00 ~ 20:00",

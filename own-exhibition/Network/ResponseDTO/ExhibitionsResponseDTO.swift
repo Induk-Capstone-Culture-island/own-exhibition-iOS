@@ -83,7 +83,7 @@ extension ExhibitionResponseDTO: EntityConvertible {
                 formatter.dateFormat = "yyyyMMdd"
                 return formatter.date(from: startDate)!
             }(),
-            location: .init(lat: Double(gpsX) ?? 0, lon: Double(gpsY) ?? 0),
+            location: .init(lon: Double(gpsX) ?? 0, lat: Double(gpsY) ?? 0),
             place: place,
             thumbnailUrl: thumbnail,
             businessHours: "",
