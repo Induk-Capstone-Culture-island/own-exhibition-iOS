@@ -20,9 +20,19 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
         registerCell()
+        configureNavigationBar()
     }
     
-    private func bindViewModel() {
+    func setViewModel(by viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+// MARK: - Private Functions
+
+private extension HomeViewController {
+    
+    func bindViewModel() {
         let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
             .map { _ in }
         
@@ -55,13 +65,13 @@ final class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func registerCell() {
+    func registerCell() {
         let nibName = ExhibitionTableViewCell.id
         let nib = UINib.init(nibName: nibName, bundle: nil)
         exhibitionTableView.register(nib, forCellReuseIdentifier: nibName)
     }
     
-    func setViewModel(by viewModel: HomeViewModel) {
-        self.viewModel = viewModel
+    func configureNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = true
     }
 }

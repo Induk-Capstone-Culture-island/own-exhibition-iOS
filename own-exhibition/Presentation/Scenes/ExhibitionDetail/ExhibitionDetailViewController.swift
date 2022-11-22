@@ -23,9 +23,19 @@ final class ExhibitionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        configureNavigationBar()
     }
     
-    private func bindViewModel() {
+    func setViewModel(by viewModel: ExhibitionDetailViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+// MARK: - Private Functions
+
+private extension ExhibitionDetailViewController {
+    
+    func bindViewModel() {
         let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
             .map { _ in }
             .asSignal(onErrorSignalWith: .empty())
@@ -40,7 +50,7 @@ final class ExhibitionDetailViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private var exhibitionBinding: Binder<Exhibition> {
+    var exhibitionBinding: Binder<Exhibition> {
         return .init(self, binding: { vc, exhibition in
             ImageLoader.patch(exhibition.thumbnailUrl) { result in
                 DispatchQueue.main.async {
@@ -65,7 +75,7 @@ final class ExhibitionDetailViewController: UIViewController {
         })
     }
     
-    func setViewModel(by viewModel: ExhibitionDetailViewModel) {
-        self.viewModel = viewModel
+    func configureNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = false
     }
 }
