@@ -17,7 +17,11 @@ final class LoginViewController: UIViewController {
     // MARK: - UI Components
     
     @IBOutlet weak var idTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField! {
+        didSet {
+            passwordTextField.isSecureTextEntry = true
+        }
+    }
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     private let dismissButton: UIBarButtonItem = .init()
@@ -32,6 +36,8 @@ final class LoginViewController: UIViewController {
         self.viewModel = viewModel
     }
 }
+
+// MARK: - Private Functions
 
 private extension LoginViewController {
     
