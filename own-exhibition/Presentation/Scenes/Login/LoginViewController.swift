@@ -20,11 +20,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    private let dismissButton: UIBarButtonItem = {
-        let button: UIBarButtonItem = .init()
-        button.tintColor = .systemGray
-        return button
-    }()
+    private let dismissButton: UIBarButtonItem = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +61,8 @@ private extension LoginViewController {
         dismissButton.primaryAction = .init(handler: { _ in
             self.dismiss(animated: false)
         })
-        dismissButton.title = "X"
+        dismissButton.image = .init(named: "back_button")
+        dismissButton.tintColor = .darkGray
         self.navigationItem.rightBarButtonItem = dismissButton
         self.navigationItem.backBarButtonItem = DefaultBackBarButtonItem.init()
     }
