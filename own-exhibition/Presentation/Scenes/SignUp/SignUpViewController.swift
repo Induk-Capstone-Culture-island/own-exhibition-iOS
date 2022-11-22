@@ -34,11 +34,13 @@ final class SignUpViewController: UIViewController {
     @IBOutlet weak var birthdayDatePicker: UIDatePicker!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
         configureNavigationBar()
+        addObserversForKeyboard()
     }
     
     func setViewModel(by viewModel: SignUpViewModel) {
@@ -79,5 +81,49 @@ private extension SignUpViewController {
     
     func configureNavigationBar() {
         self.navigationItem.title = "회원가입"
+    }
+    
+    func addObserversForKeyboard() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height,
+            let keyboardAnimationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval)
+        else { return }
+        
+        let spacing: CGFloat = 12
+        
+        UIView.animate(withDuration: keyboardAnimationDuration) {
+            self.signUpButtonBottomConstraint.constant = keyboardHeight + spacing
+            self.signUpButtonBottomConstraint.isActive = true
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let keyboardAnimationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval)
+        else { return }
+        
+        UIView.animate(withDuration: keyboardAnimationDuration) {
+            self.signUpButtonBottomConstraint.isActive = false
+            self.view.layoutIfNeeded()
+        }
     }
 }

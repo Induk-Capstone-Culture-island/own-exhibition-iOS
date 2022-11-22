@@ -106,7 +106,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="6cy-LT-ZnH">
-                                                        <rect key="frame" x="0.0" y="39" width="358" height="40"/>
+                                                        <rect key="frame" x="0.0" y="38.333333333333371" width="358" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="5JQ-Ef-lCk"/>
                                                         </constraints>
@@ -139,7 +139,7 @@
                                 <constraints>
                                     <constraint firstItem="6Da-T9-NX3" firstAttribute="leading" secondItem="FZC-AP-mzV" secondAttribute="leading" id="0qb-Z4-pHo"/>
                                     <constraint firstItem="6Da-T9-NX3" firstAttribute="bottom" secondItem="dOf-wm-bAT" secondAttribute="bottom" id="1kt-Z0-wGF"/>
-                                    <constraint firstItem="6Da-T9-NX3" firstAttribute="height" secondItem="xbN-eN-R9t" secondAttribute="height" id="BkB-eS-fJx"/>
+                                    <constraint firstItem="6Da-T9-NX3" firstAttribute="height" secondItem="xbN-eN-R9t" secondAttribute="height" priority="249" id="BkB-eS-fJx"/>
                                     <constraint firstItem="6Da-T9-NX3" firstAttribute="top" secondItem="dOf-wm-bAT" secondAttribute="top" id="Fla-F5-UNF"/>
                                     <constraint firstItem="FZC-AP-mzV" firstAttribute="trailing" secondItem="6Da-T9-NX3" secondAttribute="trailing" id="Wm9-0R-rft"/>
                                     <constraint firstItem="6Da-T9-NX3" firstAttribute="leading" secondItem="dOf-wm-bAT" secondAttribute="leading" id="hyR-O2-tdU"/>
@@ -149,7 +149,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="FZC-AP-mzV"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVf-d2-6bM">
-                                <rect key="frame" x="22" y="625" width="346" height="44"/>
+                                <rect key="frame" x="22" y="629" width="346" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="jN6-MQ-aaM"/>
                                 </constraints>
@@ -168,10 +168,16 @@
                             <constraint firstItem="xbN-eN-R9t" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="OBp-Ah-Wkj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xbN-eN-R9t" secondAttribute="trailing" id="c6e-po-hbn"/>
                             <constraint firstItem="FVf-d2-6bM" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="cEg-s5-xHa"/>
-                            <constraint firstItem="FVf-d2-6bM" firstAttribute="top" secondItem="xbN-eN-R9t" secondAttribute="bottom" constant="8" id="enP-tS-2bR"/>
+                            <constraint firstItem="FVf-d2-6bM" firstAttribute="top" secondItem="xbN-eN-R9t" secondAttribute="bottom" constant="12" id="enP-tS-2bR"/>
                             <constraint firstItem="FVf-d2-6bM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="22" id="esz-F8-1Te"/>
                             <constraint firstItem="xbN-eN-R9t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="fnE-Gr-XOO"/>
+                            <constraint firstAttribute="bottom" secondItem="FVf-d2-6bM" secondAttribute="bottom" id="hX2-XJ-XHS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hX2-XJ-XHS"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="birthdayDatePicker" destination="6cy-LT-ZnH" id="nYW-BL-Vkt"/>
@@ -182,6 +188,7 @@
                         <outlet property="phoneNumberTextField" destination="xtC-ox-A2z" id="3LU-ev-FYh"/>
                         <outlet property="repasswordTextField" destination="2OY-Ie-ahL" id="BH7-BZ-Mdz"/>
                         <outlet property="signUpButton" destination="FVf-d2-6bM" id="WHR-gt-xD9"/>
+                        <outlet property="signUpButtonBottomConstraint" destination="hX2-XJ-XHS" id="cG0-wo-JUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
