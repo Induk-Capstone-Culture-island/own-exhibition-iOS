@@ -32,6 +32,7 @@ final class SignUpViewController: UIViewController {
     }
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var birthdayDatePicker: UIDatePicker!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
@@ -48,10 +49,20 @@ final class SignUpViewController: UIViewController {
 private extension SignUpViewController {
     
     func bindViewModel() {
-        let input = SignUpViewModel.Input.init()
+        let input = SignUpViewModel.Input.init(
+            id: idTextField.rx.text.orEmpty.asDriver(),
+            password: passwordTextField.rx.text.orEmpty.asDriver(),
+            repassword: repasswordTextField.rx.text.orEmpty.asDriver(),
+            userName: nameTextField.rx.text.orEmpty.asDriver(),
+            birthday: birthdayDatePicker.rx.date.asDriver(),
+            phoneNumber: phoneNumberTextField.rx.text.orEmpty.asDriver(),
+            signUp: signUpButton.rx.tap.asSignal()
+        )
         let output = viewModel.transform(input: input)
         
-        _ = output
+        output.signUp
+            .drive()
+            .disposed(by: disposeBag)
     }
     
     func configureNavigationBar() {
