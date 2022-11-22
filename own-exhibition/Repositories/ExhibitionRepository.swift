@@ -9,23 +9,19 @@ import RxSwift
 
 final class ExhibitionRepository {
     
+    private let networkService: NetworkService<ExhibitionsResponseDTO> = .init()
+    
     func getExhibitions() -> Observable<[Exhibition]> {
-        return .of([
-            .makeMock1(),
-            .makeMock2(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1(),
-            .makeMock1()
-        ])
+        let path: String = "exhibition"
+        return networkService.getItem(byPath: path)
+            .do(onNext: { exhibitionsResponseDTO in
+                print(exhibitionsResponseDTO)
+            },
+                onError: { error in
+                print(error)
+            })
+            .flatMapLatest { exhibitionsResponseDTO -> Observable<[Exhibition]> in
+                return .of(exhibitionsResponseDTO.data.map { $0.toEntity() })
+            }
     }
 }
