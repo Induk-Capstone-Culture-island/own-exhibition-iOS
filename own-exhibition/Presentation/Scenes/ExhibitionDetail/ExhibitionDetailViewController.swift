@@ -75,6 +75,7 @@ private extension ExhibitionDetailViewController {
             vc.placeLabel.text = "장소 : \(exhibition.place)"
             vc.descriptionLabel.text = exhibition.description
             self.initializeMapView(exhibition.location)
+            self.navigationItem.title = exhibition.title
         })
     }
     
@@ -87,6 +88,7 @@ private extension ExhibitionDetailViewController {
     }
     
     func configureNavigationBar() {
+        self.navigationItem.title = "."
         self.navigationController?.isNavigationBarHidden = false
     }
 }

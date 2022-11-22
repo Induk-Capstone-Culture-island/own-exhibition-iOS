@@ -20,6 +20,10 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
         registerCell()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configureNavigationBar()
     }
     
@@ -72,6 +76,9 @@ private extension HomeViewController {
     }
     
     func configureNavigationBar() {
+        let backBarButtonItem: UIBarButtonItem = .init(title: nil, style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .darkGray
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.isNavigationBarHidden = true
     }
 }
