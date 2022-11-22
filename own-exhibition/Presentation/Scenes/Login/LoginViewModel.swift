@@ -44,6 +44,7 @@ final class LoginViewModel: ViewModelType {
             })
         
         let signUp = input.signUp
+            .do(onNext: coordinator.toSignUp)
             .asDriver(onErrorDriveWith: .empty())
         
         return .init(
