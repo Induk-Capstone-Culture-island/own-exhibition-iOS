@@ -16,7 +16,6 @@ final class MainTabBarController: UITabBarController {
             image: UIImage.init(systemName: "house"),
             selectedImage: UIImage.init(systemName: "house.fill")
         )
-
         return nc
     }()
     
