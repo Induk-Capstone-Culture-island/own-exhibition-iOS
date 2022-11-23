@@ -13,6 +13,7 @@ final class LoginCoordinator {
     private let storyboardName: String = "Login"
     private let tabBarController: UITabBarController
     private let targetViewController: UIViewController
+    private let presentedNavigationController: UINavigationController = .init()
     
     init(
         navigationController: UINavigationController,
@@ -29,15 +30,19 @@ final class LoginCoordinator {
         let loginVM: LoginViewModel = .init(coordinator: self)
         loginVC.setViewModel(by: loginVM)
         
-        let presentedNC: UINavigationController = .init()
-        presentedNC.pushViewController(loginVC, animated: false)
-        presentedNC.modalTransitionStyle = .crossDissolve
-        presentedNC.modalPresentationStyle = .fullScreen
-        navigationController.present(presentedNC, animated: false)
+        presentedNavigationController.pushViewController(loginVC, animated: false)
+        presentedNavigationController.modalTransitionStyle = .crossDissolve
+        presentedNavigationController.modalPresentationStyle = .fullScreen
+        navigationController.present(presentedNavigationController, animated: false)
     }
     
     func toTargetViewController() {
         navigationController.dismiss(animated: false)
         tabBarController.selectedViewController = targetViewController
+    }
+    
+    func toSignUp() {
+        let signUpCoordinator: SignUpCoordinator = .init(navigationController: presentedNavigationController)
+        signUpCoordinator.start()
     }
 }

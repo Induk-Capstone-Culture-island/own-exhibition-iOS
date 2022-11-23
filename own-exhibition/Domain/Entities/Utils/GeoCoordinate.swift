@@ -10,17 +10,17 @@ import Foundation
 /// 위도 경도 좌표 시스템 타입
 struct GeoCoordinate {
     
-    /// 위도
-    let lat: Double
-    
-    /// 경도
+    /// 경도, GPS X 좌표
     let lon: Double
     
+    /// 위도, GPS Y 좌표
+    let lat: Double
+    
     ///  - Parameters:
-    ///     - lat: 위도
-    ///     - lon: 경도
-    init(lat: Double, lon: Double) {
-        self.lat = lat
+    ///     - lon: 경도, GPS X 좌표
+    ///     - lat: 위도, GPS Y 좌표
+    init(lon: Double, lat: Double) {
         self.lon = lon
+        self.lat = lat
     }
 }

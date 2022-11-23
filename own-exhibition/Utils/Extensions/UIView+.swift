@@ -21,6 +21,7 @@ extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
+            clipsToBounds = true
         }
         get {
             return layer.cornerRadius

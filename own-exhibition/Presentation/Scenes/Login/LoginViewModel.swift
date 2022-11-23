@@ -14,10 +14,12 @@ final class LoginViewModel: ViewModelType {
         let login: Signal<Void>
         let id: Driver<String>
         let password: Driver<String>
+        let signUp: Signal<Void>
     }
     
     struct Output {
         let isLoggedIn: Driver<Bool>
+        let signUp: Driver<Void>
     }
     
     private let coordinator: LoginCoordinator
@@ -40,9 +42,14 @@ final class LoginViewModel: ViewModelType {
                     self.coordinator.toTargetViewController()
                 }
             })
-                
+        
+        let signUp = input.signUp
+            .do(onNext: coordinator.toSignUp)
+            .asDriver(onErrorDriveWith: .empty())
+        
         return .init(
-            isLoggedIn: isLoggedIn
+            isLoggedIn: isLoggedIn,
+            signUp: signUp
         )
     }
 }

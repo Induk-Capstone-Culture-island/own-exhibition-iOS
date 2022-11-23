@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import MapKit
 
 final class ExhibitionDetailViewController: UIViewController {
     
@@ -19,13 +20,24 @@ final class ExhibitionDetailViewController: UIViewController {
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var locationMapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        configureNavigationBar()
     }
     
-    private func bindViewModel() {
+    func setViewModel(by viewModel: ExhibitionDetailViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+// MARK: - Private Functions
+
+private extension ExhibitionDetailViewController {
+    
+    func bindViewModel() {
         let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
             .map { _ in }
             .asSignal(onErrorSignalWith: .empty())
@@ -40,7 +52,7 @@ final class ExhibitionDetailViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private var exhibitionBinding: Binder<Exhibition> {
+    var exhibitionBinding: Binder<Exhibition> {
         return .init(self, binding: { vc, exhibition in
             ImageLoader.patch(exhibition.thumbnailUrl) { result in
                 DispatchQueue.main.async {
@@ -62,10 +74,21 @@ final class ExhibitionDetailViewController: UIViewController {
             }()
             vc.placeLabel.text = "장소 : \(exhibition.place)"
             vc.descriptionLabel.text = exhibition.description
+            self.initializeMapView(exhibition.location)
+            self.navigationItem.title = exhibition.title
         })
     }
     
-    func setViewModel(by viewModel: ExhibitionDetailViewModel) {
-        self.viewModel = viewModel
+    func initializeMapView(_ geo: GeoCoordinate) {
+        let delta: CLLocationDegrees = 0.01
+        let span: MKCoordinateSpan = .init(latitudeDelta: delta, longitudeDelta: delta)
+        let center: CLLocationCoordinate2D = .init(latitude: geo.lat, longitude: geo.lon)
+        let region: MKCoordinateRegion = .init(center: center, span: span)
+        locationMapView.setRegion(region, animated: false)
+    }
+    
+    func configureNavigationBar() {
+        self.navigationItem.title = "."
+        self.navigationController?.isNavigationBarHidden = false
     }
 }

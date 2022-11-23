@@ -7,12 +7,6 @@
 
 import UIKit
 
-enum NetworkError: Error {
-    case invalidURL
-    case invalidStatusCode
-    case nonExistentData
-}
-
 struct ImageLoader {
     
     enum ImageLoaderError: Error {
