@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		63D942ABEB0838AFC29B0A31 /* Pods_own_exhibitionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */; };
+		6874D54B291C2A6E00465398 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D54A291C2A6E00465398 /* PersonalInfo.swift */; };
+		6874D54D29208C0700465398 /* PersonalInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D54C29208C0700465398 /* PersonalInfoRepository.swift */; };
+		6874D5512920E3B500465398 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6874D5502920E3B500465398 /* Login.storyboard */; };
+		6874D554292102C000465398 /* ChangeInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6874D553292102C000465398 /* ChangeInfo.storyboard */; };
+		6874D5562921036400465398 /* ChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D5552921036400465398 /* ChangeInfoViewController.swift */; };
+		6874D558292103C500465398 /* ChangeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D557292103C500465398 /* ChangeInfoViewModel.swift */; };
+		6874D55A292103DE00465398 /* ChangeInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D559292103DE00465398 /* ChangeInfoCoordinator.swift */; };
 		68A26165290DB4D10036DF42 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A26164290DB4D10036DF42 /* UIView+.swift */; };
 		68B54471290D2B8F00A9F71A /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B54470290D2B8F00A9F71A /* MyPage.storyboard */; };
 		68B54473290D2BA000A9F71A /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54472290D2BA000A9F71A /* MyPageViewController.swift */; };
@@ -67,6 +74,13 @@
 
 /* Begin PBXFileReference section */
 		0DB22A055785C1255AEF29FB /* Pods-own-exhibition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.debug.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.debug.xcconfig"; sourceTree = "<group>"; };
+		6874D54A291C2A6E00465398 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
+		6874D54C29208C0700465398 /* PersonalInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoRepository.swift; sourceTree = "<group>"; };
+		6874D5502920E3B500465398 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		6874D553292102C000465398 /* ChangeInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeInfo.storyboard; sourceTree = "<group>"; };
+		6874D5552921036400465398 /* ChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoViewController.swift; sourceTree = "<group>"; };
+		6874D557292103C500465398 /* ChangeInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoViewModel.swift; sourceTree = "<group>"; };
+		6874D559292103DE00465398 /* ChangeInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoCoordinator.swift; sourceTree = "<group>"; };
 		68A26164290DB4D10036DF42 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+.swift"; path = "own-exhibition/Utils/Extensions/UIView+.swift"; sourceTree = SOURCE_ROOT; };
 		68B54470290D2B8F00A9F71A /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyPage.storyboard; path = "own-exhibition/Presentation/Scenes/MyPage/MyPage.storyboard"; sourceTree = SOURCE_ROOT; };
 		68B54472290D2BA000A9F71A /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = "own-exhibition/Presentation/Scenes/MyPage/MyPageViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -158,6 +172,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6874D552292102A200465398 /* ChangeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				6874D553292102C000465398 /* ChangeInfo.storyboard */,
+				6874D5552921036400465398 /* ChangeInfoViewController.swift */,
+				6874D557292103C500465398 /* ChangeInfoViewModel.swift */,
+				6874D559292103DE00465398 /* ChangeInfoCoordinator.swift */,
+			);
+			path = ChangeInfo;
+			sourceTree = "<group>";
+		};
 		6893BBAB290FE54B0064226D /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E805F2B92901944800D75FA3 /* Exhibition.swift */,
+				6874D54A291C2A6E00465398 /* PersonalInfo.swift */,
 				DA41F6DD290F845D008ED455 /* Utils */,
 			);
 			path = Entities;
@@ -361,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				DA41F6DE29100FFB008ED455 /* ExhibitionRepository.swift */,
+				6874D54C29208C0700465398 /* PersonalInfoRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -396,6 +423,7 @@
 		E8CA9F4428F6AAAD00CF6AF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				6874D552292102A200465398 /* ChangeInfo */,
 				E8BABA5428FE4E4B009482E4 /* ExhibitionDetail */,
 				E8BABA5028FE4E22009482E4 /* Home */,
 				E8BABA5228FE4E2E009482E4 /* Login */,
@@ -531,6 +559,7 @@
 				E8A1ADE228EBDD1800A360FA /* Assets.xcassets in Resources */,
 				E805F2C32901977300D75FA3 /* ExhibitionTableViewCell.xib in Resources */,
 				E8A1ADE028EBDD1600A360FA /* Home.storyboard in Resources */,
+				6874D554292102C000465398 /* ChangeInfo.storyboard in Resources */,
 				68B54471290D2B8F00A9F71A /* MyPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,11 +698,15 @@
 				E805F2C22901977300D75FA3 /* ExhibitionTableViewCell.swift in Sources */,
 				E805F2BE2901959E00D75FA3 /* GeoCoordinate.swift in Sources */,
 				68B54473290D2BA000A9F71A /* MyPageViewController.swift in Sources */,
+				6874D5562921036400465398 /* ChangeInfoViewController.swift in Sources */,
 				E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */,
+				6874D55A292103DE00465398 /* ChangeInfoCoordinator.swift in Sources */,
 				E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */,
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
+				6874D54D29208C0700465398 /* PersonalInfoRepository.swift in Sources */,
 				68A26165290DB4D10036DF42 /* UIView+.swift in Sources */,
 				DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */,
+				6874D54B291C2A6E00465398 /* PersonalInfo.swift in Sources */,
 				DA0A881F291D424500E9AE43 /* ImageLoader.swift in Sources */,
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
 				DA739DD7292333C4003AEE4C /* MyPageCoordinator.swift in Sources */,
@@ -681,6 +714,7 @@
 				DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */,
 				E805F2BA2901944800D75FA3 /* Exhibition.swift in Sources */,
 				E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */,
+				6874D558292103C500465398 /* ChangeInfoViewModel.swift in Sources */,
 				DA42DD962923277C00094733 /* LoginViewModel.swift in Sources */,
 				DA42DD7B29226AB700094733 /* UIImage+.swift in Sources */,
 				DA41F6DF29100FFB008ED455 /* ExhibitionRepository.swift in Sources */,

@@ -72,7 +72,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RC-Mw-m2c">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RC-Mw-m2c" userLabel="NameChangeButton">
                                                 <rect key="frame" x="314" y="0.0" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="LhH-VB-BEn"/>
@@ -287,11 +287,19 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="BirthChangeButton" destination="JQb-g9-Uk6" id="4CY-8l-1vI"/>
+                        <outlet property="BirthLabel" destination="ih9-6D-bRp" id="xK2-Fv-zB8"/>
                         <outlet property="BirthView" destination="1kV-3Z-sTd" id="LT7-rb-i1q"/>
+                        <outlet property="EmailLabel" destination="9z4-q8-cve" id="YJd-ku-igA"/>
                         <outlet property="EmailView" destination="G08-GW-zaK" id="yUY-VQ-4MD"/>
                         <outlet property="LogoutButton" destination="rP7-yW-qmf" id="Fu2-I1-ZAh"/>
+                        <outlet property="NameChangeButton" destination="2RC-Mw-m2c" id="3kH-ZP-ONQ"/>
+                        <outlet property="NameLabel" destination="3To-PQ-LvI" id="eXI-GV-idy"/>
                         <outlet property="NameView" destination="Gb6-yI-8cj" id="Epz-Ha-XXM"/>
+                        <outlet property="PasswordChangeButton" destination="Xtv-Up-cQa" id="ztO-ha-I9C"/>
                         <outlet property="PasswordChangeView" destination="0I5-nY-3Jy" id="bqU-b2-nln"/>
+                        <outlet property="PhoneNumberChangeButton" destination="vhC-b8-8Gm" id="c4m-RX-CNu"/>
+                        <outlet property="PhoneNumberLabel" destination="PIH-K5-rCp" id="EdS-Uj-8nW"/>
                         <outlet property="PhoneNumberView" destination="fpL-zb-TTI" id="Mp9-Xp-bub"/>
                         <outlet property="WithdrawalButton" destination="VHm-Vd-o72" id="CfZ-1B-4PD"/>
                     </connections>
