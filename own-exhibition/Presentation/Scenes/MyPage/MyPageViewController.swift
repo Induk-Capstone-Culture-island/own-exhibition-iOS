@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 
 final class MyPageViewController: UIViewController {
-
     private var disposeBag: DisposeBag = .init()
     
     private var viewModel: MyPageViewModel!
