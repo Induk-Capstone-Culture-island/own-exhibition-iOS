@@ -9,10 +9,9 @@ import RxSwift
 
 final class PersonalInfoRepository {
     
-    func getPeronalInfo() -> Observable<[PersonalInfo]> {
-        return .of([
+    func getPeronalInfo() -> Observable<PersonalInfo> {
+        return .of(
             .makemock()
-        ])
+        )
     }
 }
-

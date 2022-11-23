@@ -7,16 +7,12 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
-
 
 final class MyPageViewController: UIViewController {
-   
 
     private var disposeBag: DisposeBag = .init()
     
     private var viewModel: MyPageViewModel!
-
     
     //마이페이지 View
     @IBOutlet weak var EmailView: UIView!
@@ -38,7 +34,6 @@ final class MyPageViewController: UIViewController {
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var BirthLabel: UILabel!
     @IBOutlet weak var PhoneNumberLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,11 +59,10 @@ final class MyPageViewController: UIViewController {
         output.selectedChangeInfo
             .drive()
             .disposed(by: disposeBag)
-        
     }
     
     private var myPageBinding: Binder<PersonalInfo> {
-        return .init(self, binding: {vc, personalInfo in
+        return .init(self, binding: { vc, personalInfo in
             vc.EmailLabel.text = personalInfo.email
             vc.NameLabel.text = personalInfo.name
             vc.BirthLabel.text = {
@@ -79,7 +73,6 @@ final class MyPageViewController: UIViewController {
             vc.PhoneNumberLabel.text = personalInfo.phoneNumber
         })
     }
-
 
     func setViewModel(by viewModel: MyPageViewModel) {
         self.viewModel = viewModel

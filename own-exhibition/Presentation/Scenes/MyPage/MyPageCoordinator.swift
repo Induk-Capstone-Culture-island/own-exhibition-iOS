@@ -7,13 +7,10 @@
 
 import UIKit
 
-
 final class MyPageCoordinator {
-
     
     private let navigationController: UINavigationController
     private let storyboardName: String = "MyPage"
-    
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -30,5 +27,4 @@ final class MyPageCoordinator {
         let changeInfoCoordinator: ChangeInfoCoordinator = .init(navigationController: navigationController)
         changeInfoCoordinator.start(with: personalInfo)
     }
-
 }

@@ -7,26 +7,26 @@
 
 import Foundation
 
-struct PersonalInfo: Encodable {
-    let id : String
-    let password : String
-    let name : String
-    let email : String
-    let birth : Date
-    let phoneNumber : String
+struct PersonalInfo {
+    let id: String
+    let password: String
+    let name: String
+    let email: String
+    let birth: Date
+    let phoneNumber: String
 }
-    
-    extension PersonalInfo {
-        
-        /// Debug 용 함수
-        static func makemock() -> Self {
-            return .init(
-                id: "id",
-                password: "pw",
-                name: "name",
-                email: "email@aa",
-                birth: .now,
-                phoneNumber: "aa"
-            )
-        }
+#if DEBUG
+extension PersonalInfo {
+    /// Debug 용 함수
+    static func makemock() -> Self {
+        return .init(
+            id: "id",
+            password: "pw",
+            name: "name",
+            email: "email@aa",
+            birth: .now,
+            phoneNumber: "aa"
+        )
+    }
 }
+#endif

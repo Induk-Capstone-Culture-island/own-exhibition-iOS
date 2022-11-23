@@ -21,21 +21,21 @@ final class MyPageViewModel: ViewModelType {
     }
     
     private let coordinator: MyPageCoordinator
-    private let personalInfo : PersonalInfo
+    private let personalInfo: PersonalInfo
     
-    init(coordinator: MyPageCoordinator, personalInfo: PersonalInfo){
+    init(coordinator: MyPageCoordinator, personalInfo: PersonalInfo) {
         self.coordinator = coordinator
         self.personalInfo = personalInfo
     }
     
     func transform(input: Input) -> Output {
         let personalInfos = input.viewWillAppear
-            .flatMapLatest{ _ in
-            return Driver<PersonalInfo>.of(self.personalInfo)
-        }
-   
+            .flatMapLatest { _ in
+                return Driver<PersonalInfo>.of(self.personalInfo)
+            }
+        
         let selectedChangeInfo = input.selection
-            .flatMapLatest{ _ in
+            .flatMapLatest { _ in
                 return Driver<PersonalInfo>.of(self.personalInfo)
             }
             .do(onNext: coordinator.changeInfo)
