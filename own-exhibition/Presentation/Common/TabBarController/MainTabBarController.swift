@@ -43,7 +43,6 @@ final class MainTabBarController: UITabBarController {
             homeNavigationController,
             myPageNavigationController,
         ]
-
         
         self.tabBar.backgroundColor = .systemGray6
     }
