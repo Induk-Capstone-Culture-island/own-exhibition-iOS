@@ -10,11 +10,13 @@ import RxSwift
 import RxCocoa
 
 
-class MyPageViewController: UIViewController {
+final class MyPageViewController: UIViewController {
    
-    private let disposeBag = DisposeBag.init()
+
+    private var disposeBag: DisposeBag = .init()
     
-    private var viewModel : MyPageViewModel!
+    private var viewModel: MyPageViewModel!
+
     
     //마이페이지 View
     @IBOutlet weak var EmailView: UIView!
@@ -65,7 +67,7 @@ class MyPageViewController: UIViewController {
         
     }
     
-    private var myPageBinding: Binder<PersonalInfo>{
+    private var myPageBinding: Binder<PersonalInfo> {
         return .init(self, binding: {vc, personalInfo in
             vc.EmailLabel.text = personalInfo.email
             vc.NameLabel.text = personalInfo.name
@@ -83,7 +85,7 @@ class MyPageViewController: UIViewController {
         self.viewModel = viewModel
     }
     
-    func line(){
+    func line() {
         //마이페이지 View 사이 줄
         EmailView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
         NameView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
