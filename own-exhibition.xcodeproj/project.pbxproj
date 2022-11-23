@@ -34,6 +34,10 @@
 		DA42DD962923277C00094733 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42DD952923277C00094733 /* LoginViewModel.swift */; };
 		DA42DD982923278300094733 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42DD972923278300094733 /* LoginCoordinator.swift */; };
 		DA6BB897292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BB896292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift */; };
+		DA6BCE54292DFA400059E95D /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BCE53292DFA400059E95D /* WishListViewModel.swift */; };
+		DA6BCE56292E247C0059E95D /* WishList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6BCE55292E247C0059E95D /* WishList.storyboard */; };
+		DA6BCE58292E24870059E95D /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BCE57292E24870059E95D /* WishListViewController.swift */; };
+		DA6BCE5A292E24960059E95D /* WishListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BCE59292E24960059E95D /* WishListCoordinator.swift */; };
 		DA739DD7292333C4003AEE4C /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DD6292333C4003AEE4C /* MyPageCoordinator.swift */; };
 		DA739DF029277D9E003AEE4C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DEF29277D9E003AEE4C /* NetworkService.swift */; };
 		DA739DF329277F10003AEE4C /* ExhibitionsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DF229277F10003AEE4C /* ExhibitionsResponseDTO.swift */; };
@@ -112,6 +116,10 @@
 		DA42DD952923277C00094733 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DA42DD972923278300094733 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		DA6BB896292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBackBarButtonItem.swift; sourceTree = "<group>"; };
+		DA6BCE53292DFA400059E95D /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
+		DA6BCE55292E247C0059E95D /* WishList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishList.storyboard; sourceTree = "<group>"; };
+		DA6BCE57292E24870059E95D /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		DA6BCE59292E24960059E95D /* WishListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCoordinator.swift; sourceTree = "<group>"; };
 		DA739DD6292333C4003AEE4C /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		DA739DEF29277D9E003AEE4C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DA739DF229277F10003AEE4C /* ExhibitionsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionsResponseDTO.swift; sourceTree = "<group>"; };
@@ -412,6 +420,10 @@
 		E8BABA5528FE4EFF009482E4 /* WishList */ = {
 			isa = PBXGroup;
 			children = (
+				DA6BCE55292E247C0059E95D /* WishList.storyboard */,
+				DA6BCE57292E24870059E95D /* WishListViewController.swift */,
+				DA6BCE53292DFA400059E95D /* WishListViewModel.swift */,
+				DA6BCE59292E24960059E95D /* WishListCoordinator.swift */,
 			);
 			path = WishList;
 			sourceTree = "<group>";
@@ -609,6 +621,7 @@
 				DA42DD942923277600094733 /* Login.storyboard in Resources */,
 				E8A1ADE228EBDD1800A360FA /* Assets.xcassets in Resources */,
 				E805F2C32901977300D75FA3 /* ExhibitionTableViewCell.xib in Resources */,
+				DA6BCE56292E247C0059E95D /* WishList.storyboard in Resources */,
 				E8A1ADE028EBDD1600A360FA /* Home.storyboard in Resources */,
 				6874D554292102C000465398 /* ChangeInfo.storyboard in Resources */,
 				DA739E24292C7954003AEE4C /* SignUp.storyboard in Resources */,
@@ -745,6 +758,7 @@
 				E8A1ADDD28EBDD1600A360FA /* HomeViewController.swift in Sources */,
 				DA42DD922923276F00094733 /* LoginViewController.swift in Sources */,
 				DA170D4A29111B5300BFC7B1 /* HomeCoordinator.swift in Sources */,
+				DA6BCE54292DFA400059E95D /* WishListViewModel.swift in Sources */,
 				E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */,
 				DA6BB897292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift in Sources */,
 				DA170D482910EB3600BFC7B1 /* ExhibitionDetailViewController.swift in Sources */,
@@ -757,6 +771,7 @@
 				E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */,
 				6874D55A292103DE00465398 /* ChangeInfoCoordinator.swift in Sources */,
 				E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */,
+				DA6BCE5A292E24960059E95D /* WishListCoordinator.swift in Sources */,
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
 				6874D54D29208C0700465398 /* PersonalInfoRepository.swift in Sources */,
 				DA739DF029277D9E003AEE4C /* NetworkService.swift in Sources */,
@@ -768,6 +783,7 @@
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
 				DA739DF62927807A003AEE4C /* EntityConvertible.swift in Sources */,
 				DA739DD7292333C4003AEE4C /* MyPageCoordinator.swift in Sources */,
+				DA6BCE58292E24870059E95D /* WishListViewController.swift in Sources */,
 				DA42DD982923278300094733 /* LoginCoordinator.swift in Sources */,
 				DA170D4C291120F200BFC7B1 /* ExhibitionDetailCoordinator.swift in Sources */,
 				E805F2BA2901944800D75FA3 /* Exhibition.swift in Sources */,
