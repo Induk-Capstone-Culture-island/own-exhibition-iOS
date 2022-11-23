@@ -42,7 +42,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                 </buttonConfiguration>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="color_thumbail" translatesAutoresizingMaskIntoConstraints="NO" id="dpL-5e-04r">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="color_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dpL-5e-04r">
                                 <rect key="frame" x="107" y="64" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="1jc-6p-uzs"/>
@@ -82,7 +82,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="color_thumbail" width="540" height="540"/>
+        <image name="color_icon" width="400" height="243"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

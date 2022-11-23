@@ -11,7 +11,7 @@
         <!--Change Info View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="ChangeInfoViewController" customModule="own_exhibition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeInfoViewController" id="Y6W-OH-hqX" customClass="ChangeInfoViewController" customModule="own_exhibition" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="현재 비밀번호를 입력해 주세요." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6oX-Na-Wcy">
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="ChangeInfoViewController" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="현재 비밀번호를 입력해 주세요." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6oX-Na-Wcy">
                                 <rect key="frame" x="20" y="112" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GXu-AJ-wi6"/>

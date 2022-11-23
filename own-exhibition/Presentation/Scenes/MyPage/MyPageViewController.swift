@@ -51,7 +51,7 @@ class MyPageViewController: UIViewController {
         
         let input = MyPageViewModel.Input.init(
             viewWillAppear: viewWillAppear,
-            selection: NameChangeButton.rx.tap.asObservable()
+            selection: PasswordChangeButton.rx.tap.asDriver()
         )
         let output = viewModel.transform(input: input)
         
@@ -61,7 +61,7 @@ class MyPageViewController: UIViewController {
         
         output.selectedChangeInfo
             .drive()
-            .dispose(by: disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
@@ -78,7 +78,7 @@ class MyPageViewController: UIViewController {
         })
     }
 
-    
+
     func setViewModel(by viewModel: MyPageViewModel) {
         self.viewModel = viewModel
     }

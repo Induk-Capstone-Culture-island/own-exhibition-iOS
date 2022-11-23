@@ -24,8 +24,7 @@ final class MyPageCoordinator{
     }
     
     func changeInfo(with personalInfo: PersonalInfo){
-        let changeInfoCoordinator: ChangeInfoCoordinator =
-            .init(navigationController: navigationController)
+        let changeInfoCoordinator: ChangeInfoCoordinator = .init(navigationController: navigationController)
         changeInfoCoordinator.start(with: personalInfo)
     }
 }
