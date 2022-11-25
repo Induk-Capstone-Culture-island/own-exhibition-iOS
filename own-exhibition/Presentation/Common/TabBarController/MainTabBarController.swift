@@ -19,6 +19,16 @@ final class MainTabBarController: UITabBarController {
         return nc
     }()
     
+    private let wishListNavigationController: UINavigationController = {
+        let nc: UINavigationController = .init()
+        nc.tabBarItem = .init(
+            title: "찜목록",
+            image: UIImage.init(systemName: "heart"),
+            selectedImage: UIImage.init(systemName: "heart.fill")
+        )
+        return nc
+    }()
+    
     private let myPageNavigationController: UINavigationController = {
         let nc: UINavigationController = .init()
         nc.tabBarItem = .init(
@@ -36,11 +46,15 @@ final class MainTabBarController: UITabBarController {
         let homeCoordinator: HomeCoordinator = .init(navigationController: homeNavigationController)
         homeCoordinator.start()
         
+        let wishListCoordinator: WishListCoordinator = .init(navigationController: wishListNavigationController)
+        wishListCoordinator.start()
+        
         let myPageCoordinator: MyPageCoordinator = .init(navigationController: myPageNavigationController)
         myPageCoordinator.start()
         
         self.viewControllers = [
             homeNavigationController,
+            wishListNavigationController,
             myPageNavigationController,
         ]
         
@@ -51,7 +65,7 @@ final class MainTabBarController: UITabBarController {
 extension MainTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController == myPageNavigationController {
+        if viewController == myPageNavigationController || viewController == wishListNavigationController {
             // FIXME: 로그인 되어있는지 확인하는 로직 추가
             let isLoggedIn: Bool = false
             
