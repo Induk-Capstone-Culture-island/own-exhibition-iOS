@@ -54,7 +54,7 @@ private extension ExhibitionDetailViewController {
     
     var exhibitionBinding: Binder<Exhibition> {
         return .init(self, binding: { vc, exhibition in
-            ImageLoader.patch(exhibition.thumbnailUrl) { result in
+            ImageLoader.shared.patch(exhibition.thumbnailUrl) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let image):
