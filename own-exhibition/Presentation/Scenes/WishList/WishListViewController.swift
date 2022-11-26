@@ -12,6 +12,12 @@ final class WishListViewController: UIViewController {
     
     private let disposeBag = DisposeBag.init()
     
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.searchBarStyle = .minimal
+            searchBar.placeholder = "전시회 제목, 지역"
+        }
+    }
     @IBOutlet weak var exhibitionTableView: UITableView!
     
     private var viewModel: WishListViewModel!
@@ -42,7 +48,8 @@ private extension WishListViewController {
         
         let input = WishListViewModel.Input.init(
             viewWillAppear: viewWillAppear.asSignal(onErrorSignalWith: .empty()),
-            selection: exhibitionTableView.rx.itemSelected.asDriver()
+            selection: exhibitionTableView.rx.itemSelected.asDriver(),
+            searchWord: searchBar.rx.text.orEmpty.asDriver().debounce(.milliseconds(300))
         )
         let output = viewModel.transform(input: input)
         
