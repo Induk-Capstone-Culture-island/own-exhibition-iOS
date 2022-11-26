@@ -13,6 +13,7 @@ final class HomeViewModel: ViewModelType {
     struct Input {
         let viewWillAppear: Signal<Void>
         let selection: Driver<IndexPath>
+        let searchWord: Driver<String>
     }
     
     struct Output {
@@ -29,10 +30,15 @@ final class HomeViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        let exhibitions = input.viewWillAppear
-            .flatMapLatest { _ in
-                return self.exhibitionRepository.getExhibitions()
-                    .asDriver(onErrorJustReturn: [])
+        let exhibitions = Driver.combineLatest(input.viewWillAppear.asDriver(onErrorDriveWith: .empty()), input.searchWord)
+            .flatMapLatest { _, searchWord in
+                if searchWord.isEmpty {
+                    return self.exhibitionRepository.getExhibitions()
+                        .asDriver(onErrorJustReturn: [])
+                } else {
+                    return self.exhibitionRepository.getExhibitions(bySearchWord: searchWord)
+                        .asDriver(onErrorJustReturn: [])
+                }
             }
         let selectedExhibition = input.selection
             .withLatestFrom(exhibitions) { indexPath, exhibitions -> Exhibition in
