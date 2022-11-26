@@ -12,12 +12,7 @@ final class WishListViewController: UIViewController {
     
     private let disposeBag = DisposeBag.init()
     
-    @IBOutlet weak var searchBar: UISearchBar! {
-        didSet {
-            searchBar.searchBarStyle = .minimal
-            searchBar.placeholder = "전시회 제목, 지역"
-        }
-    }
+    @IBOutlet weak var searchBar: ExhibitionSearchBar!
     @IBOutlet weak var exhibitionTableView: UITableView!
     
     private var viewModel: WishListViewModel!

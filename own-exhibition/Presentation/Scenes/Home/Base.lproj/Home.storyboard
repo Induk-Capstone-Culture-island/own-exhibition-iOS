@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="114" width="414" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gcc-px-eJR">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gcc-px-eJR" customClass="ExhibitionSearchBar" customModule="own_exhibition" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -40,7 +40,7 @@
                     </view>
                     <connections>
                         <outlet property="exhibitionTableView" destination="GPq-Ih-WbU" id="v5Y-kM-O7P"/>
-                        <outlet property="searchBar" destination="Gcc-px-eJR" id="r6W-8H-myv"/>
+                        <outlet property="searchBar" destination="Gcc-px-eJR" id="1ZT-eY-oJa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
