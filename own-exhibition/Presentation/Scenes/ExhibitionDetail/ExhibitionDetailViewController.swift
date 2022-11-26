@@ -21,6 +21,7 @@ final class ExhibitionDetailViewController: UIViewController {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationMapView: MKMapView!
+    private let likeButton: UIBarButtonItem = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,16 @@ private extension ExhibitionDetailViewController {
         
         output.exhibition
             .drive(exhibitionBinding)
+            .disposed(by: disposeBag)
+        
+        output.isLike
+            .drive(onNext: { isLike in
+                if isLike {
+                    self.likeButton.image = UIImage.init(systemName: "heart.fill")
+                } else {
+                    self.likeButton.image = UIImage.init(systemName: "heart")
+                }
+            })
             .disposed(by: disposeBag)
     }
     
@@ -90,5 +101,6 @@ private extension ExhibitionDetailViewController {
     func configureNavigationBar() {
         self.navigationItem.title = "."
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.rightBarButtonItem = likeButton
     }
 }
