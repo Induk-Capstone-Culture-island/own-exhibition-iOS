@@ -57,7 +57,7 @@ final class ExhibitionTableViewCell: UITableViewCell {
     }
     
     private func fetchThumbnailImage(_ url: String, completion: @escaping (UIImage?) -> Void) {
-        ImageLoader.patch(url) { result in
+        ImageLoader.shared.patch(url) { result in
             switch result {
             case .success(let thumbnailImage):
                 completion(thumbnailImage)

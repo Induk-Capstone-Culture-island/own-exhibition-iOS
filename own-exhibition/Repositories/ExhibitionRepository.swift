@@ -18,4 +18,9 @@ final class ExhibitionRepository {
                 return .of(exhibitionsResponseDTO.data.map { $0.toEntity() })
             }
     }
+    
+    func getExhibitions(bySearchWord searchWord: String) -> Observable<[Exhibition]> {
+        // TODO: 서버 검색 API 구현되면 호출해서 검색결과 반환
+        return .of([.makeMock1(), .makeMock2()])
+    }
 }
