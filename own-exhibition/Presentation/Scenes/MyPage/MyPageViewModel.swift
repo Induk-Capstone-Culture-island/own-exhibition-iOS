@@ -12,12 +12,14 @@ final class MyPageViewModel: ViewModelType {
     
     struct Input {
         let viewWillAppear: Signal<Void>
-        let selection: Driver<Void>
+        let selectedChangeInfo: Driver<Void>
+        let selectedChangePassword: Driver<Void>
     }
     
     struct Output {
         let personalInfo: Driver<PersonalInfo>
         let selectedChangeInfo: Driver<PersonalInfo>
+        let selectedChangePassword: Driver<PersonalInfo>
     }
     
     private let coordinator: MyPageCoordinator
@@ -34,7 +36,13 @@ final class MyPageViewModel: ViewModelType {
                 return Driver<PersonalInfo>.of(self.personalInfo)
             }
         
-        let selectedChangeInfo = input.selection
+        let selectedChangePassword = input.selectedChangePassword
+            .flatMapLatest { _ in
+                return Driver<PersonalInfo>.of(self.personalInfo)
+            }
+            .do(onNext: coordinator.changePassword)
+        
+        let selectedChangeInfo = input.selectedChangeInfo
             .flatMapLatest { _ in
                 return Driver<PersonalInfo>.of(self.personalInfo)
             }
@@ -42,7 +50,8 @@ final class MyPageViewModel: ViewModelType {
                 
         return .init(
             personalInfo: personalInfos,
-            selectedChangeInfo: selectedChangeInfo
+            selectedChangeInfo: selectedChangeInfo,
+            selectedChangePassword: selectedChangePassword
         )
     }
 }
