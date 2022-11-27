@@ -12,13 +12,17 @@ final class MyPageViewModel: ViewModelType {
     
     struct Input {
         let viewWillAppear: Signal<Void>
-        let selectedChangeInfo: Driver<Void>
+        let selectedChangeName: Driver<Void>
+        let selectedChangeBirth: Driver<Void>
+        let selectedChangePhoneNumber: Driver<Void>
         let selectedChangePassword: Driver<Void>
     }
     
     struct Output {
         let personalInfo: Driver<PersonalInfo>
-        let selectedChangeInfo: Driver<PersonalInfo>
+        let selectedChangeName: Driver<PersonalInfo>
+        let selectedChangeBirth: Driver<PersonalInfo>
+        let selectedChangePhoneNumber: Driver<PersonalInfo>
         let selectedChangePassword: Driver<PersonalInfo>
     }
     
@@ -36,22 +40,36 @@ final class MyPageViewModel: ViewModelType {
                 return Driver<PersonalInfo>.of(self.personalInfo)
             }
         
-        let selectedChangePassword = input.selectedChangePassword
-            .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
-            }
-            .do(onNext: coordinator.changePassword)
-        
-        let selectedChangeInfo = input.selectedChangeInfo
+        let selectedChangeName = input.selectedChangeName
             .flatMapLatest { _ in
                 return Driver<PersonalInfo>.of(self.personalInfo)
             }
             .do(onNext: coordinator.changeInfo)
                 
+        let selectedChangePhoneNumber = input.selectedChangePhoneNumber
+            .flatMapLatest { _ in
+                return Driver<PersonalInfo>.of(self.personalInfo)
+            }
+            .do(onNext: coordinator.changeInfo)
+                
+        let selectedChangeBirth = input.selectedChangeBirth
+            .flatMapLatest { _ in
+                return Driver<PersonalInfo>.of(self.personalInfo)
+            }
+            .do(onNext: coordinator.changeInfo)
+        
+        let selectedChangePassword = input.selectedChangePassword
+            .flatMapLatest { _ in
+                return Driver<PersonalInfo>.of(self.personalInfo)
+            }
+            .do(onNext: coordinator.changePassword)
+                
         return .init(
             personalInfo: personalInfos,
-            selectedChangeInfo: selectedChangeInfo,
-            selectedChangePassword: selectedChangePassword
+            selectedChangeName: selectedChangePassword,
+            selectedChangeBirth: selectedChangeName,
+            selectedChangePhoneNumber: selectedChangeBirth,
+            selectedChangePassword: selectedChangePhoneNumber
         )
     }
 }

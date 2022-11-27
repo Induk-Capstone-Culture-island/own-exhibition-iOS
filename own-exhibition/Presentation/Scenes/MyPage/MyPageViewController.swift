@@ -47,7 +47,9 @@ final class MyPageViewController: UIViewController {
         
         let input = MyPageViewModel.Input.init(
             viewWillAppear: viewWillAppear,
-            selectedChangeInfo: PhoneNumberChangeButton.rx.tap.asDriver(),
+            selectedChangeName: NameChangeButton.rx.tap.asDriver(),
+            selectedChangeBirth: BirthChangeButton.rx.tap.asDriver(),
+            selectedChangePhoneNumber: PhoneNumberChangeButton.rx.tap.asDriver(),
             selectedChangePassword: PasswordChangeButton.rx.tap.asDriver()
         )
         let output = viewModel.transform(input: input)
@@ -56,7 +58,15 @@ final class MyPageViewController: UIViewController {
             .drive(myPageBinding)
             .disposed(by: disposeBag)
         
-        output.selectedChangeInfo
+        output.selectedChangeName
+            .drive()
+            .disposed(by: disposeBag)
+        
+        output.selectedChangeBirth
+            .drive()
+            .disposed(by: disposeBag)
+        
+        output.selectedChangePhoneNumber
             .drive()
             .disposed(by: disposeBag)
         
