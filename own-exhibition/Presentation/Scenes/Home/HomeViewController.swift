@@ -12,10 +12,12 @@ final class HomeViewController: UIViewController {
     
     private let disposeBag = DisposeBag.init()
     
+    private var viewModel: HomeViewModel!
+    
+    // MARK: - UI Components
+    
     @IBOutlet weak var searchBar: ExhibitionSearchBar!
     @IBOutlet weak var exhibitionTableView: UITableView!
-    
-    private var viewModel: HomeViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -66,6 +66,8 @@ final class ExhibitionResponseDTO: Decodable {
     }
 }
 
+// MARK: - EntityConvertible
+
 extension ExhibitionResponseDTO: EntityConvertible {
     
     func toEntity() -> Exhibition {
