@@ -16,6 +16,7 @@ final class ExhibitionDetailViewModel: ViewModelType {
     
     struct Output {
         let exhibition: Driver<Exhibition>
+        let isLike: Driver<Bool>
     }
     
     private let exhibition: Exhibition
@@ -30,6 +31,15 @@ final class ExhibitionDetailViewModel: ViewModelType {
                 return Driver<Exhibition>.of(self.exhibition)
             }
         
-        return .init(exhibition: exhibition)
+        let isLike = input.viewWillAppear
+            .flatMapLatest { _ in
+                // TODO: 현재 사용자가 찜한 전시회인지 확인하는 로직 추가
+                return Driver<Bool>.of(.random())
+            }
+        
+        return .init(
+            exhibition: exhibition,
+            isLike: isLike
+        )
     }
 }

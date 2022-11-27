@@ -7,19 +7,18 @@
 
 import UIKit
 
-struct ImageLoader {
+final class ImageLoader {
     
-    enum ImageLoaderError: Error {
-        case notImageData
+    static let shared: ImageLoader = .init()
+    
+    private let imageCache: NSCache<NSURLRequest, UIImage>
+    
+    private init() {
+        self.imageCache = .init()
+        self.imageCache.name = "SharedImageCache"
     }
     
-    static private let imageCache: NSCache<NSURLRequest, UIImage> = {
-        let cache: NSCache<NSURLRequest, UIImage> = .init()
-        cache.name = "ImageCache"
-        return cache
-    }()
-    
-    static func patch(_ url: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func patch(_ url: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
         guard let url = URL.init(string: url) else {
             return completion(.failure(NetworkError.invalidURL))
         }
@@ -27,12 +26,12 @@ struct ImageLoader {
         patch(url, completion)
     }
     
-    static func patch(_ url: URL, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func patch(_ url: URL, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
         let urlRequest: URLRequest = .init(url: url)
         patch(urlRequest, completion)
     }
     
-    static func patch(_ urlRequest: URLRequest, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func patch(_ urlRequest: URLRequest, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
         let nsURLRequest = urlRequest as NSURLRequest
         if let image = imageCache.object(forKey: nsURLRequest) {
             return completion(.success(image))
@@ -57,9 +56,16 @@ struct ImageLoader {
                 return completion(.failure(ImageLoaderError.notImageData))
             }
             
-            imageCache.setObject(image, forKey: nsURLRequest)
+            self.imageCache.setObject(image, forKey: nsURLRequest)
             return completion(.success(image))
         }
         .resume()
+    }
+}
+
+extension ImageLoader {
+    
+    enum ImageLoaderError: Error {
+        case notImageData
     }
 }

@@ -12,6 +12,7 @@ final class HomeViewController: UIViewController {
     
     private let disposeBag = DisposeBag.init()
     
+    @IBOutlet weak var searchBar: ExhibitionSearchBar!
     @IBOutlet weak var exhibitionTableView: UITableView!
     
     private var viewModel: HomeViewModel!
@@ -42,7 +43,8 @@ private extension HomeViewController {
         
         let input = HomeViewModel.Input.init(
             viewWillAppear: viewWillAppear.asSignal(onErrorSignalWith: .empty()),
-            selection: exhibitionTableView.rx.itemSelected.asDriver()
+            selection: exhibitionTableView.rx.itemSelected.asDriver().throttle(.milliseconds(500), latest: false),
+            searchWord: searchBar.rx.text.orEmpty.asDriver().debounce(.milliseconds(300))
         )
         let output = viewModel.transform(input: input)
         
