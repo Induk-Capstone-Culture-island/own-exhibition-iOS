@@ -66,6 +66,8 @@ final class ExhibitionResponseDTO: Decodable {
     }
 }
 
+// MARK: - EntityConvertible
+
 extension ExhibitionResponseDTO: EntityConvertible {
     
     func toEntity() -> Exhibition {
@@ -83,6 +85,7 @@ extension ExhibitionResponseDTO: EntityConvertible {
                 formatter.dateFormat = "yyyyMMdd"
                 return formatter.date(from: startDate)!
             }(),
+            // FIXME: 값이 없을때 0으로 지정하면 지도가 이상하게 나온다.
             location: .init(lon: Double(gpsX) ?? 0, lat: Double(gpsY) ?? 0),
             place: place,
             thumbnailUrl: thumbnail,
