@@ -44,7 +44,8 @@ private extension HomeViewController {
         let input = HomeViewModel.Input.init(
             viewWillAppear: viewWillAppear.asSignal(onErrorSignalWith: .empty()),
             selection: exhibitionTableView.rx.itemSelected.asDriver().throttle(.milliseconds(500), latest: false),
-            searchWord: searchBar.rx.text.orEmpty.asDriver().debounce(.milliseconds(300))
+            searchWord: searchBar.rx.text.orEmpty.asDriver().debounce(.milliseconds(300)),
+            lodingNextPage: exhibitionTableView.rx.didScrollToBottom.asDriver()
         )
         let output = viewModel.transform(input: input)
         
