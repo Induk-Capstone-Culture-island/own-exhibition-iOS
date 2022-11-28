@@ -9,9 +9,12 @@ import UIKit
 import RxSwift
 
 final class MyPageViewController: UIViewController {
+    
     private var disposeBag: DisposeBag = .init()
     
     private var viewModel: MyPageViewModel!
+    
+    // MARK: - UI Components
     
     //마이페이지 View
     @IBOutlet weak var EmailView: UIView!

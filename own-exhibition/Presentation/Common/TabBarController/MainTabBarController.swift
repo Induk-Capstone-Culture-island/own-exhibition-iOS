@@ -9,6 +9,8 @@ import UIKit
 
 final class MainTabBarController: UITabBarController {
     
+    // MARK: - Managed Controllers
+    
     private let homeNavigationController: UINavigationController = {
         let nc: UINavigationController = .init()
         nc.tabBarItem = .init(
@@ -39,6 +41,8 @@ final class MainTabBarController: UITabBarController {
         return nc
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -61,6 +65,8 @@ final class MainTabBarController: UITabBarController {
         self.tabBar.backgroundColor = .systemGray6
     }
 }
+
+// MARK: - UITabBarControllerDelegate
 
 extension MainTabBarController: UITabBarControllerDelegate {
     

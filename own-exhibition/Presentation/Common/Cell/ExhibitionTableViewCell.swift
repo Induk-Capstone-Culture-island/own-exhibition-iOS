@@ -9,6 +9,8 @@ import UIKit
 
 final class ExhibitionTableViewCell: UITableViewCell {
     
+    // MARK: - UI Components
+    
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var periodLabel: UILabel!
@@ -22,6 +24,8 @@ final class ExhibitionTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    // MARK: - Functions
     
     func bind(_ exhibition: Exhibition, withFetchedImage fetchedImage: @escaping (UIImage?) -> Void) {
         titleLabel.text = exhibition.title
@@ -55,8 +59,13 @@ final class ExhibitionTableViewCell: UITableViewCell {
             thumbnailImageView.image = .defaultThumbnail
         }
     }
+}
+
+// MARK: - Private Functions
+
+private extension ExhibitionTableViewCell {
     
-    private func fetchThumbnailImage(_ url: String, completion: @escaping (UIImage?) -> Void) {
+    func fetchThumbnailImage(_ url: String, completion: @escaping (UIImage?) -> Void) {
         ImageLoader.shared.patch(url) { result in
             switch result {
             case .success(let thumbnailImage):
