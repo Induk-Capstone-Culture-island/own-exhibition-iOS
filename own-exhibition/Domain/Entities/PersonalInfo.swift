@@ -15,6 +15,7 @@ struct PersonalInfo {
     let birth: Date
     let phoneNumber: String
 }
+
 #if DEBUG
 extension PersonalInfo {
     /// Debug 용 함수

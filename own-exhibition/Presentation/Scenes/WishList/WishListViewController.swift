@@ -12,10 +12,12 @@ final class WishListViewController: UIViewController {
     
     private let disposeBag = DisposeBag.init()
     
+    private var viewModel: WishListViewModel!
+
+    // MARK: - UI Components
+    
     @IBOutlet weak var searchBar: ExhibitionSearchBar!
     @IBOutlet weak var exhibitionTableView: UITableView!
-    
-    private var viewModel: WishListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
