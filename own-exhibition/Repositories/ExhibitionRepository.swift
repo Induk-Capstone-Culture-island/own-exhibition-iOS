@@ -9,18 +9,14 @@ import RxSwift
 
 final class ExhibitionRepository {
     
-    private let networkService: NetworkService<ExhibitionsResponseDTO> = .init()
+    private let networkService: NetworkService<ExhibitionPageResponseDTO> = .init()
     
-    func getExhibitions() -> Observable<[Exhibition]> {
-        let path: String = "exhibition"
+    // TODO: 서버 검색 API 구현되면 검색어 쿼리 추가
+    func getExhibitions(page: Int, searchWord: String) -> Observable<ExhibitionPage> {
+        let path: String = "exhibition?page=\(page)"
         return networkService.getItem(byPath: path)
-            .flatMapLatest { exhibitionsResponseDTO -> Observable<[Exhibition]> in
-                return .of(exhibitionsResponseDTO.data.map { $0.toEntity() })
+            .flatMapLatest { exhibitionPageResponseDTO -> Observable<ExhibitionPage> in
+                return .of(exhibitionPageResponseDTO.toEntity())
             }
-    }
-    
-    func getExhibitions(bySearchWord searchWord: String) -> Observable<[Exhibition]> {
-        // TODO: 서버 검색 API 구현되면 호출해서 검색결과 반환
-        return .of([.makeMock1(), .makeMock2()])
     }
 }

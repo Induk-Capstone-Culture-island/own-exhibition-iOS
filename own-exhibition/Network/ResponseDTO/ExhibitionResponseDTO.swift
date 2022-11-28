@@ -1,15 +1,11 @@
 //
-//  ExhibitionsResponseDTO.swift
+//  ExhibitionResponseDTO.swift
 //  own-exhibition
 //
-//  Created by Jaewon Yun on 2022/11/18.
+//  Created by Jaewon Yun on 2022/11/28.
 //
 
 import Foundation
-
-final class ExhibitionsResponseDTO: Decodable {
-    let data: [ExhibitionResponseDTO]
-}
 
 final class ExhibitionResponseDTO: Decodable {
     let seq: String
@@ -76,13 +72,13 @@ extension ExhibitionResponseDTO: EntityConvertible {
             startDate: {
                 let startDate: String = startDate
                 let formatter = DateFormatter()
-                formatter.dateFormat = "yyyyMMdd"
+                formatter.dateFormat = "yyyy-MM-dd"
                 return formatter.date(from: startDate)!
             }(),
             endDate: {
                 let startDate: String = endDate
                 let formatter = DateFormatter()
-                formatter.dateFormat = "yyyyMMdd"
+                formatter.dateFormat = "yyyy-MM-dd"
                 return formatter.date(from: startDate)!
             }(),
             // FIXME: 값이 없을때 0으로 지정하면 지도가 이상하게 나온다.
