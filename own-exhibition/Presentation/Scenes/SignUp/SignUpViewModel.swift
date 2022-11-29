@@ -78,9 +78,7 @@ private extension SignUpViewModel {
     
     func validatePassword(_ password: String, _ repassword: String) -> Bool {
         guard password == repassword else { return false }
-        
-        // FIXME: 새 패스워드 규칙 적용
-        let passwordRegex = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{5,15}"
+        let passwordRegex = "(?=.*\\d)(?=.*[a-z])[a-zA-Z\\d]{8,}"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
     }
     
