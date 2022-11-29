@@ -45,11 +45,8 @@ final class LoginViewModel: ViewModelType {
         
         let autoLogin = input.viewWillAppear
             .flatMapFirst { _ -> Driver<Bool> in
-                guard let currentUserID = self.userDefaultsRepository.getCurrentUserId(),
-                      let token = self.keychainRepository.get(id: currentUserID)
-                else {
-                    return .of(false)
-                }
+                guard let token = self.getCurrentToken() else { return .of(false) }
+                
                 return self.userRepository.getUserInfo(by: token)
                     .map { _ in true }
                     .asDriver(onErrorDriveWith: .empty())
@@ -82,5 +79,18 @@ final class LoginViewModel: ViewModelType {
             isLoggedIn: isLoggedIn,
             signUp: signUp
         )
+    }
+}
+
+private extension LoginViewModel {
+    
+    func getCurrentToken() -> Token? {
+        guard let currentUserID = self.userDefaultsRepository.getCurrentUserId(),
+              let token = self.keychainRepository.get(id: currentUserID)
+        else {
+            return nil
+        }
+        
+        return token
     }
 }
