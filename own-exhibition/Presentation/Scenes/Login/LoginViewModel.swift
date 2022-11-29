@@ -60,8 +60,7 @@ final class LoginViewModel: ViewModelType {
                     .asDriver(onErrorDriveWith: .empty())
             }
             .map { token in
-                self.userDefaultsRepository.saveCurrentUserId(token.id)
-                return self.keychainRepository.save(token: token)
+                return self.saveIDAndToken(token)
             }
         
         let isLoggedIn = Driver.merge(login, autoLogin)
@@ -92,5 +91,10 @@ private extension LoginViewModel {
         }
         
         return token
+    }
+    
+    func saveIDAndToken(_ token: Token) -> Bool {
+        self.userDefaultsRepository.saveCurrentUserId(token.id)
+        return self.keychainRepository.save(token: token)
     }
 }
