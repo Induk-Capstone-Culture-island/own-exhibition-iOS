@@ -27,7 +27,7 @@ final class ChangeInfoViewController: UIViewController {
         let input = ChangeInfoViewModel.Input.init(viewWillAppear: viewWillAppear)
         let output = viewModel.transform(input: input)
         
-        output.personalInfo
+        output.userInfo
             .drive()
             .disposed(by: disposeBag)
     }

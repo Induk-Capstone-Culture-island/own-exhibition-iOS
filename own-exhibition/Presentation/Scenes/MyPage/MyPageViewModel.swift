@@ -16,32 +16,32 @@ final class MyPageViewModel: ViewModelType {
     }
     
     struct Output {
-        let personalInfo: Driver<PersonalInfo>
-        let selectedChangeInfo: Driver<PersonalInfo>
+        let userInfo: Driver<UserInfo>
+        let selectedChangeInfo: Driver<UserInfo>
     }
     
     private let coordinator: MyPageCoordinator
-    private let personalInfo: PersonalInfo
+    private let userInfo: UserInfo
     
-    init(coordinator: MyPageCoordinator, personalInfo: PersonalInfo) {
+    init(coordinator: MyPageCoordinator, userInfo: UserInfo) {
         self.coordinator = coordinator
-        self.personalInfo = personalInfo
+        self.userInfo = userInfo
     }
     
     func transform(input: Input) -> Output {
-        let personalInfos = input.viewWillAppear
+        let userInfo = input.viewWillAppear
             .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
         
         let selectedChangeInfo = input.selection
             .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
             .do(onNext: coordinator.changeInfo)
                 
         return .init(
-            personalInfo: personalInfos,
+            userInfo: userInfo,
             selectedChangeInfo: selectedChangeInfo
         )
     }
