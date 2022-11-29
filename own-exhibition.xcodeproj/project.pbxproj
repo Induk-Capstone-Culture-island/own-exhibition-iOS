@@ -56,6 +56,9 @@
 		DA739E24292C7954003AEE4C /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA739E23292C7954003AEE4C /* SignUp.storyboard */; };
 		DA739E26292C795F003AEE4C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739E25292C795F003AEE4C /* SignUpViewController.swift */; };
 		DA739E28292C7968003AEE4C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739E27292C7968003AEE4C /* SignUpViewModel.swift */; };
+		DAA5B94F29360F7E00BAB04E /* UserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B94E29360F7E00BAB04E /* UserResponseDTO.swift */; };
+		DAA5B9512936102D00BAB04E /* SignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B9502936102D00BAB04E /* SignUpRequestDTO.swift */; };
+		DAA5B953293610C900BAB04E /* SignUpResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B952293610C900BAB04E /* SignUpResponseDTO.swift */; };
 		DAA5B95529361DBB00BAB04E /* AuthStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B95429361DBB00BAB04E /* AuthStatusManager.swift */; };
 		DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFB255291A90B7007A8DF0 /* CALayer+.swift */; };
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
@@ -148,6 +151,9 @@
 		DA739E23292C7954003AEE4C /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		DA739E25292C795F003AEE4C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DA739E27292C7968003AEE4C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		DAA5B94E29360F7E00BAB04E /* UserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseDTO.swift; sourceTree = "<group>"; };
+		DAA5B9502936102D00BAB04E /* SignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestDTO.swift; sourceTree = "<group>"; };
+		DAA5B952293610C900BAB04E /* SignUpResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseDTO.swift; sourceTree = "<group>"; };
 		DAA5B95429361DBB00BAB04E /* AuthStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusManager.swift; sourceTree = "<group>"; };
 		DAAFB255291A90B7007A8DF0 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		E5E722FB0506808F9D489C0D /* Pods-own-exhibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				DA720200293388AE00A69519 /* LoginRequestDTO.swift */,
+				DAA5B9502936102D00BAB04E /* SignUpRequestDTO.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -281,6 +288,8 @@
 				DA7202082934624700A69519 /* ExhibitionResponseDTO.swift */,
 				DA72020229338EFB00A69519 /* LoginResponseDTO.swift */,
 				DA7202172935D02200A69519 /* UserInfoResponseDTO.swift */,
+				DAA5B94E29360F7E00BAB04E /* UserResponseDTO.swift */,
+				DAA5B952293610C900BAB04E /* SignUpResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -811,10 +820,12 @@
 				6874D5562921036400465398 /* ChangeInfoViewController.swift in Sources */,
 				E805F2B0290159DA00D75FA3 /* Instantiatable.swift in Sources */,
 				6874D55A292103DE00465398 /* ChangeInfoCoordinator.swift in Sources */,
+				DAA5B953293610C900BAB04E /* SignUpResponseDTO.swift in Sources */,
 				E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */,
 				DA6BCE5A292E24960059E95D /* WishListCoordinator.swift in Sources */,
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
 				6874D54D29208C0700465398 /* UserRepository.swift in Sources */,
+				DAA5B94F29360F7E00BAB04E /* UserResponseDTO.swift in Sources */,
 				DA739DF029277D9E003AEE4C /* NetworkService.swift in Sources */,
 				68A26165290DB4D10036DF42 /* UIView+.swift in Sources */,
 				DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */,
@@ -833,6 +844,7 @@
 				E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */,
 				DAA5B95529361DBB00BAB04E /* AuthStatusManager.swift in Sources */,
 				DA72020D2934E6C000A69519 /* UIScrollView+Rx.swift in Sources */,
+				DAA5B9512936102D00BAB04E /* SignUpRequestDTO.swift in Sources */,
 				6874D558292103C500465398 /* ChangeInfoViewModel.swift in Sources */,
 				DA739DF329277F10003AEE4C /* ExhibitionPageResponseDTO.swift in Sources */,
 				DA7202122935C8FA00A69519 /* KeychainRepository.swift in Sources */,
