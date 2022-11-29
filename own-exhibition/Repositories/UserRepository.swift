@@ -27,4 +27,12 @@ final class UserRepository {
         return getUserInfo(by: token)
             .map { _ in true }
     }
+    
+    func createUser(with requestDTO: SignUpRequestDTO) -> Observable<Token> {
+        let networkService: NetworkService<SignUpResponseDTO> = .init()
+        return networkService.postItem(path: "register", body: requestDTO)
+            .map { responseDTO in
+                return .init(id: responseDTO.user.email, value: responseDTO.token)
+            }
+    }
 }
