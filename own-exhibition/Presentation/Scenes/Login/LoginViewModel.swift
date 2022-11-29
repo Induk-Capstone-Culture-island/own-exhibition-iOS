@@ -25,30 +25,18 @@ final class LoginViewModel: ViewModelType {
     
     private let coordinator: LoginCoordinator
     private let userRepository: UserRepository
-    private let keychainRepository: KeychainRepository
-    private let userDefaultsRepository: UserDefaultsRepository
 
-    init(
-        coordinator: LoginCoordinator,
-        userRepository: UserRepository,
-        keychainRepository: KeychainRepository,
-        userDefaultsRepository: UserDefaultsRepository
-    ) {
+    init(coordinator: LoginCoordinator, userRepository: UserRepository) {
         self.coordinator = coordinator
         self.userRepository = userRepository
-        self.keychainRepository = keychainRepository
-        self.userDefaultsRepository = userDefaultsRepository
     }
     
     func transform(input: Input) -> Output {
         let idAndPassword = Driver.combineLatest(input.id, input.password)
         
         let autoLogin = input.viewWillAppear
-            .flatMapFirst { _ -> Driver<Bool> in
-                guard let token = self.getCurrentToken() else { return .of(false) }
-                
-                return self.userRepository.verifyToken(token)
-                    .asDriver(onErrorJustReturn: false)
+            .flatMapFirst {
+                return AuthStatusManager.shared.isLoggedIn.asDriver(onErrorJustReturn: false)
             }
         
         let login = input.login
@@ -56,9 +44,7 @@ final class LoginViewModel: ViewModelType {
             .flatMapFirst { id, password in
                 let requestDTO = LoginRequestDTO(email: id, password: password)
                 return self.userRepository.getToken(with: requestDTO)
-                    .do(onNext: { token in
-                        self.saveIDAndToken(token)
-                    })
+                    .do(onNext: AuthStatusManager.shared.login(with:))
                     .map { _ in true }
                     .asDriver(onErrorJustReturn: false)
             }
@@ -78,23 +64,5 @@ final class LoginViewModel: ViewModelType {
             isLoggedIn: isLoggedIn,
             signUp: signUp
         )
-    }
-}
-
-private extension LoginViewModel {
-    
-    func getCurrentToken() -> Token? {
-        guard let currentUserID = self.userDefaultsRepository.getCurrentUserId(),
-              let token = self.keychainRepository.get(id: currentUserID)
-        else {
-            return nil
-        }
-        
-        return token
-    }
-    
-    func saveIDAndToken(_ token: Token) {
-        self.userDefaultsRepository.saveCurrentUserId(token.id)
-        self.keychainRepository.save(token: token)
     }
 }

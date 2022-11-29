@@ -30,9 +30,11 @@ final class SignUpViewModel: ViewModelType {
     }
     
     private let signUpCoordinator: SignUpCoordinator
+    private let userRepository: UserRepository
     
-    init(signUpCoordinator: SignUpCoordinator) {
+    init(signUpCoordinator: SignUpCoordinator, userRepository: UserRepository) {
         self.signUpCoordinator = signUpCoordinator
+        self.userRepository = userRepository
     }
     
     func transform(input: Input) -> Output {
@@ -52,10 +54,26 @@ final class SignUpViewModel: ViewModelType {
             phoneNumberValidation
         ).map { $0 && $1 && $2 && $3 }
         
-        // FIXME: 회원가입 처리
+        let signUpRequestDTO = Driver.combineLatest(
+            input.userName,
+            input.id,
+            input.password,
+            input.birthday
+                .map {
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    return formatter.string(from: $0)
+                }
+        )
+            .map { SignUpRequestDTO.init(name: $0, email: $1, password: $2, birthday: $3) }
+        
         let signUp = input.signUp
-            .flatMapFirst { _ in
-                return Driver<Void>.of(())
+            .withLatestFrom(signUpRequestDTO)
+            .flatMapFirst { requestDTO in
+                return self.userRepository.createUser(with: requestDTO)
+                    .do(onNext: AuthStatusManager.shared.login(with:))
+                    .map { _ -> Void in }
+                    .asDriver(onErrorDriveWith: .empty())
             }
         
         return .init(

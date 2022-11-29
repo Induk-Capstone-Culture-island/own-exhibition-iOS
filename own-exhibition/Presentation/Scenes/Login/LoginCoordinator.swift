@@ -27,12 +27,7 @@ final class LoginCoordinator {
     
     func start() {
         let loginVC: LoginViewController = .instantiate(withStoryboardName: storyboardName)
-        let loginVM: LoginViewModel = .init(
-            coordinator: self,
-            userRepository: .init(),
-            keychainRepository: .init(),
-            userDefaultsRepository: .init()
-        )
+        let loginVM: LoginViewModel = .init(coordinator: self, userRepository: .init())
         loginVC.setViewModel(by: loginVM)
         
         presentedNavigationController.pushViewController(loginVC, animated: false)
