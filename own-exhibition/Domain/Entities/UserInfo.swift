@@ -8,7 +8,6 @@
 import Foundation
 
 struct UserInfo {
-    let id: String
     let password: String
     let name: String
     let email: String
@@ -21,7 +20,6 @@ extension UserInfo {
     /// Debug 용 함수
     static func makemock() -> Self {
         return .init(
-            id: "id",
             password: "pw",
             name: "name",
             email: "email@aa",

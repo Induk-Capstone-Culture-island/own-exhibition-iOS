@@ -9,19 +9,17 @@ import RxSwift
 
 final class UserRepository {
     
-    func getUserInfo() -> Observable<UserInfo> {
-        return .of(
-            .makemock()
-        )
+    func getUserInfo(by token: Token) -> Observable<UserInfo> {
+        let networkService: NetworkService<UserInfoResponseDTO> = .init()
+        return networkService.getItem(path: "userinfo", token: token)
+            .map { $0.user.toEntity() }
     }
     
-    func login(with requestDTO: LoginRequestDTO) -> Observable<Bool> {
+    func login(with requestDTO: LoginRequestDTO) -> Observable<Token> {
         let networkService: NetworkService<LoginResponseDTO> = .init()
         return networkService.postItem(path: "login", body: requestDTO)
-            .do(onNext: { response in
-                // TODO: Token 저장
-                _ = response.token
-            })
-            .map { $0.token.isEmpty ? false : true }
+            .map { responseDTO in
+                return .init(id: requestDTO.email, value: responseDTO.token)
+            }
     }
 }
