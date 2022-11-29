@@ -74,7 +74,9 @@ private extension SignUpViewController {
             output.signUpButtonEnable
                 .drive(onNext: { self.signUpButton.isEnabled = $0 }),
             output.signUp
-                .drive(),
+                .drive(onNext: { _ in
+                    self.navigationController?.popViewController(animated: false)
+                }),
         ]
             .forEach { $0.disposed(by: disposeBag) }
     }

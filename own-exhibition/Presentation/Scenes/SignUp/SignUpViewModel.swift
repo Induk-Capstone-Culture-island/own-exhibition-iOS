@@ -53,8 +53,10 @@ final class SignUpViewModel: ViewModelType {
         ).map { $0 && $1 && $2 && $3 }
         
         // FIXME: 회원가입 처리
-        let signUp = Driver<Void>.empty()
-            .do(onNext: {  })
+        let signUp = input.signUp
+            .flatMapFirst { _ in
+                return Driver<Void>.of(())
+            }
         
         return .init(
             idValidation: idValidation,
