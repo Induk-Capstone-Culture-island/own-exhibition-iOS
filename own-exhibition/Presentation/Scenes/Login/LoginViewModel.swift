@@ -36,7 +36,7 @@ final class LoginViewModel: ViewModelType {
         
         let autoLogin = input.viewWillAppear
             .flatMapFirst { _ -> Driver<Bool> in
-                return .of(AuthStatusManager.shared.isLoggedIn)
+                return .of(LoginStatusManager.shared.isLoggedIn)
             }
         
         let login = input.login
@@ -44,7 +44,7 @@ final class LoginViewModel: ViewModelType {
             .flatMapFirst { id, password in
                 let requestDTO = LoginRequestDTO(email: id, password: password)
                 return self.userRepository.getToken(with: requestDTO)
-                    .do(onNext: AuthStatusManager.shared.login(with:))
+                    .do(onNext: LoginStatusManager.shared.login(with:))
                     .map { _ in true }
                     .asDriver(onErrorJustReturn: false)
             }

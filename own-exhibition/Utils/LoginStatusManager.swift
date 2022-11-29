@@ -1,14 +1,14 @@
 //
-//  AuthStatusManager.swift
+//  LoginStatusManager.swift
 //  own-exhibition
 //
 //  Created by Jaewon Yun on 2022/11/29.
 //
 
-final class AuthStatusManager {
+final class LoginStatusManager {
     
     /// 앱의 로그인 상태를 관리하는 싱글톤 객체 입니다.
-    static let shared: AuthStatusManager = .init()
+    static let shared: LoginStatusManager = .init()
     
     private let userRepository: UserRepository
     private let keychainRepository: KeychainRepository

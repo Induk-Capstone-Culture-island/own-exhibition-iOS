@@ -71,7 +71,7 @@ final class SignUpViewModel: ViewModelType {
             .withLatestFrom(signUpRequestDTO)
             .flatMapFirst { requestDTO in
                 return self.userRepository.createUser(with: requestDTO)
-                    .do(onNext: AuthStatusManager.shared.login(with:))
+                    .do(onNext: LoginStatusManager.shared.login(with:))
                     .map { _ -> Void in }
                     .asDriver(onErrorDriveWith: .empty())
             }

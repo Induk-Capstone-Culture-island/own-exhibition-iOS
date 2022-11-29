@@ -73,7 +73,7 @@ extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == myPageNavigationController || viewController == wishListNavigationController {
             
-            if AuthStatusManager.shared.isLoggedIn {
+            if LoginStatusManager.shared.isLoggedIn {
                 return true
             } else {
                 guard let presentingNC = tabBarController.selectedViewController as? UINavigationController else {
