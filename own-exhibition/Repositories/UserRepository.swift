@@ -22,4 +22,9 @@ final class UserRepository {
                 return .init(id: requestDTO.email, value: responseDTO.token)
             }
     }
+    
+    func verifyToken(_ token: Token) -> Observable<Bool> {
+        return getUserInfo(by: token)
+            .map { _ in true }
+    }
 }

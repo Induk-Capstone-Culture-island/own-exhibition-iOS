@@ -47,9 +47,8 @@ final class LoginViewModel: ViewModelType {
             .flatMapFirst { _ -> Driver<Bool> in
                 guard let token = self.getCurrentToken() else { return .of(false) }
                 
-                return self.userRepository.getUserInfo(by: token)
-                    .map { _ in true }
-                    .asDriver(onErrorDriveWith: .empty())
+                return self.userRepository.verifyToken(token)
+                    .asDriver(onErrorJustReturn: false)
             }
         
         let login = input.login
