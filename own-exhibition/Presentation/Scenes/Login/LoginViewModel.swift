@@ -35,8 +35,8 @@ final class LoginViewModel: ViewModelType {
         let idAndPassword = Driver.combineLatest(input.id, input.password)
         
         let autoLogin = input.viewWillAppear
-            .flatMapFirst {
-                return AuthStatusManager.shared.isLoggedIn.asDriver(onErrorJustReturn: false)
+            .flatMapFirst { _ -> Driver<Bool> in
+                return .of(AuthStatusManager.shared.isLoggedIn)
             }
         
         let login = input.login

@@ -72,10 +72,8 @@ extension MainTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == myPageNavigationController || viewController == wishListNavigationController {
-            // FIXME: 로그인 되어있는지 확인하는 로직 추가
-            let isLoggedIn: Bool = false
             
-            if isLoggedIn {
+            if AuthStatusManager.shared.isLoggedIn {
                 return true
             } else {
                 guard let presentingNC = tabBarController.selectedViewController as? UINavigationController else {

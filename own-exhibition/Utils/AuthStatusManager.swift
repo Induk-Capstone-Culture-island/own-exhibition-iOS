@@ -5,8 +5,6 @@
 //  Created by Jaewon Yun on 2022/11/29.
 //
 
-import RxSwift
-
 final class AuthStatusManager {
     
     /// 앱의 로그인 상태를 관리하는 싱글톤 객체 입니다.
@@ -24,15 +22,15 @@ final class AuthStatusManager {
     
     /// 현재 사용자가 앱에 로그인 되어있음을 나타내는 Boolean 값입니다.
     ///
-    /// UserDefaults 에 사용자 아이디가 저장되어 있고, Keychain 에 유효한 Token 이 저장되어 있는 상태를 의미합니다.
-    var isLoggedIn: Observable<Bool> {
+    /// UserDefaults 에 사용자 아이디가 저장되어 있고, Keychain 에 Token 이 저장되어 있는 상태를 의미합니다.
+    var isLoggedIn: Bool {
         guard let id = userDefaultsRepository.getCurrentUserId(),
-              let token = keychainRepository.get(id: id)
+              let _ = keychainRepository.get(id: id)
         else {
-            return .of(false)
+            return false
         }
         
-        return userRepository.verifyToken(token)
+        return true
     }
     
     /// 사용자가 로그인했을 때 호출하는 함수입니다.
