@@ -23,9 +23,11 @@ final class LoginViewModel: ViewModelType {
     }
     
     private let coordinator: LoginCoordinator
-    
-    init(coordinator: LoginCoordinator) {
+    private let userRepository: UserRepository
+
+    init(coordinator: LoginCoordinator, userRepository: UserRepository) {
         self.coordinator = coordinator
+        self.userRepository = userRepository
     }
     
     func transform(input: Input) -> Output {
@@ -34,8 +36,9 @@ final class LoginViewModel: ViewModelType {
         let isLoggedIn = input.login
             .withLatestFrom(idAndPassword)
             .flatMapFirst { id, password in
-                // FIXME: 로그인 처리 로직 추가
-                return .of(true).asDriver()
+                let requestDTO = LoginRequestDTO(email: id, password: password)
+                return self.userRepository.login(with: requestDTO)
+                    .asDriver(onErrorJustReturn: false)
             }
             .do(onNext: { isLoggedIn in
                 if isLoggedIn == true {

@@ -18,13 +18,13 @@ final class MyPageCoordinator {
     
     func start() {
         let myPageVC: MyPageViewController = .instantiate(withStoryboardName: storyboardName)
-        let myPageVM: MyPageViewModel = .init(coordinator: self, personalInfo: .makemock())
+        let myPageVM: MyPageViewModel = .init(coordinator: self, userInfo: .makemock())
         myPageVC.setViewModel(by: myPageVM)
         navigationController.pushViewController(myPageVC, animated: false)
     }
     
-    func changeInfo(with personalInfo: PersonalInfo) {
+    func changeInfo(with userInfo: UserInfo) {
         let changeInfoCoordinator: ChangeInfoCoordinator = .init(navigationController: navigationController)
-        changeInfoCoordinator.start(with: personalInfo)
+        changeInfoCoordinator.start(with: userInfo)
     }
 }

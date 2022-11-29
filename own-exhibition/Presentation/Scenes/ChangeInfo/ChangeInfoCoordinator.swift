@@ -16,9 +16,9 @@ final class ChangeInfoCoordinator {
         self.navigationController = navigationController
     }
     
-    func start(with personalInfo: PersonalInfo) {
+    func start(with userInfo: UserInfo) {
         let changeInfoVC: ChangeInfoViewController = .instantiate(withStoryboardName: storyboardName)
-        let changeInfoVM: ChangeInfoViewModel = .init(personalInfo: personalInfo)
+        let changeInfoVM: ChangeInfoViewModel = .init(userInfo: userInfo)
         changeInfoVC.setViewModel(by: changeInfoVM)
         navigationController.pushViewController(changeInfoVC, animated: true)
     }

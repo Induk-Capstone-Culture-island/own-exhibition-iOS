@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		63D942ABEB0838AFC29B0A31 /* Pods_own_exhibitionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */; };
-		6874D54B291C2A6E00465398 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D54A291C2A6E00465398 /* PersonalInfo.swift */; };
-		6874D54D29208C0700465398 /* PersonalInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D54C29208C0700465398 /* PersonalInfoRepository.swift */; };
+		6874D54B291C2A6E00465398 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D54A291C2A6E00465398 /* UserInfo.swift */; };
+		6874D54D29208C0700465398 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D54C29208C0700465398 /* UserRepository.swift */; };
 		6874D554292102C000465398 /* ChangeInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6874D553292102C000465398 /* ChangeInfo.storyboard */; };
 		6874D5562921036400465398 /* ChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D5552921036400465398 /* ChangeInfoViewController.swift */; };
 		6874D558292103C500465398 /* ChangeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874D557292103C500465398 /* ChangeInfoViewModel.swift */; };
@@ -38,6 +38,8 @@
 		DA6BCE58292E24870059E95D /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BCE57292E24870059E95D /* WishListViewController.swift */; };
 		DA6BCE5A292E24960059E95D /* WishListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BCE59292E24960059E95D /* WishListCoordinator.swift */; };
 		DA7201FE2932292900A69519 /* ExhibitionSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7201FD2932292900A69519 /* ExhibitionSearchBar.swift */; };
+		DA720201293388AE00A69519 /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA720200293388AE00A69519 /* LoginRequestDTO.swift */; };
+		DA72020329338EFB00A69519 /* LoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72020229338EFB00A69519 /* LoginResponseDTO.swift */; };
 		DA72020529345B3200A69519 /* ExhibitionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72020429345B3200A69519 /* ExhibitionPage.swift */; };
 		DA7202092934624700A69519 /* ExhibitionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7202082934624700A69519 /* ExhibitionResponseDTO.swift */; };
 		DA72020D2934E6C000A69519 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72020C2934E6C000A69519 /* UIScrollView+Rx.swift */; };
@@ -90,8 +92,8 @@
 
 /* Begin PBXFileReference section */
 		0DB22A055785C1255AEF29FB /* Pods-own-exhibition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.debug.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.debug.xcconfig"; sourceTree = "<group>"; };
-		6874D54A291C2A6E00465398 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
-		6874D54C29208C0700465398 /* PersonalInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoRepository.swift; sourceTree = "<group>"; };
+		6874D54A291C2A6E00465398 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		6874D54C29208C0700465398 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		6874D553292102C000465398 /* ChangeInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeInfo.storyboard; sourceTree = "<group>"; };
 		6874D5552921036400465398 /* ChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoViewController.swift; sourceTree = "<group>"; };
 		6874D557292103C500465398 /* ChangeInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +125,8 @@
 		DA6BCE57292E24870059E95D /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		DA6BCE59292E24960059E95D /* WishListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCoordinator.swift; sourceTree = "<group>"; };
 		DA7201FD2932292900A69519 /* ExhibitionSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionSearchBar.swift; sourceTree = "<group>"; };
+		DA720200293388AE00A69519 /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
+		DA72020229338EFB00A69519 /* LoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDTO.swift; sourceTree = "<group>"; };
 		DA72020429345B3200A69519 /* ExhibitionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionPage.swift; sourceTree = "<group>"; };
 		DA7202082934624700A69519 /* ExhibitionResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionResponseDTO.swift; sourceTree = "<group>"; };
 		DA72020C2934E6C000A69519 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
@@ -252,11 +256,20 @@
 			path = BarButtonItem;
 			sourceTree = "<group>";
 		};
+		DA7201FF2933889B00A69519 /* RequestDTO */ = {
+			isa = PBXGroup;
+			children = (
+				DA720200293388AE00A69519 /* LoginRequestDTO.swift */,
+			);
+			path = RequestDTO;
+			sourceTree = "<group>";
+		};
 		DA739DF129277EBF003AEE4C /* ResponseDTO */ = {
 			isa = PBXGroup;
 			children = (
 				DA739DF229277F10003AEE4C /* ExhibitionPageResponseDTO.swift */,
 				DA7202082934624700A69519 /* ExhibitionResponseDTO.swift */,
+				DA72020229338EFB00A69519 /* LoginResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -303,7 +316,7 @@
 			children = (
 				E805F2B92901944800D75FA3 /* Exhibition.swift */,
 				DA72020429345B3200A69519 /* ExhibitionPage.swift */,
-				6874D54A291C2A6E00465398 /* PersonalInfo.swift */,
+				6874D54A291C2A6E00465398 /* UserInfo.swift */,
 				DA41F6DD290F845D008ED455 /* Utils */,
 			);
 			path = Entities;
@@ -449,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				DA739DEF29277D9E003AEE4C /* NetworkService.swift */,
+				DA7201FF2933889B00A69519 /* RequestDTO */,
 				DA739DF129277EBF003AEE4C /* ResponseDTO */,
 			);
 			path = Network;
@@ -458,7 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				DA41F6DE29100FFB008ED455 /* ExhibitionRepository.swift */,
-				6874D54C29208C0700465398 /* PersonalInfoRepository.swift */,
+				6874D54C29208C0700465398 /* UserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -784,11 +798,11 @@
 				E805F2B6290187F700D75FA3 /* MainTabBarController.swift in Sources */,
 				DA6BCE5A292E24960059E95D /* WishListCoordinator.swift in Sources */,
 				E8A1ADDB28EBDD1600A360FA /* SceneDelegate.swift in Sources */,
-				6874D54D29208C0700465398 /* PersonalInfoRepository.swift in Sources */,
+				6874D54D29208C0700465398 /* UserRepository.swift in Sources */,
 				DA739DF029277D9E003AEE4C /* NetworkService.swift in Sources */,
 				68A26165290DB4D10036DF42 /* UIView+.swift in Sources */,
 				DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */,
-				6874D54B291C2A6E00465398 /* PersonalInfo.swift in Sources */,
+				6874D54B291C2A6E00465398 /* UserInfo.swift in Sources */,
 				DA739E22292C792E003AEE4C /* SignUpCoordinator.swift in Sources */,
 				DA0A881F291D424500E9AE43 /* ImageLoader.swift in Sources */,
 				DA7201FE2932292900A69519 /* ExhibitionSearchBar.swift in Sources */,
@@ -807,6 +821,8 @@
 				DA7202092934624700A69519 /* ExhibitionResponseDTO.swift in Sources */,
 				DA42DD7B29226AB700094733 /* UIImage+.swift in Sources */,
 				DA41F6DF29100FFB008ED455 /* ExhibitionRepository.swift in Sources */,
+				DA72020329338EFB00A69519 /* LoginResponseDTO.swift in Sources */,
+				DA720201293388AE00A69519 /* LoginRequestDTO.swift in Sources */,
 				DA739E28292C7968003AEE4C /* SignUpViewModel.swift in Sources */,
 				68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */,
 			);
