@@ -15,7 +15,7 @@ final class UserRepository {
             .map { $0.user.toEntity() }
     }
     
-    func login(with requestDTO: LoginRequestDTO) -> Observable<Token> {
+    func getToken(with requestDTO: LoginRequestDTO) -> Observable<Token> {
         let networkService: NetworkService<LoginResponseDTO> = .init()
         return networkService.postItem(path: "login", body: requestDTO)
             .map { responseDTO in
