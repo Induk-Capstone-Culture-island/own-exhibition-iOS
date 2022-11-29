@@ -8,8 +8,10 @@
 import Foundation
 
 final class KeychainRepository {
+    
     private let serviceName = Bundle.main.bundleIdentifier!
     
+    @discardableResult
     func save(token: Token) -> Bool {
         let query: [CFString : Any] = [kSecClass : kSecClassGenericPassword,
                                  kSecAttrService : serviceName,

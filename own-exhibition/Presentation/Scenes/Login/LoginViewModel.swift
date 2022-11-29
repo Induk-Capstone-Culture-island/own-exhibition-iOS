@@ -56,10 +56,11 @@ final class LoginViewModel: ViewModelType {
             .flatMapFirst { id, password in
                 let requestDTO = LoginRequestDTO(email: id, password: password)
                 return self.userRepository.login(with: requestDTO)
-                    .asDriver(onErrorDriveWith: .empty())
-            }
-            .map { token in
-                return self.saveIDAndToken(token)
+                    .do(onNext: { token in
+                        self.saveIDAndToken(token)
+                    })
+                    .map { _ in true }
+                    .asDriver(onErrorJustReturn: false)
             }
         
         let isLoggedIn = Driver.merge(login, autoLogin)
@@ -92,8 +93,8 @@ private extension LoginViewModel {
         return token
     }
     
-    func saveIDAndToken(_ token: Token) -> Bool {
+    func saveIDAndToken(_ token: Token) {
         self.userDefaultsRepository.saveCurrentUserId(token.id)
-        return self.keychainRepository.save(token: token)
+        self.keychainRepository.save(token: token)
     }
 }
