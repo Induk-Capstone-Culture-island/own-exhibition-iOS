@@ -43,6 +43,9 @@
 		DA72020529345B3200A69519 /* ExhibitionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72020429345B3200A69519 /* ExhibitionPage.swift */; };
 		DA7202092934624700A69519 /* ExhibitionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7202082934624700A69519 /* ExhibitionResponseDTO.swift */; };
 		DA72020D2934E6C000A69519 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72020C2934E6C000A69519 /* UIScrollView+Rx.swift */; };
+		DA7202122935C8FA00A69519 /* KeychainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7202112935C8FA00A69519 /* KeychainRepository.swift */; };
+		DA7202142935C98B00A69519 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7202132935C98B00A69519 /* Token.swift */; };
+		DA7202162935C9DA00A69519 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7202152935C9DA00A69519 /* UserDefaultsRepository.swift */; };
 		DA739DD7292333C4003AEE4C /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DD6292333C4003AEE4C /* MyPageCoordinator.swift */; };
 		DA739DF029277D9E003AEE4C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DEF29277D9E003AEE4C /* NetworkService.swift */; };
 		DA739DF329277F10003AEE4C /* ExhibitionPageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA739DF229277F10003AEE4C /* ExhibitionPageResponseDTO.swift */; };
@@ -130,6 +133,9 @@
 		DA72020429345B3200A69519 /* ExhibitionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionPage.swift; sourceTree = "<group>"; };
 		DA7202082934624700A69519 /* ExhibitionResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionResponseDTO.swift; sourceTree = "<group>"; };
 		DA72020C2934E6C000A69519 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
+		DA7202112935C8FA00A69519 /* KeychainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepository.swift; sourceTree = "<group>"; };
+		DA7202132935C98B00A69519 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		DA7202152935C9DA00A69519 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		DA739DD6292333C4003AEE4C /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		DA739DEF29277D9E003AEE4C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DA739DF229277F10003AEE4C /* ExhibitionPageResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionPageResponseDTO.swift; sourceTree = "<group>"; };
@@ -318,6 +324,7 @@
 				DA72020429345B3200A69519 /* ExhibitionPage.swift */,
 				6874D54A291C2A6E00465398 /* UserInfo.swift */,
 				DA41F6DD290F845D008ED455 /* Utils */,
+				DA7202132935C98B00A69519 /* Token.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -473,6 +480,8 @@
 			children = (
 				DA41F6DE29100FFB008ED455 /* ExhibitionRepository.swift */,
 				6874D54C29208C0700465398 /* UserRepository.swift */,
+				DA7202112935C8FA00A69519 /* KeychainRepository.swift */,
+				DA7202152935C9DA00A69519 /* UserDefaultsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -778,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E805F2C72901AAFC00D75FA3 /* Reusable.swift in Sources */,
+				DA7202142935C98B00A69519 /* Token.swift in Sources */,
 				DA170D442910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift in Sources */,
 				E8A1ADDD28EBDD1600A360FA /* HomeViewController.swift in Sources */,
 				DA72020529345B3200A69519 /* ExhibitionPage.swift in Sources */,
@@ -817,6 +827,8 @@
 				DA72020D2934E6C000A69519 /* UIScrollView+Rx.swift in Sources */,
 				6874D558292103C500465398 /* ChangeInfoViewModel.swift in Sources */,
 				DA739DF329277F10003AEE4C /* ExhibitionPageResponseDTO.swift in Sources */,
+				DA7202122935C8FA00A69519 /* KeychainRepository.swift in Sources */,
+				DA7202162935C9DA00A69519 /* UserDefaultsRepository.swift in Sources */,
 				DA42DD962923277C00094733 /* LoginViewModel.swift in Sources */,
 				DA7202092934624700A69519 /* ExhibitionResponseDTO.swift in Sources */,
 				DA42DD7B29226AB700094733 /* UIImage+.swift in Sources */,
