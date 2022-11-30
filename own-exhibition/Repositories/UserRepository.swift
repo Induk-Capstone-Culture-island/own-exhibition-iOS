@@ -7,7 +7,14 @@
 
 import RxSwift
 
-final class UserRepository {
+protocol UserRepositoryProtocol {
+    func getUserInfo(by token: Token) -> Observable<UserInfo>
+    func getToken(with requestDTO: LoginRequestDTO) -> Observable<Token>
+    func verifyToken(_ token: Token) -> Observable<Bool>
+    func createUser(with requestDTO: SignUpRequestDTO) -> Observable<Token>
+}
+
+final class UserRepository: UserRepositoryProtocol {
     
     func getUserInfo(by token: Token) -> Observable<UserInfo> {
         let networkService: NetworkService<UserInfoResponseDTO> = .init()

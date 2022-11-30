@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class LoginCoordinator {
+protocol LoginCoordinatorProtocol {
+    func start()
+    func toTargetViewController()
+    func toSignUp()
+}
+
+final class LoginCoordinator: LoginCoordinatorProtocol {
     
     private let navigationController: UINavigationController
     private let storyboardName: String = "Login"
@@ -27,7 +33,7 @@ final class LoginCoordinator {
     
     func start() {
         let loginVC: LoginViewController = .instantiate(withStoryboardName: storyboardName)
-        let loginVM: LoginViewModel = .init(coordinator: self, userRepository: .init())
+        let loginVM: LoginViewModel = .init(coordinator: self, userRepository: UserRepository.init())
         loginVC.setViewModel(by: loginVM)
         
         presentedNavigationController.pushViewController(loginVC, animated: false)
