@@ -16,9 +16,9 @@ final class ChangePasswordCoordinator {
         self.navigationController = navigationController
     }
     
-    func start(with personalInfo: PersonalInfo) {
+    func start(with userInfo: UserInfo) {
         let changePasswordVC: ChangePasswordViewController = .instantiate(withStoryboardName: storyboardName)
-        let changePasswordVM: ChangePasswordViewModel = .init(personalInfo: personalInfo)
+        let changePasswordVM: ChangePasswordViewModel = .init(userInfo: userInfo)
         changePasswordVC.setViewModel(by: changePasswordVM)
         navigationController.pushViewController(changePasswordVC, animated: true)
     }

@@ -19,57 +19,59 @@ final class MyPageViewModel: ViewModelType {
     }
     
     struct Output {
-        let personalInfo: Driver<PersonalInfo>
-        let selectedChangeName: Driver<PersonalInfo>
-        let selectedChangeBirth: Driver<PersonalInfo>
-        let selectedChangePhoneNumber: Driver<PersonalInfo>
-        let selectedChangePassword: Driver<PersonalInfo>
+
+        let selectedChangeName: Driver<UserInfo>
+        let selectedChangeBirth: Driver<UserInfo>
+        let selectedChangePhoneNumber: Driver<UserInfo>
+        let selectedChangePassword: Driver<UserInfo>
+        let userInfo: Driver<UserInfo>
+
     }
     
     private let coordinator: MyPageCoordinator
-    private let personalInfo: PersonalInfo
+    private let userInfo: UserInfo
     
-    init(coordinator: MyPageCoordinator, personalInfo: PersonalInfo) {
+    init(coordinator: MyPageCoordinator, userInfo: UserInfo) {
         self.coordinator = coordinator
-        self.personalInfo = personalInfo
+        self.userInfo = userInfo
     }
     
     func transform(input: Input) -> Output {
-        let personalInfos = input.viewWillAppear
+        let userInfo = input.viewWillAppear
             .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
         
         let selectedChangeName = input.selectedChangeName
             .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
             .do(onNext: coordinator.changeInfo)
                 
         let selectedChangePhoneNumber = input.selectedChangePhoneNumber
             .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
             .do(onNext: coordinator.changeInfo)
                 
         let selectedChangeBirth = input.selectedChangeBirth
             .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
             .do(onNext: coordinator.changeInfo)
         
         let selectedChangePassword = input.selectedChangePassword
             .flatMapLatest { _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
             .do(onNext: coordinator.changePassword)
                 
         return .init(
-            personalInfo: personalInfos,
             selectedChangeName: selectedChangePassword,
             selectedChangeBirth: selectedChangeName,
             selectedChangePhoneNumber: selectedChangeBirth,
-            selectedChangePassword: selectedChangePhoneNumber
+            selectedChangePassword: selectedChangePhoneNumber,
+            userInfo: userInfo
         )
     }
 }

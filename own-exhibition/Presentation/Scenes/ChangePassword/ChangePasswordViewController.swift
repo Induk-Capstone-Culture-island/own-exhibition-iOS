@@ -27,7 +27,7 @@ class ChangePasswordViewController: UIViewController {
         let input = ChangePasswordViewModel.Input.init(viewWillAppear: viewWillAppear)
         let output = viewModel.transform(input: input)
         
-        output.personalInfo
+        output.userInfo
             .drive()
             .disposed(by: disposeBag)
     }

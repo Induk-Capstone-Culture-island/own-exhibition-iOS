@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct PersonalInfo {
-    let id: String
+struct UserInfo {
     let password: String
     let name: String
     let email: String
@@ -17,11 +16,10 @@ struct PersonalInfo {
 }
 
 #if DEBUG
-extension PersonalInfo {
+extension UserInfo {
     /// Debug 용 함수
     static func makemock() -> Self {
         return .init(
-            id: "id",
             password: "pw",
             name: "name",
             email: "email@aa",

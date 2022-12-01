@@ -27,7 +27,7 @@ final class LoginCoordinator {
     
     func start() {
         let loginVC: LoginViewController = .instantiate(withStoryboardName: storyboardName)
-        let loginVM: LoginViewModel = .init(coordinator: self)
+        let loginVM: LoginViewModel = .init(coordinator: self, userRepository: .init())
         loginVC.setViewModel(by: loginVM)
         
         presentedNavigationController.pushViewController(loginVC, animated: false)
@@ -37,8 +37,10 @@ final class LoginCoordinator {
     }
     
     func toTargetViewController() {
-        navigationController.dismiss(animated: false)
-        tabBarController.selectedViewController = targetViewController
+        DispatchQueue.main.async {
+            self.navigationController.dismiss(animated: false)
+            self.tabBarController.selectedViewController = self.targetViewController
+        }
     }
     
     func toSignUp() {

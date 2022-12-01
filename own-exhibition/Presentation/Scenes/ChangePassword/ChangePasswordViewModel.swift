@@ -15,20 +15,20 @@ final class ChangePasswordViewModel: ViewModelType {
     }
     
     struct Output {
-        let personalInfo: Driver<PersonalInfo>
+        let userInfo: Driver<UserInfo>
     }
     
-    private let personalInfo: PersonalInfo
+    private let userInfo: UserInfo
     
-    init(personalInfo: PersonalInfo){
-        self.personalInfo = personalInfo
+    init(userInfo: UserInfo){
+        self.userInfo = userInfo
     }
     
     func transform(input: Input) -> Output {
-        let personalInfo = input.viewWillAppear
+        let userInfo = input.viewWillAppear
             .flatMapLatest{ _ in
-                return Driver<PersonalInfo>.of(self.personalInfo)
+                return Driver<UserInfo>.of(self.userInfo)
             }
-        return .init(personalInfo: personalInfo)
+        return .init(userInfo: userInfo)
     }
 }

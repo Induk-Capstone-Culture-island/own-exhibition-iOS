@@ -57,7 +57,7 @@ final class MyPageViewController: UIViewController {
         )
         let output = viewModel.transform(input: input)
         
-        output.personalInfo
+        output.userInfo
             .drive(myPageBinding)
             .disposed(by: disposeBag)
         
@@ -78,16 +78,16 @@ final class MyPageViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private var myPageBinding: Binder<PersonalInfo> {
-        return .init(self, binding: { vc, personalInfo in
-            vc.EmailLabel.text = personalInfo.email
-            vc.NameLabel.text = personalInfo.name
+    private var myPageBinding: Binder<UserInfo> {
+        return .init(self, binding: { vc, userInfo in
+            vc.EmailLabel.text = userInfo.email
+            vc.NameLabel.text = userInfo.name
             vc.BirthLabel.text = {
                 let formatter: DateFormatter = .init()
                 formatter.dateFormat = "yyyy.MM.dd"
-                return formatter.string(from: personalInfo.birth)
+                return formatter.string(from: userInfo.birth)
             }()
-            vc.PhoneNumberLabel.text = personalInfo.phoneNumber
+            vc.PhoneNumberLabel.text = userInfo.phoneNumber
         })
     }
 

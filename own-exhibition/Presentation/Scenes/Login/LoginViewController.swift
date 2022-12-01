@@ -42,7 +42,12 @@ final class LoginViewController: UIViewController {
 private extension LoginViewController {
     
     func bindViewModel() {
+        let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
+            .map { _ in }
+            .asSignal(onErrorSignalWith: .empty())
+        
         let input = LoginViewModel.Input.init(
+            viewWillAppear: viewWillAppear,
             login: loginButton.rx.tap.asSignal(),
             id: idTextField.rx.text.orEmpty.asDriver(),
             password: passwordTextField.rx.text.orEmpty.asDriver(),
