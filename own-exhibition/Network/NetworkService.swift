@@ -50,7 +50,7 @@ final class NetworkService<T: Decodable> {
             }
     }
     
-    func postItem(path: String, body: Encodable) -> Observable<T> {
+    func postItem<Q: Encodable>(path: String, body: Q) -> Observable<T> {
         guard var urlRequest: URLRequest = makeURLRequest(byPath: path) else {
             return .error(NetworkError.invalidURL)
         }

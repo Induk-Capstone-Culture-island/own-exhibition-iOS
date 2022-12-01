@@ -41,7 +41,7 @@ final class LoginViewModel: ViewModelType {
         
         let login = input.login
             .withLatestFrom(idAndPassword)
-            .flatMapFirst { id, password in
+            .flatMapFirst { id, password -> Driver<Bool> in
                 let requestDTO = LoginRequestDTO(email: id, password: password)
                 return self.userRepository.getToken(with: requestDTO)
                     .do(onNext: LoginStatusManager.shared.login(with:))
