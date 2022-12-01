@@ -42,9 +42,10 @@ private extension HomeViewController {
     func bindViewModel() {
         let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
             .map { _ in }
+            .asSignal(onErrorSignalWith: .empty())
         
         let input = HomeViewModel.Input.init(
-            viewWillAppear: viewWillAppear.asSignal(onErrorSignalWith: .empty()),
+            viewWillAppear: viewWillAppear,
             selection: exhibitionTableView.rx.itemSelected.asDriver().throttle(.milliseconds(500), latest: false),
             searchWord: searchBar.rx.text.orEmpty.asDriver().debounce(.milliseconds(300)),
             lodingNextPage: exhibitionTableView.rx.didScrollToBottom.asDriver()

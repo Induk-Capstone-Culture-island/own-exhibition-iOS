@@ -11,6 +11,7 @@ import RxCocoa
 final class LoginViewModel: ViewModelType {
     
     struct Input {
+        let viewWillAppear: Signal<Void>
         let login: Signal<Void>
         let id: Driver<String>
         let password: Driver<String>
@@ -33,19 +34,28 @@ final class LoginViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let idAndPassword = Driver.combineLatest(input.id, input.password)
         
-        let isLoggedIn = input.login
+        let autoLogin = input.viewWillAppear
+            .flatMapFirst { _ -> Driver<Bool> in
+                return .of(LoginStatusManager.shared.isLoggedIn)
+            }
+        
+        let login = input.login
             .withLatestFrom(idAndPassword)
             .flatMapFirst { id, password in
                 let requestDTO = LoginRequestDTO(email: id, password: password)
-                return self.userRepository.login(with: requestDTO)
+                return self.userRepository.getToken(with: requestDTO)
+                    .do(onNext: LoginStatusManager.shared.login(with:))
+                    .map { _ in true }
                     .asDriver(onErrorJustReturn: false)
             }
-            .do(onNext: { isLoggedIn in
-                if isLoggedIn == true {
+        
+        let isLoggedIn = Driver.merge(login, autoLogin)
+            .do(onNext: { isSuccess in
+                if isSuccess {
                     self.coordinator.toTargetViewController()
                 }
             })
-        
+                
         let signUp = input.signUp
             .do(onNext: coordinator.toSignUp)
             .asDriver(onErrorDriveWith: .empty())

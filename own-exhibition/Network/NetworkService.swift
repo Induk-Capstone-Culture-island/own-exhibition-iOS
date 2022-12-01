@@ -26,6 +26,19 @@ final class NetworkService<T: Decodable> {
             }
     }
     
+    func getItem(path: String, token: Token) -> Observable<T> {
+        guard var urlRequest: URLRequest = makeURLRequest(byPath: path) else {
+            return .error(NetworkError.invalidURL)
+        }
+        
+        urlRequest.setValue("Bearer \(token.value)", forHTTPHeaderField: "Authorization")
+        
+        return URLSession.shared.rx.data(request: urlRequest)
+            .map { data -> T in
+                return try JSONDecoder().decode(T.self, from: data)
+            }
+    }
+    
     func getItems(byPath path: String) -> Observable<[T]> {
         guard let urlRequest: URLRequest = makeURLRequest(byPath: path) else {
             return .error(NetworkError.invalidURL)

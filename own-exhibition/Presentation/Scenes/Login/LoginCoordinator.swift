@@ -37,8 +37,10 @@ final class LoginCoordinator {
     }
     
     func toTargetViewController() {
-        navigationController.dismiss(animated: false)
-        tabBarController.selectedViewController = targetViewController
+        DispatchQueue.main.async {
+            self.navigationController.dismiss(animated: false)
+            self.tabBarController.selectedViewController = self.targetViewController
+        }
     }
     
     func toSignUp() {
