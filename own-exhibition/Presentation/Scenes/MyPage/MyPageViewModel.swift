@@ -64,7 +64,7 @@ final class MyPageViewModel: ViewModelType {
             .flatMapLatest { _ in
                 return Driver<UserInfo>.of(self.userInfo)
             }
-            .do(onNext: coordinator.changePassword)
+            .do(onNext: coordinator.toChangePasswordView)
                 
         return .init(
             selectedChangeName: selectedChangePassword,
