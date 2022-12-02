@@ -12,12 +12,20 @@ final class MyPageViewModel: ViewModelType {
     
     struct Input {
         let viewWillAppear: Signal<Void>
-        let selection: Driver<Void>
+        let selectedChangeName: Driver<Void>
+        let selectedChangeBirth: Driver<Void>
+        let selectedChangePhoneNumber: Driver<Void>
+        let selectedChangePassword: Driver<Void>
     }
     
     struct Output {
+
+        let selectedChangeName: Driver<UserInfo>
+        let selectedChangeBirth: Driver<UserInfo>
+        let selectedChangePhoneNumber: Driver<UserInfo>
+        let selectedChangePassword: Driver<UserInfo>
         let userInfo: Driver<UserInfo>
-        let selectedChangeInfo: Driver<UserInfo>
+
     }
     
     private let coordinator: MyPageCoordinator
@@ -34,15 +42,36 @@ final class MyPageViewModel: ViewModelType {
                 return Driver<UserInfo>.of(self.userInfo)
             }
         
-        let selectedChangeInfo = input.selection
+        let selectedChangeName = input.selectedChangeName
             .flatMapLatest { _ in
                 return Driver<UserInfo>.of(self.userInfo)
             }
             .do(onNext: coordinator.changeInfo)
                 
+        let selectedChangePhoneNumber = input.selectedChangePhoneNumber
+            .flatMapLatest { _ in
+                return Driver<UserInfo>.of(self.userInfo)
+            }
+            .do(onNext: coordinator.changeInfo)
+                
+        let selectedChangeBirth = input.selectedChangeBirth
+            .flatMapLatest { _ in
+                return Driver<UserInfo>.of(self.userInfo)
+            }
+            .do(onNext: coordinator.changeInfo)
+        
+        let selectedChangePassword = input.selectedChangePassword
+            .flatMapLatest { _ in
+                return Driver<UserInfo>.of(self.userInfo)
+            }
+            .do(onNext: coordinator.changePassword)
+                
         return .init(
-            userInfo: userInfo,
-            selectedChangeInfo: selectedChangeInfo
+            selectedChangeName: selectedChangePassword,
+            selectedChangeBirth: selectedChangeName,
+            selectedChangePhoneNumber: selectedChangeBirth,
+            selectedChangePassword: selectedChangePhoneNumber,
+            userInfo: userInfo
         )
     }
 }

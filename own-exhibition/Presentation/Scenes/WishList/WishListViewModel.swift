@@ -48,7 +48,7 @@ final class WishListViewModel: ViewModelType {
         
         let updatedExhibitions = input.lodingNextPage
             .withLatestFrom(input.searchWord)
-            .flatMap { searchWord in
+            .flatMap { searchWord -> Driver<[Exhibition]> in
                 let nextPage = self.currentExhibitionPage.currentPage + 1
                 
                 if nextPage > self.currentExhibitionPage.lastPage {

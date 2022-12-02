@@ -18,6 +18,10 @@
 		68B54471290D2B8F00A9F71A /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B54470290D2B8F00A9F71A /* MyPage.storyboard */; };
 		68B54473290D2BA000A9F71A /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54472290D2BA000A9F71A /* MyPageViewController.swift */; };
 		68B54475290D2BB500A9F71A /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B54474290D2BB500A9F71A /* MyPageViewModel.swift */; };
+		68E2B10729337224003F9A0C /* ChangePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E2B10629337224003F9A0C /* ChangePassword.storyboard */; };
+		68E2B10929337381003F9A0C /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E2B10829337381003F9A0C /* ChangePasswordViewController.swift */; };
+		68E2B10B293373AD003F9A0C /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E2B10A293373AD003F9A0C /* ChangePasswordViewModel.swift */; };
+		68E2B10D293375B8003F9A0C /* ChangePasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E2B10C293375B8003F9A0C /* ChangePasswordCoordinator.swift */; };
 		9B4ED1BD7AE3557D41B06928 /* Pods_own_exhibition_own_exhibitionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB026F896B3ABD4A15C0AE7 /* Pods_own_exhibition_own_exhibitionUITests.framework */; };
 		CDF791247FA081D1DD955951 /* Pods_own_exhibition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7475A1327DEDCAB313564A /* Pods_own_exhibition.framework */; };
 		DA0A881F291D424500E9AE43 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0A881E291D424500E9AE43 /* ImageLoader.swift */; };
@@ -110,6 +114,10 @@
 		68B54470290D2B8F00A9F71A /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MyPage.storyboard; path = "own-exhibition/Presentation/Scenes/MyPage/MyPage.storyboard"; sourceTree = SOURCE_ROOT; };
 		68B54472290D2BA000A9F71A /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = "own-exhibition/Presentation/Scenes/MyPage/MyPageViewController.swift"; sourceTree = SOURCE_ROOT; };
 		68B54474290D2BB500A9F71A /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageViewModel.swift; path = "own-exhibition/Presentation/Scenes/MyPage/MyPageViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		68E2B10629337224003F9A0C /* ChangePassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
+		68E2B10829337381003F9A0C /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		68E2B10A293373AD003F9A0C /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		68E2B10C293375B8003F9A0C /* ChangePasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordCoordinator.swift; sourceTree = "<group>"; };
 		6CB026F896B3ABD4A15C0AE7 /* Pods_own_exhibition_own_exhibitionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibition_own_exhibitionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D80086B259071292172662B /* Pods-own-exhibitionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibitionTests.release.xcconfig"; path = "Target Support Files/Pods-own-exhibitionTests/Pods-own-exhibitionTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1C0DEA57AE1F31E20FFB3F8 /* Pods-own-exhibition-own-exhibitionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition-own-exhibitionUITests/Pods-own-exhibition-own-exhibitionUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +252,17 @@
 				DA739DD6292333C4003AEE4C /* MyPageCoordinator.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		68E2B10529337174003F9A0C /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				68E2B10629337224003F9A0C /* ChangePassword.storyboard */,
+				68E2B10829337381003F9A0C /* ChangePasswordViewController.swift */,
+				68E2B10A293373AD003F9A0C /* ChangePasswordViewModel.swift */,
+				68E2B10C293375B8003F9A0C /* ChangePasswordCoordinator.swift */,
+			);
+			path = ChangePassword;
 			sourceTree = "<group>";
 		};
 		8909A5333C04520C03316C6D /* Frameworks */ = {
@@ -534,6 +553,7 @@
 		E8CA9F4428F6AAAD00CF6AF2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				68E2B10529337174003F9A0C /* ChangePassword */,
 				6874D552292102A200465398 /* ChangeInfo */,
 				E8BABA5428FE4E4B009482E4 /* ExhibitionDetail */,
 				E8BABA5028FE4E22009482E4 /* Home */,
@@ -667,6 +687,7 @@
 				DA170D462910EB2100BFC7B1 /* ExhibitionDetail.storyboard in Resources */,
 				E8A1ADE528EBDD1800A360FA /* LaunchScreen.storyboard in Resources */,
 				DA42DD942923277600094733 /* Login.storyboard in Resources */,
+				68E2B10729337224003F9A0C /* ChangePassword.storyboard in Resources */,
 				E8A1ADE228EBDD1800A360FA /* Assets.xcassets in Resources */,
 				E805F2C32901977300D75FA3 /* ExhibitionTableViewCell.xib in Resources */,
 				DA6BCE56292E247C0059E95D /* WishList.storyboard in Resources */,
@@ -801,6 +822,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68E2B10929337381003F9A0C /* ChangePasswordViewController.swift in Sources */,
 				E805F2C72901AAFC00D75FA3 /* Reusable.swift in Sources */,
 				DA7202142935C98B00A69519 /* Token.swift in Sources */,
 				DA170D442910EB0F00BFC7B1 /* ExhibitionDetailViewModel.swift in Sources */,
@@ -811,9 +833,11 @@
 				DA6BCE54292DFA400059E95D /* WishListViewModel.swift in Sources */,
 				E8A1ADD928EBDD1600A360FA /* AppDelegate.swift in Sources */,
 				DA6BB897292CFEEE008D8DD2 /* DefaultBackBarButtonItem.swift in Sources */,
+				68E2B10B293373AD003F9A0C /* ChangePasswordViewModel.swift in Sources */,
 				DA170D482910EB3600BFC7B1 /* ExhibitionDetailViewController.swift in Sources */,
 				E805F2C22901977300D75FA3 /* ExhibitionTableViewCell.swift in Sources */,
 				E805F2BE2901959E00D75FA3 /* GeoCoordinate.swift in Sources */,
+				68E2B10D293375B8003F9A0C /* ChangePasswordCoordinator.swift in Sources */,
 				DA739DF829278799003AEE4C /* NetworkError.swift in Sources */,
 				DA739E26292C795F003AEE4C /* SignUpViewController.swift in Sources */,
 				68B54473290D2BA000A9F71A /* MyPageViewController.swift in Sources */,

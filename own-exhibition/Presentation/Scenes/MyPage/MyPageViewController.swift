@@ -39,7 +39,7 @@ final class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        line()
+        outLine()
         bindViewModel()
     }
     
@@ -50,7 +50,10 @@ final class MyPageViewController: UIViewController {
         
         let input = MyPageViewModel.Input.init(
             viewWillAppear: viewWillAppear,
-            selection: PasswordChangeButton.rx.tap.asDriver()
+            selectedChangeName: NameChangeButton.rx.tap.asDriver(),
+            selectedChangeBirth: BirthChangeButton.rx.tap.asDriver(),
+            selectedChangePhoneNumber: PhoneNumberChangeButton.rx.tap.asDriver(),
+            selectedChangePassword: PasswordChangeButton.rx.tap.asDriver()
         )
         let output = viewModel.transform(input: input)
         
@@ -58,7 +61,19 @@ final class MyPageViewController: UIViewController {
             .drive(myPageBinding)
             .disposed(by: disposeBag)
         
-        output.selectedChangeInfo
+        output.selectedChangeName
+            .drive()
+            .disposed(by: disposeBag)
+        
+        output.selectedChangeBirth
+            .drive()
+            .disposed(by: disposeBag)
+        
+        output.selectedChangePhoneNumber
+            .drive()
+            .disposed(by: disposeBag)
+        
+        output.selectedChangePassword
             .drive()
             .disposed(by: disposeBag)
     }
@@ -80,7 +95,7 @@ final class MyPageViewController: UIViewController {
         self.viewModel = viewModel
     }
     
-    func line() {
+    func outLine() {
         //마이페이지 View 사이 줄
         EmailView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
         NameView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
