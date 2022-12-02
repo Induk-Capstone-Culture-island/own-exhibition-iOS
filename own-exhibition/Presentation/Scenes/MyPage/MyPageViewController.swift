@@ -95,7 +95,7 @@ final class MyPageViewController: UIViewController {
         self.viewModel = viewModel
     }
     
-    func outLine() {
+    func addOutLine() {
         //마이페이지 View 사이 줄
         EmailView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
         NameView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
