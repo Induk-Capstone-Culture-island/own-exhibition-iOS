@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class ChangePasswordViewController: UIViewController {
+final class ChangePasswordViewController: UIViewController {
 
     private let disposeBag = DisposeBag.init()
     
