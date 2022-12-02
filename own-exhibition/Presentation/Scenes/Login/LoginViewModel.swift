@@ -23,10 +23,10 @@ final class LoginViewModel: ViewModelType {
         let signUp: Driver<Void>
     }
     
-    private let coordinator: LoginCoordinator
-    private let userRepository: UserRepository
+    private let coordinator: LoginCoordinatorProtocol
+    private let userRepository: UserRepositoryProtocol
 
-    init(coordinator: LoginCoordinator, userRepository: UserRepository) {
+    init(coordinator: LoginCoordinatorProtocol, userRepository: UserRepositoryProtocol) {
         self.coordinator = coordinator
         self.userRepository = userRepository
     }

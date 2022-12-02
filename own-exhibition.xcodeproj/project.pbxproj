@@ -64,6 +64,11 @@
 		DAA5B9512936102D00BAB04E /* SignUpRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B9502936102D00BAB04E /* SignUpRequestDTO.swift */; };
 		DAA5B953293610C900BAB04E /* SignUpResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B952293610C900BAB04E /* SignUpResponseDTO.swift */; };
 		DAA5B95529361DBB00BAB04E /* LoginStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B95429361DBB00BAB04E /* LoginStatusManager.swift */; };
+		DAA5B9572937902700BAB04E /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B9562937902700BAB04E /* LoginViewModelTests.swift */; };
+		DAA5B95B2937940800BAB04E /* MockUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B95A2937940800BAB04E /* MockUserRepository.swift */; };
+		DAA5B95D2937944800BAB04E /* MockLoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B95C2937944800BAB04E /* MockLoginCoordinator.swift */; };
+		DAA5B960293795E800BAB04E /* UserInfo+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B95F293795E800BAB04E /* UserInfo+Mock.swift */; };
+		DAA5B9622937965900BAB04E /* Token+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B9612937965900BAB04E /* Token+Mock.swift */; };
 		DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFB255291A90B7007A8DF0 /* CALayer+.swift */; };
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
 		E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AD290152A200D75FA3 /* ViewModelType.swift */; };
@@ -163,6 +168,11 @@
 		DAA5B9502936102D00BAB04E /* SignUpRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestDTO.swift; sourceTree = "<group>"; };
 		DAA5B952293610C900BAB04E /* SignUpResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseDTO.swift; sourceTree = "<group>"; };
 		DAA5B95429361DBB00BAB04E /* LoginStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatusManager.swift; sourceTree = "<group>"; };
+		DAA5B9562937902700BAB04E /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		DAA5B95A2937940800BAB04E /* MockUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRepository.swift; sourceTree = "<group>"; };
+		DAA5B95C2937944800BAB04E /* MockLoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginCoordinator.swift; sourceTree = "<group>"; };
+		DAA5B95F293795E800BAB04E /* UserInfo+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+Mock.swift"; sourceTree = "<group>"; };
+		DAA5B9612937965900BAB04E /* Token+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+Mock.swift"; sourceTree = "<group>"; };
 		DAAFB255291A90B7007A8DF0 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		E5E722FB0506808F9D489C0D /* Pods-own-exhibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.release.xcconfig"; sourceTree = "<group>"; };
 		E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,6 +331,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		DAA5B9582937934F00BAB04E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DAA5B9562937902700BAB04E /* LoginViewModelTests.swift */,
+				DAA5B95C2937944800BAB04E /* MockLoginCoordinator.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DAA5B959293793D700BAB04E /* MockRepository */ = {
+			isa = PBXGroup;
+			children = (
+				DAA5B95A2937940800BAB04E /* MockUserRepository.swift */,
+			);
+			path = MockRepository;
+			sourceTree = "<group>";
+		};
+		DAA5B95E293795DA00BAB04E /* MockEntities */ = {
+			isa = PBXGroup;
+			children = (
+				DAA5B95F293795E800BAB04E /* UserInfo+Mock.swift */,
+				DAA5B9612937965900BAB04E /* Token+Mock.swift */,
+			);
+			path = MockEntities;
+			sourceTree = "<group>";
+		};
 		DAAFB254291A90A0007A8DF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +458,9 @@
 		E8A1ADEE28EBDD1900A360FA /* own-exhibitionTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAA5B95E293795DA00BAB04E /* MockEntities */,
+				DAA5B959293793D700BAB04E /* MockRepository */,
+				DAA5B9582937934F00BAB04E /* Login */,
 				E8A1ADEF28EBDD1900A360FA /* own_exhibitionTests.swift */,
 			);
 			path = "own-exhibitionTests";
@@ -888,7 +927,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA5B95D2937944800BAB04E /* MockLoginCoordinator.swift in Sources */,
+				DAA5B960293795E800BAB04E /* UserInfo+Mock.swift in Sources */,
+				DAA5B95B2937940800BAB04E /* MockUserRepository.swift in Sources */,
+				DAA5B9572937902700BAB04E /* LoginViewModelTests.swift in Sources */,
 				E8A1ADF028EBDD1900A360FA /* own_exhibitionTests.swift in Sources */,
+				DAA5B9622937965900BAB04E /* Token+Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
