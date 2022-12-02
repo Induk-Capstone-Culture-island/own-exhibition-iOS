@@ -28,7 +28,7 @@ final class MyPageCoordinator {
         changeInfoCoordinator.start(with: userInfo)
     }
     
-    func changePassword(with userInfo: UserInfo) {
+    func toChangePasswordView(with userInfo: UserInfo) {
         let changePasswordCoordinator: ChangePasswordCoordinator = .init(navigationController: navigationController)
         changePasswordCoordinator.start(with: userInfo)
     }
