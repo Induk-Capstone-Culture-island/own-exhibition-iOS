@@ -29,10 +29,10 @@ final class SignUpViewModel: ViewModelType {
         let signUp: Driver<Void>
     }
     
-    private let signUpCoordinator: SignUpCoordinator
-    private let userRepository: UserRepository
+    private let signUpCoordinator: SignUpCoordinatorProtocol
+    private let userRepository: UserRepositoryProtocol
     
-    init(signUpCoordinator: SignUpCoordinator, userRepository: UserRepository) {
+    init(signUpCoordinator: SignUpCoordinatorProtocol, userRepository: UserRepositoryProtocol) {
         self.signUpCoordinator = signUpCoordinator
         self.userRepository = userRepository
     }
