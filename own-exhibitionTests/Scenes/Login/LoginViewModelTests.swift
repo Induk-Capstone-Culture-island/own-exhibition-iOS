@@ -31,12 +31,12 @@ final class LoginViewModelTests: XCTestCase {
         LoginStatusManager.shared.logout()
     }
     
-    func test_올바른형식의_아이디_비밀번호_입력() {
+    func test_올바른형식의_아이디_비밀번호_입력_후_로그인() {
         // Arrange
         var isLoggedIn: Bool = false
         
         let input = LoginViewModel.Input.init(
-            viewWillAppear: .never(),
+            viewWillAppear: .of(()),
             login: .of(()),
             id: .of("test1234@naver.com"),
             password: .of("test1234"),
@@ -55,5 +55,25 @@ final class LoginViewModelTests: XCTestCase {
         XCTAssertTrue(isLoggedIn)
         XCTAssertTrue(LoginStatusManager.shared.isLoggedIn)
         XCTAssertTrue(coordinator.toTargetViewControllerCalled)
+    }
+    
+    func test_회원가입_버튼_터치_시_화면이동() {
+        // Arrange
+        let input = LoginViewModel.Input.init(
+            viewWillAppear: .of(()),
+            login: .never(),
+            id: .never(),
+            password: .never(),
+            signUp: .of(())
+        )
+        let output = viewModel.transform(input: input)
+        
+        // Act
+        output.signUp
+            .drive()
+            .disposed(by: disposeBag)
+        
+        // Assert
+        XCTAssertTrue(coordinator.toSignUpCalled)
     }
 }

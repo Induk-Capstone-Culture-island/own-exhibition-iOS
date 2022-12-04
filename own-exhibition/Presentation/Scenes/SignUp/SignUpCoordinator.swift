@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class SignUpCoordinator {
+protocol SignUpCoordinatorProtocol {
+    func start()
+}
+
+final class SignUpCoordinator: SignUpCoordinatorProtocol {
     
     private let navigationController: UINavigationController
     private let storyboardName: String = "SignUp"
@@ -18,7 +22,7 @@ final class SignUpCoordinator {
     
     func start() {
         let signUpVC: SignUpViewController = .instantiate(withStoryboardName: storyboardName)
-        let signUpVM: SignUpViewModel = .init(signUpCoordinator: self, userRepository: .init())
+        let signUpVM: SignUpViewModel = .init(signUpCoordinator: self, userRepository: UserRepository.init())
         signUpVC.setViewModel(by: signUpVM)
         navigationController.pushViewController(signUpVC, animated: true)
     }
