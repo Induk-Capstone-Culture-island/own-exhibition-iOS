@@ -69,8 +69,8 @@ private extension LoginViewController {
     }
     
     func configureNavigationBarButton() {
-        dismissButton.primaryAction = .init(handler: { _ in
-            self.dismiss(animated: false)
+        dismissButton.primaryAction = .init(handler: { [weak self] _ in
+            self?.dismiss(animated: false)
         })
         dismissButton.image = .init(named: "back_button")
         dismissButton.tintColor = .darkGray
