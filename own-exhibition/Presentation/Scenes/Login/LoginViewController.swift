@@ -77,4 +77,8 @@ private extension LoginViewController {
         self.navigationItem.rightBarButtonItem = dismissButton
         self.navigationItem.backBarButtonItem = DefaultBackBarButtonItem.init()
     }
+    
+    @IBAction func didTapBackgroundView(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
 }
