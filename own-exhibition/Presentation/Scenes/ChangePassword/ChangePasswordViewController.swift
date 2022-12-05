@@ -14,6 +14,8 @@ final class ChangePasswordViewController: UIViewController {
     
     private var viewModel: ChangePasswordViewModel!
 
+    // MARK: - UI Components
+    
     @IBOutlet weak var currentPasswordTextField: UITextField! {
         didSet {
             currentPasswordTextField.isSecureTextEntry = true
