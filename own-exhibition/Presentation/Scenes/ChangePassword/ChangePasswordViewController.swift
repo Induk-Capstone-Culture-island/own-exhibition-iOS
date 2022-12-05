@@ -14,6 +14,22 @@ final class ChangePasswordViewController: UIViewController {
     
     private var viewModel: ChangePasswordViewModel!
 
+    @IBOutlet weak var currentPasswordTextField: UITextField! {
+        didSet {
+            currentPasswordTextField.isSecureTextEntry = true
+        }
+    }
+    @IBOutlet weak var newPasswordTextField: UITextField! {
+        didSet {
+            newPasswordTextField.isSecureTextEntry = true
+        }
+    }
+    @IBOutlet weak var newRepasswordTextField: UITextField! {
+        didSet {
+            newRepasswordTextField.isSecureTextEntry = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
