@@ -13,6 +13,7 @@ protocol UserRepositoryProtocol {
     func verifyToken(_ token: Token) -> Observable<Bool>
     func createUser(with requestDTO: SignUpRequestDTO) -> Observable<Token>
     func getLikedExhibitionIDs(by token: Token) -> Observable<[Int]>
+    func addWishExhibition(id: Int, token: Token) -> Observable<Void>
 }
 
 final class UserRepository: UserRepositoryProtocol {
@@ -56,5 +57,13 @@ final class UserRepository: UserRepositoryProtocol {
             .flatMapLatest { userInfoResponseDTO -> Observable<[Int]> in
                 return .of(userInfoResponseDTO.wish.map { $0.exhibitionID })
             }
+    }
+    
+    func addWishExhibition(id: Int, token: Token) -> Observable<Void> {
+        let networkService: NetworkService<EmptyResponseDTO> = .init()
+        let path: String = "toggle-wish/\(id)"
+        
+        return networkService.postItem(path: path, token: token)
+            .map { _ -> Void in  }
     }
 }

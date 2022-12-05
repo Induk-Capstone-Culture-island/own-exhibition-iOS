@@ -18,7 +18,12 @@ final class ExhibitionDetailCoordinator {
     
     func start(with exhibition: Exhibition) {
         let exhibitionDetailVC: ExhibitionDetailViewController = .instantiate(withStoryboardName: storyboardName)
-        let exhibitionDetailVM: ExhibitionDetailViewModel = .init(exhibition: exhibition)
+        let exhibitionDetailVM: ExhibitionDetailViewModel = .init(
+            exhibition: exhibition,
+            userRepository: UserRepository.shared,
+            keychainRepository: .init(),
+            userDefaultsRepository: .init()
+        )
         exhibitionDetailVC.setViewModel(by: exhibitionDetailVM)
         navigationController.pushViewController(exhibitionDetailVC, animated: true)
     }

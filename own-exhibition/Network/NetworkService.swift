@@ -69,6 +69,21 @@ final class NetworkService<T: Decodable> {
                 return try JSONDecoder().decode(T.self, from: data)
             }
     }
+    
+    func postItem(path: String, token: Token) -> Observable<T> {
+        guard var urlRequest: URLRequest = makeURLRequest(byPath: path) else {
+            return .error(NetworkError.invalidURL)
+        }
+        
+        urlRequest.httpMethod = "POST"
+        
+        urlRequest.setValue("Bearer \(token.value)", forHTTPHeaderField: "Authorization")
+        
+        return URLSession.shared.rx.data(request: urlRequest)
+            .map { data -> T in
+                return try JSONDecoder().decode(T.self, from: data)
+            }
+    }
 }
 
 // MARK: - Private Functions
