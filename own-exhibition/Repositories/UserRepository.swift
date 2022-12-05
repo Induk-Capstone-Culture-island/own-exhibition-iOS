@@ -16,6 +16,10 @@ protocol UserRepositoryProtocol {
 
 final class UserRepository: UserRepositoryProtocol {
     
+    static let shared: UserRepository = .init()
+    
+    private init() {}
+    
     func getUserInfo(by token: Token) -> Observable<UserInfo> {
         let networkService: NetworkService<UserInfoResponseDTO> = .init()
         return networkService.getItem(path: "userinfo", token: token)

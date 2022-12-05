@@ -33,7 +33,7 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     
     func start() {
         let loginVC: LoginViewController = .instantiate(withStoryboardName: storyboardName)
-        let loginVM: LoginViewModel = .init(coordinator: self, userRepository: UserRepository.init())
+        let loginVM: LoginViewModel = .init(coordinator: self, userRepository: UserRepository.shared)
         loginVC.setViewModel(by: loginVM)
         
         let presentedNavigationController: UINavigationController = .init()

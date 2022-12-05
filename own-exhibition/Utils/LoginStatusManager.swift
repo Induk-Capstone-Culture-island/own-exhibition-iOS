@@ -15,7 +15,7 @@ final class LoginStatusManager {
     private let userDefaultsRepository: UserDefaultsRepository
     
     private init() {
-        self.userRepository = .init()
+        self.userRepository = .shared
         self.keychainRepository = .init()
         self.userDefaultsRepository = .init()
     }
