@@ -72,10 +72,10 @@ private extension SignUpViewController {
             output.phoneNumberValidation
                 .drive(),
             output.signUpButtonEnable
-                .drive(onNext: { self.signUpButton.isEnabled = $0 }),
+                .drive(onNext: { [weak self] in self?.signUpButton.isEnabled = $0 }),
             output.signUp
-                .drive(onNext: { _ in
-                    self.navigationController?.popViewController(animated: false)
+                .drive(onNext: { [weak self] _ in
+                    self?.navigationController?.popViewController(animated: false)
                 }),
         ]
             .forEach { $0.disposed(by: disposeBag) }
