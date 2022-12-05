@@ -18,7 +18,7 @@ final class WishListCoordinator {
     
     func start() {
         let wishListVC: WishListViewController = .instantiate(withStoryboardName: storyboardName)
-        let wishListVM: WishListViewModel = .init(coordinator: self, exhibitionRepository: .init())
+        let wishListVM: WishListViewModel = .init(coordinator: self, exhibitionRepository: .shared)
         wishListVC.setViewModel(by: wishListVM)
         navigationController.pushViewController(wishListVC, animated: false)
     }

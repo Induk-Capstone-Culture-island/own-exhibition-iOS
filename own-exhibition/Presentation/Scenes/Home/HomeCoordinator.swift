@@ -18,7 +18,7 @@ final class HomeCoordinator {
     
     func start() {
         let homeVC: HomeViewController = .instantiate(withStoryboardName: storyboardName)
-        let homeVM: HomeViewModel = .init(coordinator: self, exhibitionRepository: .init())
+        let homeVM: HomeViewModel = .init(coordinator: self, exhibitionRepository: .shared)
         homeVC.setViewModel(by: homeVM)
         navigationController.pushViewController(homeVC, animated: false)
     }

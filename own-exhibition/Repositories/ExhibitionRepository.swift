@@ -9,6 +9,10 @@ import RxSwift
 
 final class ExhibitionRepository {
     
+    static let shared: ExhibitionRepository = .init()
+    
+    private init() {}
+    
     private let networkService: NetworkService<ExhibitionPageResponseDTO> = .init()
     
     // TODO: 서버 검색 API 구현되면 검색어 쿼리 추가
