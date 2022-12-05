@@ -35,6 +35,10 @@ final class ChangePasswordViewController: UIViewController {
         bindViewModel()
     }
     
+    @IBAction func didTapBackgroundView(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     private func bindViewModel() {
         let viewWillAppear = self.rx.sentMessage(#selector(self.viewWillAppear(_:)))
             .map { _ in }
