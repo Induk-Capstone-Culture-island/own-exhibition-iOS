@@ -19,7 +19,7 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     private let storyboardName: String = "Login"
     private let tabBarController: UITabBarController
     private let targetViewController: UIViewController
-    private let presentedNavigationController: UINavigationController = .init()
+    private weak var presentedNavigationController: UINavigationController!
     
     init(
         navigationController: UINavigationController,
@@ -36,6 +36,8 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
         let loginVM: LoginViewModel = .init(coordinator: self, userRepository: UserRepository.init())
         loginVC.setViewModel(by: loginVM)
         
+        let presentedNavigationController: UINavigationController = .init()
+        self.presentedNavigationController = presentedNavigationController
         presentedNavigationController.pushViewController(loginVC, animated: false)
         presentedNavigationController.modalTransitionStyle = .crossDissolve
         presentedNavigationController.modalPresentationStyle = .fullScreen

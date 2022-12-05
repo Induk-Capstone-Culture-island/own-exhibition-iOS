@@ -53,18 +53,18 @@ private extension ExhibitionDetailViewController {
             .disposed(by: disposeBag)
         
         output.isLike
-            .drive(onNext: { isLike in
+            .drive(onNext: { [weak self] isLike in
                 if isLike {
-                    self.likeButton.image = UIImage.init(systemName: "heart.fill")
+                    self?.likeButton.image = UIImage.init(systemName: "heart.fill")
                 } else {
-                    self.likeButton.image = UIImage.init(systemName: "heart")
+                    self?.likeButton.image = UIImage.init(systemName: "heart")
                 }
             })
             .disposed(by: disposeBag)
     }
     
     var exhibitionBinding: Binder<Exhibition> {
-        return .init(self, binding: { vc, exhibition in
+        return .init(self, binding: { [weak self] vc, exhibition in
             ImageLoader.shared.patch(exhibition.thumbnailUrl) { result in
                 DispatchQueue.main.async {
                     switch result {
@@ -85,8 +85,8 @@ private extension ExhibitionDetailViewController {
             }()
             vc.placeLabel.text = "장소 : \(exhibition.place)"
             vc.descriptionLabel.text = exhibition.description
-            self.initializeMapView(exhibition.location)
-            self.navigationItem.title = exhibition.title
+            self?.initializeMapView(exhibition.location)
+            self?.navigationItem.title = exhibition.title
         })
     }
     

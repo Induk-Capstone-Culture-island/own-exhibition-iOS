@@ -69,12 +69,16 @@ private extension LoginViewController {
     }
     
     func configureNavigationBarButton() {
-        dismissButton.primaryAction = .init(handler: { _ in
-            self.dismiss(animated: false)
+        dismissButton.primaryAction = .init(handler: { [weak self] _ in
+            self?.dismiss(animated: false)
         })
         dismissButton.image = .init(named: "back_button")
         dismissButton.tintColor = .darkGray
         self.navigationItem.rightBarButtonItem = dismissButton
         self.navigationItem.backBarButtonItem = DefaultBackBarButtonItem.init()
+    }
+    
+    @IBAction func didTapBackgroundView(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 }

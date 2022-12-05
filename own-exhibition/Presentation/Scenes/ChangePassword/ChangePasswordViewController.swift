@@ -14,9 +14,31 @@ final class ChangePasswordViewController: UIViewController {
     
     private var viewModel: ChangePasswordViewModel!
 
+    // MARK: - UI Components
+    
+    @IBOutlet weak var currentPasswordTextField: UITextField! {
+        didSet {
+            currentPasswordTextField.isSecureTextEntry = true
+        }
+    }
+    @IBOutlet weak var newPasswordTextField: UITextField! {
+        didSet {
+            newPasswordTextField.isSecureTextEntry = true
+        }
+    }
+    @IBOutlet weak var newRepasswordTextField: UITextField! {
+        didSet {
+            newRepasswordTextField.isSecureTextEntry = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+    }
+    
+    @IBAction func didTapBackgroundView(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     private func bindViewModel() {

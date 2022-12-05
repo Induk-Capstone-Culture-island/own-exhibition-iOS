@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GPq-Ih-WbU">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gcc-px-eJR" customClass="ExhibitionSearchBar" customModule="own_exhibition" customModuleProvider="target">
@@ -34,7 +34,7 @@
                             <constraint firstItem="Gcc-px-eJR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="j0p-zK-Bra"/>
                             <constraint firstItem="GPq-Ih-WbU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jES-Nk-UQy"/>
                             <constraint firstItem="Gcc-px-eJR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="obZ-2f-Oby"/>
-                            <constraint firstItem="GPq-Ih-WbU" firstAttribute="top" secondItem="Gcc-px-eJR" secondAttribute="bottom" constant="10" id="p3l-Mn-6zK"/>
+                            <constraint firstItem="GPq-Ih-WbU" firstAttribute="top" secondItem="Gcc-px-eJR" secondAttribute="bottom" id="p3l-Mn-6zK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GPq-Ih-WbU" secondAttribute="trailing" id="rq5-WR-Tf6"/>
                         </constraints>
                     </view>
