@@ -8,6 +8,7 @@
 import Foundation
 
 final class ExhibitionResponseDTO: Decodable {
+    let id: Int
     let seq: String
     let title: String
     let startDate: String
@@ -19,6 +20,7 @@ final class ExhibitionResponseDTO: Decodable {
     let gpsX, gpsY: String
     
     enum CodingKeys: CodingKey {
+        case id
         case seq
         case title
         case startDate
@@ -33,6 +35,7 @@ final class ExhibitionResponseDTO: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
         self.seq = try container.decode(String.self, forKey: .seq)
         self.title = try container.decode(String.self, forKey: .title)
         self.startDate = try container.decode(String.self, forKey: .startDate)
@@ -68,6 +71,7 @@ extension ExhibitionResponseDTO: EntityConvertible {
     
     func toEntity() -> Exhibition {
         return .init(
+            id: id,
             title: title,
             startDate: {
                 let startDate: String = startDate

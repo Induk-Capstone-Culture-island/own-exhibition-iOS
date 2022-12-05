@@ -9,6 +9,7 @@ import Foundation
 
 final class UserInfoResponseDTO: Decodable {
     let user: UserResponseDTO
+    let wish: [WishResponseDTO]
     let message: String
     let status: String
 }
