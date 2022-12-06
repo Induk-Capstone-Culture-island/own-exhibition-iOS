@@ -16,7 +16,6 @@ final class WishListViewController: UIViewController {
 
     // MARK: - UI Components
     
-    @IBOutlet weak var searchBar: ExhibitionSearchBar!
     @IBOutlet weak var exhibitionTableView: UITableView!
     
     override func viewDidLoad() {
@@ -47,7 +46,6 @@ private extension WishListViewController {
         let input = WishListViewModel.Input.init(
             viewWillAppear: viewWillAppear,
             selection: exhibitionTableView.rx.itemSelected.asDriver().throttle(.milliseconds(500), latest: false),
-            searchWord: searchBar.rx.text.orEmpty.asDriver().debounce(.milliseconds(300)),
             lodingNextPage: exhibitionTableView.rx.didScrollToBottom.asDriver()
         )
         let output = viewModel.transform(input: input)

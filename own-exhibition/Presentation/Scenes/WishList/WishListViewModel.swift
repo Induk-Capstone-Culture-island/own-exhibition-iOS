@@ -10,10 +10,11 @@ import RxCocoa
 
 final class WishListViewModel: ViewModelType {
     
+    private let disposeBag: DisposeBag = .init()
+    
     struct Input {
         let viewWillAppear: Signal<Void>
         let selection: Driver<IndexPath>
-        let searchWord: Driver<String>
         let lodingNextPage: Driver<Void>
     }
     
@@ -24,51 +25,50 @@ final class WishListViewModel: ViewModelType {
     
     private let coordinator: WishListCoordinator
     private let exhibitionRepository: ExhibitionRepository
+    private let userRepository: UserRepositoryProtocol
+    private let userDefaultsRepository: UserDefaultsRepository
+    private let keychainRepository: KeychainRepository
     
     private var currentExhibitionPage: ExhibitionPage = .init(currentPage: 0, lastPage: 1, exhibitions: [])
     private var currentExhibitions: [Exhibition] = []
     
-    init(coordinator: WishListCoordinator, exhibitionRepository: ExhibitionRepository) {
+    init(
+        coordinator: WishListCoordinator,
+        exhibitionRepository: ExhibitionRepository,
+        userRepository: UserRepositoryProtocol,
+        userDefaultsRepository: UserDefaultsRepository,
+        keychainRepository: KeychainRepository
+    ) {
         self.coordinator = coordinator
         self.exhibitionRepository = exhibitionRepository
+        self.userRepository = userRepository
+        self.userDefaultsRepository = userDefaultsRepository
+        self.keychainRepository = keychainRepository
     }
     
     func transform(input: Input) -> Output {
-        let refreshExhibitions = input.searchWord
-            .flatMapLatest { searchWord in
-                // FIXME: 특정 유저의 찜 목록 가져오는 함수로 변경
-                return self.exhibitionRepository.getExhibitions(page: 1, searchWord: searchWord)
-                    .do(onNext: { exhibitionPage in
-                        self.currentExhibitionPage = exhibitionPage
-                        self.currentExhibitions = exhibitionPage.exhibitions
-                    })
-                    .map { $0.exhibitions }
-                    .asDriver(onErrorJustReturn: [])
-            }
-        
-        let updatedExhibitions = input.lodingNextPage
-            .withLatestFrom(input.searchWord)
-            .flatMap { searchWord -> Driver<[Exhibition]> in
-                let nextPage = self.currentExhibitionPage.currentPage + 1
-                
-                if nextPage > self.currentExhibitionPage.lastPage {
-                    return Driver<[Exhibition]>.of(self.currentExhibitions)
+        let exhibitions = input.viewWillAppear
+            .flatMapLatest { _ -> Driver<[Exhibition]> in
+                guard let id = self.userDefaultsRepository.getCurrentUserId(),
+                      let token = self.keychainRepository.get(id: id)
+                else {
+                    return .empty()
                 }
                 
-                // FIXME: 특정 유저의 찜 목록 가져오는 함수로 변경
-                return self.exhibitionRepository.getExhibitions(page: nextPage, searchWord: searchWord)
-                    .do(onNext: { exhibitionPage in
-                        self.currentExhibitionPage = exhibitionPage
-                        self.currentExhibitions += exhibitionPage.exhibitions
-                    })
-                    .flatMap { exhibitionPage in
-                        return Driver<[Exhibition]>.of(self.currentExhibitions)
+                return self.userRepository.getLikedExhibitionIDs(by: token)
+                    .flatMapLatest { ids -> Observable<[Exhibition]> in
+                        return ids.map { self.exhibitionRepository.getExhibition(byID: $0) }
+                            .reduce(Observable<Exhibition>.empty()) { partialResult, observable in
+                                partialResult.concat(observable)
+                            }
+                            .reduce(Array<Exhibition>.init(), accumulator: { arr, exhibition in
+                                var arr = arr
+                                arr.append(exhibition)
+                                return arr
+                            })
                     }
-                    .asDriver(onErrorJustReturn: self.currentExhibitions)
+                    .asDriver(onErrorJustReturn: [])
             }
-        
-        let exhibitions = Driver.merge(refreshExhibitions, updatedExhibitions)
-        
         
         let selectedExhibition = input.selection
             .withLatestFrom(exhibitions) { indexPath, exhibitions -> Exhibition in
