@@ -86,10 +86,6 @@ final class MyPageViewModel: ViewModelType {
         let didTapLogoutButton = input.tapLogoutButton
             .do(onNext: {
                 LoginStatusManager.shared.logout()
-                if let currentID = self.userDefaultsRepository.getCurrentUserId() {
-                    self.keychainRepository.delete(id: currentID)
-                }
-                self.userDefaultsRepository.removeCurrentUserId()
                 self.coordinator.toHome()
             })
                 
