@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class ExhibitionDetailCoordinator {
+protocol ExhibitionDetailCoordinatorProtocol {
+    func start(with exhibition: Exhibition)
+    func toLoginView()
+}
+
+final class ExhibitionDetailCoordinator: ExhibitionDetailCoordinatorProtocol {
     
     private let navigationController: UINavigationController
     private let storyboardName: String = "ExhibitionDetail"
@@ -19,6 +24,7 @@ final class ExhibitionDetailCoordinator {
     func start(with exhibition: Exhibition) {
         let exhibitionDetailVC: ExhibitionDetailViewController = .instantiate(withStoryboardName: storyboardName)
         let exhibitionDetailVM: ExhibitionDetailViewModel = .init(
+            coordinator: self,
             exhibition: exhibition,
             userRepository: UserRepository.shared,
             keychainRepository: .init(),
@@ -26,5 +32,19 @@ final class ExhibitionDetailCoordinator {
         )
         exhibitionDetailVC.setViewModel(by: exhibitionDetailVM)
         navigationController.pushViewController(exhibitionDetailVC, animated: true)
+    }
+    
+    func toLoginView() {
+        guard let tabBarController = navigationController.tabBarController else {
+            print("Nonexistent tabBarController")
+            return
+        }
+        
+        let loginCoordinator: LoginCoordinator = .init(
+            navigationController: navigationController,
+            tabBarController: tabBarController,
+            targetViewController: navigationController
+        )
+        loginCoordinator.start()
     }
 }
