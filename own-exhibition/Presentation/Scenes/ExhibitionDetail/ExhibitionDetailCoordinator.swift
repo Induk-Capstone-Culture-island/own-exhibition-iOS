@@ -35,14 +35,8 @@ final class ExhibitionDetailCoordinator: ExhibitionDetailCoordinatorProtocol {
     }
     
     func toLoginView() {
-        guard let tabBarController = navigationController.tabBarController else {
-            print("Nonexistent tabBarController")
-            return
-        }
-        
         let loginCoordinator: LoginCoordinator = .init(
             navigationController: navigationController,
-            tabBarController: tabBarController,
             targetViewController: navigationController
         )
         loginCoordinator.start()

@@ -17,17 +17,14 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     
     private let navigationController: UINavigationController
     private let storyboardName: String = "Login"
-    private let tabBarController: UITabBarController
     private let targetViewController: UIViewController
     private weak var presentedNavigationController: UINavigationController!
     
     init(
         navigationController: UINavigationController,
-        tabBarController: UITabBarController,
         targetViewController: UIViewController
     ) {
         self.navigationController = navigationController
-        self.tabBarController = tabBarController
         self.targetViewController = targetViewController
     }
     
@@ -45,9 +42,13 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     }
     
     func toTargetViewController() {
+        guard let tabBarController = navigationController.tabBarController else {
+            return
+        }
+        
         DispatchQueue.main.async {
             self.navigationController.dismiss(animated: false)
-            self.tabBarController.selectedViewController = self.targetViewController
+            tabBarController.selectedViewController = self.targetViewController
         }
     }
     

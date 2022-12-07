@@ -84,7 +84,6 @@ extension MainTabBarController: UITabBarControllerDelegate {
                 }
                 let loginCoordinator: LoginCoordinator = .init(
                     navigationController: presentingNC,
-                    tabBarController: tabBarController,
                     targetViewController: viewController
                 )
                 loginCoordinator.start()
