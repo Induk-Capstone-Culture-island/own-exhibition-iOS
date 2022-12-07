@@ -57,17 +57,23 @@ private extension LoginViewController {
         )
         let output = viewModel.transform(input: input)
         
-        output.isLoggedIn
-            .drive(onNext: { isLoggedIn in
-                if isLoggedIn == false {
-                    print("아이디 혹은 비밀번호가 올바르지 않습니다.")
-                }
-            })
-            .disposed(by: disposeBag)
-        
-        output.signUp
-            .drive()
-            .disposed(by: disposeBag)
+        [
+            output.idValidation
+                .drive(),
+            output.passwordValidation
+                .drive(),
+            output.loginButtonEnable
+                .drive(onNext: { [weak self] in self?.loginButton.isEnabled = $0 }),
+            output.isLoggedIn
+                .drive(onNext: { isLoggedIn in
+                    if isLoggedIn == false {
+                        print("아이디 혹은 비밀번호가 올바르지 않습니다.")
+                    }
+                }),
+            output.signUp
+                .drive(),
+        ]
+            .forEach { $0.disposed(by: disposeBag) }
     }
     
     func configureNavigationBarButton() {

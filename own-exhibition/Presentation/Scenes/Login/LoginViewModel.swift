@@ -19,6 +19,9 @@ final class LoginViewModel: ViewModelType {
     }
     
     struct Output {
+        let idValidation: Driver<Bool>
+        let passwordValidation: Driver<Bool>
+        var loginButtonEnable: Driver<Bool>
         let isLoggedIn: Driver<Bool>
         let signUp: Driver<Void>
     }
@@ -32,6 +35,16 @@ final class LoginViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
+        let idValidation = input.id
+            .map { self.validateID($0) }
+        let passwordValidation = input.password
+            .map { self.validatePassword($0) }
+        
+        let loginButtonEnable = Driver.combineLatest(
+            idValidation,
+            passwordValidation
+        ).map { $0 && $1 }
+        
         let idAndPassword = Driver.combineLatest(input.id, input.password)
         
         let autoLogin = input.viewWillAppear
@@ -61,8 +74,27 @@ final class LoginViewModel: ViewModelType {
             .asDriver(onErrorDriveWith: .empty())
         
         return .init(
+            idValidation: idValidation,
+            passwordValidation: passwordValidation,
+            loginButtonEnable: loginButtonEnable,
             isLoggedIn: isLoggedIn,
             signUp: signUp
         )
+    }
+}
+
+// MARK: - Private Functions
+
+// FIXME: 중복 코드 - Validator 객체 이용
+private extension LoginViewModel {
+    
+    func validateID(_ id: String) -> Bool {
+        let idRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+        return NSPredicate(format: "SELF MATCHES %@", idRegex).evaluate(with: id)
+    }
+    
+    func validatePassword(_ password: String) -> Bool {
+        let passwordRegex = "(?=.*\\d)(?=.*[a-z])[a-zA-Z\\d]{8,}"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
     }
 }
