@@ -8,6 +8,7 @@
 import Foundation
 
 struct Exhibition {
+    let id: Int
     let title: String
     let startDate: Date
     let endDate: Date
@@ -24,6 +25,7 @@ extension Exhibition {
     /// Debug 용 함수
     static func makeMock1() -> Self {
         return .init(
+            id: 1,
             title: "김꽃님 개인전 - 닿을 수 없는 숨",
             startDate: {
                 let startDate: String = "2022.10.04"
@@ -48,6 +50,7 @@ extension Exhibition {
     /// Debug 용 함수
     static func makeMock2() -> Self {
         return .init(
+            id: 2,
             title: "색채의 마술사, 앙리마티스",
             startDate: {
                 let startDate: String = "2020.11.13"

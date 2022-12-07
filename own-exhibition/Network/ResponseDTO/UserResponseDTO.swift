@@ -15,12 +15,14 @@ final class UserResponseDTO: Decodable {
     let createdAt: String
     let updatedAt: String
     let birthday: String
+    let phone: String
 
     enum CodingKeys: String, CodingKey {
         case id, name, email
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case birthday
+        case phone
     }
 }
 
@@ -38,8 +40,7 @@ extension UserResponseDTO: EntityConvertible {
                 formatter.dateFormat = "yyyy-MM-dd"
                 return formatter.date(from: birthday)!
             }(),
-            // FIXME: 서버에서 전화번호를 보내주지 않음
-            phoneNumber: ""
+            phoneNumber: phone
         )
     }
 }

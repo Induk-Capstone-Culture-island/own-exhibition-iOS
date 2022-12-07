@@ -22,7 +22,7 @@ final class SignUpCoordinator: SignUpCoordinatorProtocol {
     
     func start() {
         let signUpVC: SignUpViewController = .instantiate(withStoryboardName: storyboardName)
-        let signUpVM: SignUpViewModel = .init(signUpCoordinator: self, userRepository: UserRepository.init())
+        let signUpVM: SignUpViewModel = .init(signUpCoordinator: self, userRepository: UserRepository.shared)
         signUpVC.setViewModel(by: signUpVM)
         navigationController.pushViewController(signUpVC, animated: true)
     }

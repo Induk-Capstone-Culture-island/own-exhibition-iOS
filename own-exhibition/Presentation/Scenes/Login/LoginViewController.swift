@@ -25,11 +25,13 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     private let dismissButton: UIBarButtonItem = .init()
+    @IBOutlet weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
         configureNavigationBarButton()
+        performKeyboardDelegate()
     }
     
     func setViewModel(by viewModel: LoginViewModel) {
@@ -80,5 +82,38 @@ private extension LoginViewController {
     
     @IBAction func didTapBackgroundView(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+}
+
+// MARK: - KeyboardDelegate
+
+extension LoginViewController: KeyboardDelegate {
+    
+    func keyboardWillShow(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height,
+            let keyboardAnimationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval)
+        else { return }
+        
+        let spacing: CGFloat = 14
+        
+        UIView.animate(withDuration: keyboardAnimationDuration) {
+            self.signUpButtonBottomConstraint.constant = keyboardHeight + spacing
+            self.signUpButtonBottomConstraint.isActive = true
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func keyboardWillHide(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let keyboardAnimationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval)
+        else { return }
+        
+        UIView.animate(withDuration: keyboardAnimationDuration) {
+            self.signUpButtonBottomConstraint.isActive = false
+            self.view.layoutIfNeeded()
+        }
     }
 }

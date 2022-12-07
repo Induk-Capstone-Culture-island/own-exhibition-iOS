@@ -40,7 +40,7 @@ final class SignUpViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
         configureNavigationBar()
-        addObserversForKeyboard()
+        performKeyboardDelegate()
     }
     
     func setViewModel(by viewModel: SignUpViewModel) {
@@ -84,24 +84,13 @@ private extension SignUpViewController {
     func configureNavigationBar() {
         self.navigationItem.title = "회원가입"
     }
+}
+
+// MARK: - KeyboardDelegate
+
+extension SignUpViewController: KeyboardDelegate {
     
-    func addObserversForKeyboard() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow(_:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide(_:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
+    func keyboardWillShow(_ notification: Notification) {
         guard
             let userInfo = notification.userInfo,
             let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height,
@@ -117,7 +106,7 @@ private extension SignUpViewController {
         }
     }
     
-    @objc func keyboardWillHide(_ notification: Notification) {
+    func keyboardWillHide(_ notification: Notification) {
         guard
             let userInfo = notification.userInfo,
             let keyboardAnimationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval)

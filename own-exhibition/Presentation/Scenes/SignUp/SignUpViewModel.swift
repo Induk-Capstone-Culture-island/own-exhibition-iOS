@@ -63,9 +63,10 @@ final class SignUpViewModel: ViewModelType {
                     let formatter = DateFormatter()
                     formatter.dateFormat = "yyyy-MM-dd"
                     return formatter.string(from: $0)
-                }
+                },
+            input.phoneNumber
         )
-            .map { SignUpRequestDTO.init(name: $0, email: $1, password: $2, birthday: $3) }
+            .map { SignUpRequestDTO.init(name: $0, email: $1, password: $2, birthday: $3, phone: $4) }
         
         let signUp = input.signUp
             .withLatestFrom(signUpRequestDTO)

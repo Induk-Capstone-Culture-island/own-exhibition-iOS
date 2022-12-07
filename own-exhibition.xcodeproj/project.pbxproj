@@ -71,6 +71,9 @@
 		DAA5B9622937965900BAB04E /* Token+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B9612937965900BAB04E /* Token+Mock.swift */; };
 		DAA5B96B293CB49000BAB04E /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B96A293CB49000BAB04E /* SignUpViewModelTests.swift */; };
 		DAA5B96F293CB53400BAB04E /* MockSignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B96E293CB53400BAB04E /* MockSignUpCoordinator.swift */; };
+		DAA5B973293E0F7200BAB04E /* KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B972293E0F7200BAB04E /* KeyboardDelegate.swift */; };
+		DAA5B975293E246A00BAB04E /* WishResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B974293E246A00BAB04E /* WishResponseDTO.swift */; };
+		DAA5B979293EB3AC00BAB04E /* EmptyResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5B978293EB3AC00BAB04E /* EmptyResponseDTO.swift */; };
 		DAAFB256291A90B7007A8DF0 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFB255291A90B7007A8DF0 /* CALayer+.swift */; };
 		E805F2AC2901528000D75FA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AB2901528000D75FA3 /* HomeViewModel.swift */; };
 		E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805F2AD290152A200D75FA3 /* ViewModelType.swift */; };
@@ -177,6 +180,9 @@
 		DAA5B9612937965900BAB04E /* Token+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+Mock.swift"; sourceTree = "<group>"; };
 		DAA5B96A293CB49000BAB04E /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
 		DAA5B96E293CB53400BAB04E /* MockSignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignUpCoordinator.swift; sourceTree = "<group>"; };
+		DAA5B972293E0F7200BAB04E /* KeyboardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDelegate.swift; sourceTree = "<group>"; };
+		DAA5B974293E246A00BAB04E /* WishResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishResponseDTO.swift; sourceTree = "<group>"; };
+		DAA5B978293EB3AC00BAB04E /* EmptyResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponseDTO.swift; sourceTree = "<group>"; };
 		DAAFB255291A90B7007A8DF0 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		E5E722FB0506808F9D489C0D /* Pods-own-exhibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-own-exhibition.release.xcconfig"; path = "Target Support Files/Pods-own-exhibition/Pods-own-exhibition.release.xcconfig"; sourceTree = "<group>"; };
 		E5EC47743B90C6D64BDFE17B /* Pods_own_exhibitionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_own_exhibitionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,7 +328,9 @@
 				DA72020229338EFB00A69519 /* LoginResponseDTO.swift */,
 				DA7202172935D02200A69519 /* UserInfoResponseDTO.swift */,
 				DAA5B94E29360F7E00BAB04E /* UserResponseDTO.swift */,
+				DAA5B974293E246A00BAB04E /* WishResponseDTO.swift */,
 				DAA5B952293610C900BAB04E /* SignUpResponseDTO.swift */,
+				DAA5B978293EB3AC00BAB04E /* EmptyResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -396,6 +404,7 @@
 				E805F2AD290152A200D75FA3 /* ViewModelType.swift */,
 				E805F2AF290159DA00D75FA3 /* Instantiatable.swift */,
 				E805F2C62901AAFC00D75FA3 /* Reusable.swift */,
+				DAA5B972293E0F7200BAB04E /* KeyboardDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -918,8 +927,10 @@
 				DA739E22292C792E003AEE4C /* SignUpCoordinator.swift in Sources */,
 				DA0A881F291D424500E9AE43 /* ImageLoader.swift in Sources */,
 				DA7201FE2932292900A69519 /* ExhibitionSearchBar.swift in Sources */,
+				DAA5B975293E246A00BAB04E /* WishResponseDTO.swift in Sources */,
 				E805F2AE290152A200D75FA3 /* ViewModelType.swift in Sources */,
 				DA739DF62927807A003AEE4C /* EntityConvertible.swift in Sources */,
+				DAA5B979293EB3AC00BAB04E /* EmptyResponseDTO.swift in Sources */,
 				DA739DD7292333C4003AEE4C /* MyPageCoordinator.swift in Sources */,
 				DA7202182935D02200A69519 /* UserInfoResponseDTO.swift in Sources */,
 				DA6BCE58292E24870059E95D /* WishListViewController.swift in Sources */,
@@ -936,6 +947,7 @@
 				DA7202162935C9DA00A69519 /* UserDefaultsRepository.swift in Sources */,
 				DA42DD962923277C00094733 /* LoginViewModel.swift in Sources */,
 				DA7202092934624700A69519 /* ExhibitionResponseDTO.swift in Sources */,
+				DAA5B973293E0F7200BAB04E /* KeyboardDelegate.swift in Sources */,
 				DA42DD7B29226AB700094733 /* UIImage+.swift in Sources */,
 				DA41F6DF29100FFB008ED455 /* ExhibitionRepository.swift in Sources */,
 				DA72020329338EFB00A69519 /* LoginResponseDTO.swift in Sources */,

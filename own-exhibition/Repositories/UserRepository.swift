@@ -12,9 +12,15 @@ protocol UserRepositoryProtocol {
     func getToken(with requestDTO: LoginRequestDTO) -> Observable<Token>
     func verifyToken(_ token: Token) -> Observable<Bool>
     func createUser(with requestDTO: SignUpRequestDTO) -> Observable<Token>
+    func getLikedExhibitionIDs(by token: Token) -> Observable<[Int]>
+    func addWishExhibition(id: Int, token: Token) -> Observable<Void>
 }
 
 final class UserRepository: UserRepositoryProtocol {
+    
+    static let shared: UserRepository = .init()
+    
+    private init() {}
     
     func getUserInfo(by token: Token) -> Observable<UserInfo> {
         let networkService: NetworkService<UserInfoResponseDTO> = .init()
@@ -41,5 +47,23 @@ final class UserRepository: UserRepositoryProtocol {
             .map { responseDTO in
                 return .init(id: responseDTO.user.email, value: responseDTO.token)
             }
+    }
+    
+    func getLikedExhibitionIDs(by token: Token) -> Observable<[Int]> {
+        let networkService: NetworkService<UserInfoResponseDTO> = .init()
+        let path: String = "userinfo"
+        
+        return networkService.getItem(path: path, token: token)
+            .flatMapLatest { userInfoResponseDTO -> Observable<[Int]> in
+                return .of(userInfoResponseDTO.wish.map { $0.exhibitionID })
+            }
+    }
+    
+    func addWishExhibition(id: Int, token: Token) -> Observable<Void> {
+        let networkService: NetworkService<EmptyResponseDTO> = .init()
+        let path: String = "toggle-wish/\(id)"
+        
+        return networkService.postItem(path: path, token: token)
+            .map { _ -> Void in  }
     }
 }

@@ -53,7 +53,10 @@ final class MainTabBarController: UITabBarController {
         let wishListCoordinator: WishListCoordinator = .init(navigationController: wishListNavigationController)
         wishListCoordinator.start()
         
-        let myPageCoordinator: MyPageCoordinator = .init(navigationController: myPageNavigationController)
+        let myPageCoordinator: MyPageCoordinator = .init(
+            navigationController: myPageNavigationController,
+            tabBarController: self
+        )
         myPageCoordinator.start()
         
         self.viewControllers = [

@@ -21,7 +21,9 @@ final class ExhibitionDetailViewController: UIViewController {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationMapView: MKMapView!
-    private let likeButton: UIBarButtonItem = .init()
+    private let likeButton: UIBarButtonItem = .init(image: .init(systemName: "heart"))
+    
+    private var isLike: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,8 @@ private extension ExhibitionDetailViewController {
             .asSignal(onErrorSignalWith: .empty())
         
         let input = ExhibitionDetailViewModel.Input.init(
-            viewWillAppear: viewWillAppear
+            viewWillAppear: viewWillAppear,
+            tapLikeButton: likeButton.rx.tap.asSignal()
         )
         let output = viewModel.transform(input: input)
         
@@ -54,12 +57,17 @@ private extension ExhibitionDetailViewController {
         
         output.isLike
             .drive(onNext: { [weak self] isLike in
+                self?.isLike = isLike
                 if isLike {
                     self?.likeButton.image = UIImage.init(systemName: "heart.fill")
                 } else {
                     self?.likeButton.image = UIImage.init(systemName: "heart")
                 }
             })
+            .disposed(by: disposeBag)
+        
+        output.didTapLikeButton
+            .emit(onNext: { [weak self] in self?.toggleLikeButton() })
             .disposed(by: disposeBag)
     }
     
@@ -96,6 +104,15 @@ private extension ExhibitionDetailViewController {
         let center: CLLocationCoordinate2D = .init(latitude: geo.lat, longitude: geo.lon)
         let region: MKCoordinateRegion = .init(center: center, span: span)
         locationMapView.setRegion(region, animated: false)
+    }
+    
+    func toggleLikeButton() {
+        if isLike {
+            self.likeButton.image = UIImage.init(systemName: "heart")
+        } else {
+            self.likeButton.image = UIImage.init(systemName: "heart.fill")
+        }
+        isLike.toggle()
     }
     
     func configureNavigationBar() {

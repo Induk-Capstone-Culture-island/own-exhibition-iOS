@@ -18,29 +18,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ewH-3T-pHq">
-                                <rect key="frame" x="0.0" y="103" width="390" height="707"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="SQP-eU-YSS" customClass="ExhibitionSearchBar" customModule="own_exhibition" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="47" width="390" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SQP-eU-YSS" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="F9a-nm-PYC"/>
-                            <constraint firstItem="SQP-eU-YSS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="GGI-Zz-alM"/>
+                            <constraint firstItem="ewH-3T-pHq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="luW-Yk-Ev5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ewH-3T-pHq" secondAttribute="trailing" id="oXL-RF-eiy"/>
-                            <constraint firstItem="ewH-3T-pHq" firstAttribute="top" secondItem="SQP-eU-YSS" secondAttribute="bottom" id="scb-IS-jCN"/>
-                            <constraint firstItem="SQP-eU-YSS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wev-eO-Kjk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ewH-3T-pHq" secondAttribute="bottom" id="yM4-bS-hj4"/>
                             <constraint firstItem="ewH-3T-pHq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="z9b-8p-ZDj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="exhibitionTableView" destination="ewH-3T-pHq" id="axY-Kj-7TB"/>
-                        <outlet property="searchBar" destination="SQP-eU-YSS" id="3P9-4b-YHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

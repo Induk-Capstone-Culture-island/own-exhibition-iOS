@@ -53,7 +53,8 @@ final class MyPageViewController: UIViewController {
             selectedChangeName: NameChangeButton.rx.tap.asDriver(),
             selectedChangeBirth: BirthChangeButton.rx.tap.asDriver(),
             selectedChangePhoneNumber: PhoneNumberChangeButton.rx.tap.asDriver(),
-            selectedChangePassword: PasswordChangeButton.rx.tap.asDriver()
+            selectedChangePassword: PasswordChangeButton.rx.tap.asDriver(),
+            tapLogoutButton: LogoutButton.rx.tap.asSignal()
         )
         let output = viewModel.transform(input: input)
         
@@ -75,6 +76,10 @@ final class MyPageViewController: UIViewController {
         
         output.selectedChangePassword
             .drive()
+            .disposed(by: disposeBag)
+        
+        output.didTapLogoutButton
+            .emit()
             .disposed(by: disposeBag)
     }
     
