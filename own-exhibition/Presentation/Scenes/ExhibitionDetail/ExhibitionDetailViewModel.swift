@@ -23,16 +23,19 @@ final class ExhibitionDetailViewModel: ViewModelType {
     
     private let exhibition: Exhibition
     
+    private let coordinator: ExhibitionDetailCoordinatorProtocol
     private let userRepository: UserRepositoryProtocol
     private let keychainRepository: KeychainRepository
     private let userDefaultsRepository: UserDefaultsRepository
     
     init(
+        coordinator: ExhibitionDetailCoordinatorProtocol,
         exhibition: Exhibition,
         userRepository: UserRepositoryProtocol,
         keychainRepository: KeychainRepository,
         userDefaultsRepository: UserDefaultsRepository
     ) {
+        self.coordinator = coordinator
         self.exhibition = exhibition
         self.userRepository = userRepository
         self.keychainRepository = keychainRepository
@@ -66,10 +69,15 @@ final class ExhibitionDetailViewModel: ViewModelType {
         
         let didTapLikeButton = input.tapLikeButton
             .flatMap { _ -> Signal<Void> in
+                guard LoginStatusManager.shared.isLoggedIn else {
+                    self.coordinator.toLoginView()
+                    return .empty()
+                }
+                
                 guard let id = self.userDefaultsRepository.getCurrentUserId(),
                       let token = self.keychainRepository.get(id: id)
                 else {
-                    // FIXME: 로그인 필요 메세지 출력
+                    // FIXME: 토큰 유효하지 않을때 로직 개선 필요
                     return .of(())
                 }
                 
