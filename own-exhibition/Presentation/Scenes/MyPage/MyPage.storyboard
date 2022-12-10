@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBq-G4-tdy">
-                                <rect key="frame" x="20" y="68" width="374" height="80"/>
+                                <rect key="frame" x="20" y="58" width="374" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="U7X-8F-2CS"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guf-Eq-83e">
-                                <rect key="frame" x="20" y="188" width="374" height="280"/>
+                                <rect key="frame" x="20" y="178" width="374" height="280"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G08-GW-zaK" userLabel="Email View">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -250,7 +250,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rP7-yW-qmf">
-                                <rect key="frame" x="20" y="468" width="374" height="40"/>
+                                <rect key="frame" x="20" y="458" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hs4-al-AHN"/>
                                 </constraints>
@@ -258,7 +258,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHm-Vd-o72">
-                                <rect key="frame" x="20" y="508" width="374" height="40"/>
+                                <rect key="frame" x="20" y="498" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PC1-jk-hjP"/>
                                 </constraints>
@@ -281,7 +281,7 @@
                             <constraint firstItem="guf-Eq-83e" firstAttribute="top" secondItem="rBq-G4-tdy" secondAttribute="bottom" constant="40" id="gDO-fy-Nno"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VHm-Vd-o72" secondAttribute="trailing" constant="20" id="rYT-01-NWs"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="guf-Eq-83e" secondAttribute="trailing" constant="20" id="to2-jh-u1J"/>
-                            <constraint firstItem="rBq-G4-tdy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="uVV-Gr-8Ui"/>
+                            <constraint firstItem="rBq-G4-tdy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="uVV-Gr-8Ui"/>
                             <constraint firstItem="rP7-yW-qmf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="zY6-B3-fbh"/>
                         </constraints>
                     </view>
