@@ -16,12 +16,11 @@ final class MyPageViewController: UIViewController {
     
     // MARK: - UI Components
     
-    //마이페이지 View
-    @IBOutlet weak var EmailView: UIView!
-    @IBOutlet weak var NameView: UIView!
-    @IBOutlet weak var BirthView: UIView!
-    @IBOutlet weak var PhoneNumberView: UIView!
-    @IBOutlet weak var PasswordChangeView: UIView!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var nameView: UIView!
+    @IBOutlet weak var birthdayView: UIView!
+    @IBOutlet weak var phoneNumberView: UIView!
+    @IBOutlet weak var passwordChangeView: UIView!
     
     //마이페이지 Button
     @IBOutlet weak var LogoutButton: UIButton!
@@ -102,11 +101,11 @@ final class MyPageViewController: UIViewController {
     
     func addOutLine() {
         //마이페이지 View 사이 줄
-        EmailView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
-        NameView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
-        BirthView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
-        PhoneNumberView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
-        PasswordChangeView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
+        emailView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
+        nameView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
+        birthdayView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
+        phoneNumberView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
+        passwordChangeView.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
         LogoutButton.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
         WithdrawalButton.layer.addBorder([.bottom], color: UIColor.darkGray, width: 1.0)
     }
